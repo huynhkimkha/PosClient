@@ -1,0 +1,137 @@
+.custom-main-menu {
+  top: 58px;
+  left: 7px;
+  border: none;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: unset;
+  min-width: 21rem;
+}
+
+.custom-main-menu .dropdown-menu {
+  min-width: 20.5rem;
+  background-color: #fff;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.nav-header {
+  cursor: text;
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+
+.custom-main-menu .dropdown-item:active {
+  background-color: transparent;
+}
+
+.dropdown-divider {
+  margin: 0px;
+}
+
+.nav-item .submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -6px;
+  border: 1px solid #dee2e6;
+}
+
+li .dropdown-menu {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.a-nav__logo {
+  width: 100px;
+}
+
+.nav-item .fas.fa-bars {
+  font-size: 20px;
+}
+
+.dropdown-divider {
+  border-top: 1px solid #000000 !important;
+}
+
+.custom-main-menu li a.dropdown-item span {
+  padding-left: 0.5rem;
+  line-height: 1;
+}
+
+.custom-main-menu .dropdown-item {
+  display: flex !important;
+  padding-right: 7px;
+}
+
+.custom-main-menu .nav-header a span {
+  font-weight: 600;
+  padding-left: 5px;
+}
+
+.custom-main-menu .dropdown-item .fas.fa-angle-right{
+  position: absolute;
+  right: 0.2rem;
+  top: 0.19rem;
+}
+
+.custom-main-menu li a.dropdown-item {
+  padding-left: 25px;
+  line-height: 1;
+}
+
+.custom-main-menu li .submenu li.nav-header {
+  font-weight: bold;
+}
+
+.custom-main-menu li a.dropdown-item > i {
+  width: 20px;
+  height: 20px;
+}
+
+.dropdown-menu li:hover:not(.nav-header), .dropdown-item:hover:not(.active) {
+  color: #004aad;
+  cursor: pointer;
+}
+
+.dropdown-menu > li:hover > .submenu,
+.dropdown-menu > li:focus > .submenu {
+  display: block;
+}
+
+.custom-main-menu .submenu .dropdown-item.active, .custom-main-menu .submenu .dropdown-item:active {
+  border-radius: 15px;
+  background-color: #004aad;
+  border: 1px solid #004aad;
+  color: white;
+}
+
+/*Mobile Device*/
+@media only screen and (max-width: 600px) {
+  .custom-main-menu .dropdown-menu {
+    box-shadow: none;
+  }
+
+  .nav-item .submenu {
+    position: relative;
+    left: 0;
+    border: none;
+  }
+
+  .submenu li.nav-header {
+    display: none;
+  }
+
+  .submenu a.dropdown-item {
+    padding-left: 35px !important;
+  }
+
+  .dropdown-menu.custom-main-menu.show li:focus .submenu,
+  .dropdown-menu.custom-main-menu.show li:hover .submenu {
+    display: none;
+  }
+
+  .custom-main-menu span {
+    pointer-events: none
+  }
+}

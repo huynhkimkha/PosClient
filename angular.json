@@ -1,0 +1,214 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "bm-client-agency": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/bm-client-agency",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "node_modules/@fortawesome/fontawesome-free/css/all.css",
+              "node_modules/ionicons/css/ionicons.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/jqvmap-novulnerability/dist/jqvmap.min.css",
+              "node_modules/overlayscrollbars/css/OverlayScrollbars.min.css",
+              "node_modules/daterangepicker/daterangepicker.css",
+              "node_modules/icheck-bootstrap/icheck-bootstrap.min.css",
+              "node_modules/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css",
+              "node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css",
+              "node_modules/summernote/dist/summernote-bs4.min.css",
+              "node_modules/select2/dist/css/select2.min.css",
+              "node_modules/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css",
+              "node_modules/bootstrap4-duallistbox/dist/bootstrap-duallistbox.min.css",
+              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
+              "node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css",
+              "node_modules/@sweetalert2/theme-bootstrap-4/bootstrap-4.min.css",
+              "node_modules/toastr/build/toastr.min.css",
+              "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.css",
+              "node_modules/bootstrap-daterangepicker/daterangepicker.css",
+              "node_modules/bootstrap-timepicker/css/bootstrap-timepicker.css",
+              "node_modules/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css",
+              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/primeflex/primeflex.css",
+              "node_modules/primeicons/primeicons.css",
+              "src/assets/css/adminlte.min.css",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/sparklines/source/sparkline.js",
+              "node_modules/datatables.net/js/jquery.dataTables.min.js",
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.min.js",
+              "node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js",
+              "node_modules/jqvmap-novulnerability/dist/jquery.vmap.min.js",
+              "node_modules/jqvmap-novulnerability/dist/maps/jquery.vmap.usa.js",
+              "node_modules/jquery-knob-chif/dist/jquery.knob.min.js",
+              "node_modules/moment/moment.js",
+              "node_modules/daterangepicker/daterangepicker.js",
+              "node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js",
+              "node_modules/summernote/dist/summernote-bs4.min.js",
+              "node_modules/select2/dist/js/select2.full.min.js",
+              "node_modules/bootstrap4-duallistbox/dist/jquery.bootstrap-duallistbox.min.js",
+              "node_modules/inputmask/dist/jquery.inputmask.min.js",
+              "node_modules/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js",
+              "node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js",
+              "node_modules/ion-rangeslider/js/ion.rangeSlider.min.js",
+              "node_modules/overlayscrollbars/js/jquery.overlayScrollbars.min.js",
+              "node_modules/bs-custom-file-input/dist/bs-custom-file-input.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.min.js",
+              "node_modules/toastr/build/toastr.min.js",
+              "node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.js",
+              "node_modules/bootstrap-daterangepicker/daterangepicker.js",
+              "node_modules/bootstrap-timepicker/js/bootstrap-timepicker.js",
+              "node_modules/bootstrap-datetime-picker/js/bootstrap-datetimepicker.js",
+              "src/assets/js/adminlte.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "7mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "demo": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.demo.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "5mb",
+                  "maximumError": "7mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "bm-client-agency:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "bm-client-agency:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "bm-client-agency:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "bm-client-agency:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bm-client-agency:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "bm-client-agency",
+  "cli": {
+    "analytics": "a7e0bf5d-e2d5-42cf-bf3d-202703e4800f"
+  }
+}

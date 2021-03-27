@@ -1,0 +1,259 @@
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <!-- Left navbar links -->
+  <ul class="navbar-nav">
+    <li class="nav-item pr-3 pt-2">
+      <a (click)="openMenu($event)" class="nav-link" role="button"><i class="fas fa-bars"></i></a>
+      <ul class="dropdown-menu custom-main-menu">
+        <li class="nav-header" (click)="openMenu($event)">
+          <a class="nav-link text-left" routerLink="/home">
+            <i class="nav-icon fas fa-home"></i>
+            <span>BẢNG ĐIỀU KHIỂN</span>
+          </a>
+        </li>
+        <div class="dropdown-divider"></div>
+        <li class="nav-header">
+          <a class="nav-link text-left" [routerLinkActive]="['disabled']">
+            <i class="fas fa-balance-scale"></i>
+            <span>QUẢN LÝ CỬA HÀNG</span>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="importGroups.length > 0">
+            <i class="nav-icon fas fa-truck-loading"></i>
+            <span>Quản Lý Mua Hàng</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="importGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">QUẢN LÝ MUA HÀNG</span>
+            </li>
+            <li *ngFor="let item of importGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="exportGroups.length > 0">
+            <i class="nav-icon fas fa-truck-moving"></i>
+            <span>Quản Lý Bán Hàng</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="exportGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">QUẢN LÝ BÁN HÀNG</span>
+            </li>
+            <li *ngFor="let item of exportGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="cashGroups.length > 0">
+            <i class="nav-icon fas fa-money-bill"></i>
+            <span>Quản Lý Thu - Chi Tiền Mặt</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="cashGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">QUẢN LÝ THU - CHI TIỀN MẶT</span>
+            </li>
+            <li *ngFor="let item of cashGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="bankGroups.length > 0">
+            <i class="nav-icon fas fa-money-check"></i>
+            <span>Thanh Toán Qua Ngân Hàng</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="bankGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">THANH TOÁN QUA NGÂN HÀNG</span>
+            </li>
+            <li *ngFor="let item of bankGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="warehouseGroups.length > 0">
+            <i class="nav-icon fas fas fa-boxes"></i>
+            <span>Vật Tư - Hàng Hóa - Tồn Kho</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="warehouseGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">NHẬP - XUẤT VẬT LIỆU</span>
+            </li>
+            <li *ngFor="let item of warehouseGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="productGroups.length > 0">
+            <i class="nav-icon fas fa-tags"></i>
+            <span>Quản Lý Sản Phẩm</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="productGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">QUẢN LÝ SẢN PHẨM</span>
+            </li>
+            <li *ngFor="let item of productGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']">
+            <i class="nav-icon fas fas fa-boxes"></i>
+            <span>Báo Cáo / Thống Kê</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu">
+            <li class="nav-header" *ngIf="reportGroups.length > 0">
+              <span class="nav-link text-left">BÁO CÁO</span>
+            </li>
+            <li *ngFor="let item of reportGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+            <li class="nav-header">
+              <span class="nav-link text-left">CÁC CHỨNG TỪ KHÁC</span>
+            </li>
+            <li (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="/debt-clearing">
+                <i class="nav-icon fas fa-calculator"></i>
+                <span>Chứng từ bù trừ công nợ</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="customerGroups.length > 0">
+            <i class="nav-icon fas fa-user"></i>
+            <span>Quản Lý Khách Hàng</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="customerGroups.length > 0">
+            <li *ngFor="let item of customerGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="commissionGroups.length > 0">
+            <i class="nav-icon fas fa-money-bill-wave"></i>
+            <span>Quản Lý Hoa Hồng</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="commissionGroups.length > 0">
+            <li class="nav-header">
+              <span class="nav-link text-left">QUẢN LÝ HOA HỒNG</span>
+            </li>
+            <li *ngFor="let item of commissionGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <div class="dropdown-divider" *ngIf="showCommonMgt()"></div>
+
+        <li class="nav-header" *ngIf="showCommonMgt()">
+          <a class="nav-link text-left" [routerLinkActive]="['disabled']">
+            <i class="nav-icon fas fa-cogs"></i>
+            <span>QUẢN TRỊ CHUNG</span>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="employeeGroups.length > 0">
+            <i class="nav-icon fas fas fa-tasks"></i>
+            <span>Quản Lý Tài Khoản</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="employeeGroups.length > 0">
+            <li *ngFor="let item of employeeGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="systemGroups.length > 0">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <span>Quản Lý Hệ Thống</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="systemGroups.length > 0">
+            <li *ngFor="let item of systemGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="dropdown-item" [routerLinkActive]="['disabled']" *ngIf="importDataGroups.length > 0">
+            <i class="nav-icon fas fa-file-import"></i>
+            <span>Nhập Dữ Liệu</span>
+            <i class="right fas fa-angle-right"></i>
+          </a>
+          <ul class="submenu dropdown-menu" *ngIf="importDataGroups.length > 0">
+            <li *ngFor="let item of importDataGroups" (click)="openMenu($event)">
+              <a class="dropdown-item" [routerLinkActive]="['active']" routerLink="{{ item.routerLink }}">
+                <i class="nav-icon fas {{ item.icon }}"></i>
+                <span>{{ item.name }}</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item d-sm-inline-block">
+      <a routerLink="/home">
+        <img src="../../../../assets/img/logo-vlxd.png" class="a-nav__logo" alt="VLXD Logo" />
+      </a>
+    </li>
+  </ul>
+  <ul class="navbar-nav ml-auto">
+    <div class="navbar__right">
+      <app-agency-profile></app-agency-profile>
+      <!-- Messages Dropdown Menu -->
+      <!--    <app-message-notification></app-message-notification>-->
+      <!-- Notifications Dropdown Menu -->
+      <!--    <app-common-notification></app-common-notification>-->
+      <!-- User Account Menu -->
+    </div>
+  </ul>
+</nav>

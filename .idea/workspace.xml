@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a0e339d2-3640-46b6-b84d-90397e32168b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/bm-client-agency.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/protractor.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/src/app.po.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/e2e/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/acorn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/acorn.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/acorn.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/adler32" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/adler32.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/adler32.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ansi-html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ansi-html.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ansi-html.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/autoprefixer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/autoprefixer.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/autoprefixer.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/blocking-proxy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/blocking-proxy.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/blocking-proxy.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/build-optimizer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/build-optimizer.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/build-optimizer.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/codepage" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/codepage.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/codepage.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/crc32" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/crc32.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/crc32.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/cssesc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/cssesc.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/cssesc.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/errno" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/errno.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/errno.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esparse" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esparse.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esparse.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esvalidate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esvalidate.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esvalidate.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/image-size" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/image-size.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/image-size.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/import-local-fixture" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/import-local-fixture.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/import-local-fixture.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/is-docker" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/is-docker.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/is-docker.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ivy-ngcc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ivy-ngcc.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ivy-ngcc.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jasmine" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jasmine.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jasmine.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/js-yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/js-yaml.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/js-yaml.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jsesc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jsesc.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jsesc.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/json5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/json5.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/json5.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/karma" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/karma.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/karma.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/lessc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/lessc.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/lessc.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/miller-rabin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/miller-rabin.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/miller-rabin.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mime" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mime.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mime.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/multicast-dns" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/multicast-dns.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/multicast-dns.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng-xi18n" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng-xi18n.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng-xi18n.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngc.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngc.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngcc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/constant/http-code.constant.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/current-user.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/setting.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/data/schema/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pH3aRe1IeIpb2ysCmMm46mjnl7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Sourcecode/bm-client-agency" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\QTDA\PosClient\node_modules\typescript\lib" />
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="E2E Tests (bm-client-agency)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0e339d2-3640-46b6-b84d-90397e32168b" name="Default Changelist" comment="" />
+      <created>1614826251029</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614826251029</updated>
+      <workItem from="1614826252995" duration="5457000" />
+      <workItem from="1614914000540" duration="588000" />
+      <workItem from="1615018929222" duration="2090000" />
+      <workItem from="1615045988567" duration="374000" />
+      <workItem from="1615092560069" duration="2244000" />
+      <workItem from="1615100236139" duration="9219000" />
+      <workItem from="1615160101225" duration="3500000" />
+      <workItem from="1615177514462" duration="4054000" />
+      <workItem from="1615347185752" duration="1894000" />
+      <workItem from="1615379221797" duration="3994000" />
+      <workItem from="1615423642130" duration="678000" />
+      <workItem from="1615427730177" duration="2704000" />
+      <workItem from="1615430652007" duration="58000" />
+      <workItem from="1615448284328" duration="2349000" />
+      <workItem from="1615478873011" duration="102000" />
+      <workItem from="1615512581848" duration="213000" />
+      <workItem from="1615514985795" duration="1497000" />
+      <workItem from="1615600220622" duration="1752000" />
+      <workItem from="1615602839655" duration="628000" />
+      <workItem from="1615870080719" duration="33000" />
+      <workItem from="1616141567051" duration="2833000" />
+      <workItem from="1616550861447" duration="3814000" />
+      <workItem from="1616559766173" duration="37000" />
+      <workItem from="1616589488743" duration="7485000" />
+      <workItem from="1616636232842" duration="2399000" />
+      <workItem from="1616767692275" duration="464000" />
+      <workItem from="1616812386437" duration="2264000" />
+      <workItem from="1616831797378" duration="1320000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1616831869404">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1616831869404" />
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1616833063243">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
+    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1616833063243">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
+    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1616833063243">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
+    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1616833063243">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
+    <state x="425" y="197" key="run.anything.popup" timestamp="1616832191841">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="197" key="run.anything.popup/0.0.1536.864@0.0.1536.864" timestamp="1616832191841" />
+    <state x="425" y="86" width="670" height="676" key="search.everywhere.popup" timestamp="1616595680316">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="425" y="86" width="670" height="676" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1616595680316" />
+  </component>
+</project>

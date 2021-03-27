@@ -1,0 +1,63 @@
+<div class="dataTables_wrapper dt-bootstrap4 no-footer">
+    <div *ngIf="showEntries" class="row">
+        <div class="col-sm-12 col-md-3">
+            <div class="dataTables_length">
+                <label>
+                    Hiện
+                    <select (change)="selectEntries()" [(ngModel)]="dataTable.recordOfPage"
+                            class="custom-select custom-select-sm form-control form-control-sm">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    mục
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-9">
+            <ng-content select=".right-button"></ng-content>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col px-0" style="overflow-x: auto; overflow-y: hidden;">
+            <table class="table table-bordered table-striped dataTable no-footer" role="grid">
+                <ng-content select="thead"></ng-content>
+                <ng-content *ngIf="!isNoRecord()" select="tbody"></ng-content>
+                <tbody *ngIf="isNoRecord()" style="text-align: left;">
+                <tr>
+                    <td [colSpan]="columnNumber">Không có dữ liệu</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="!isNoRecord()" class="row">
+        <div class="col-sm-12 col-md-5">
+            <div *ngIf="showDetail" class="dataTables_info" role="status" aria-live="polite">Hiện từ {{dataTable.currentPage + 1}}
+                đến {{totalPage}} trong số
+                {{dataTable.totalRecords}}
+                mục
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-7">
+            <div *ngIf="showPaging" class="dataTables_paginate paging_simple_numbers">
+                <ul class="pagination">
+                    <li *ngIf="showFirstLast()" class="paginate_button page-item {{disableFirstPaging()}}">
+                        <a (click)="selectPage(0)" role="button" class="page-link">Đầu</a>
+                    </li>
+                    <li *ngIf="showFirstLast()" class="paginate_button page-item {{disableFirstPaging()}}">
+                        <a (click)="selectPage(dataTable.currentPage - 1)" role="button" class="page-link">Trước</a>
+                    </li>
+                    <li *ngFor="let num of pageRange" class="paginate_button page-item {{activePage(num-1)}}">
+                        <a (click)="selectPage(num-1)" role="button" class="page-link">{{num}}</a>
+                    </li>
+                    <li *ngIf="showFirstLast()" class="paginate_button page-item next {{disableLastPaging()}}">
+                        <a (click)="selectPage(dataTable.currentPage + 1)" role="button" class="page-link">Kế tiếp</a></li>
+                    <li *ngIf="showFirstLast()" class="paginate_button page-item {{disableLastPaging()}}">
+                        <a (click)="selectPage(totalPage - 1)" role="button" class="page-link">Cuối</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

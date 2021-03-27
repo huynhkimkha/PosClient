@@ -1,0 +1,19 @@
+<!-- Menu Toggle Button -->
+<a class="nav-link" data-toggle="dropdown" href="#">
+  <i class="far fa-user user__icon"></i>
+</a>
+
+<div class="dropdown-menu dropdown-menu-md dropdown-menu-right user__dropdown">
+  <span class="dropdown-item dropdown-header">Chào: {{ fullName }}</span>
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item dropdown-footer">
+    <div class="pull-right">
+      <a (click)="changePassword()" class="btn btn-block btn-default btn-sm" style="font-family: 'Rubik'">Đổi mật khẩu</a>
+    </div>
+  </a>
+  <a href="#" class="dropdown-item dropdown-footer">
+    <div class="pull-right">
+      <a (click)="logout()" class="btn btn-block btn-default btn-sm" style="font-family: 'Rubik'">Đăng xuất</a>
+    </div>
+  </a>
+</div>
