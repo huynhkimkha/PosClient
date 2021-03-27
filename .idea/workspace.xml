@@ -20,118 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e339d2-3640-46b6-b84d-90397e32168b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/bm-client-agency.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/protractor.conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/app.e2e-spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/src/app.po.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/e2e/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/JSONStream.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/acorn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/acorn.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/acorn.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/adler32" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/adler32.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/adler32.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ansi-html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ansi-html.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ansi-html.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/atob.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/autoprefixer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/autoprefixer.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/autoprefixer.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/blocking-proxy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/blocking-proxy.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/blocking-proxy.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/browserslist.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/build-optimizer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/build-optimizer.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/build-optimizer.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/codepage" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/codepage.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/codepage.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/crc32" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/crc32.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/crc32.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/cssesc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/cssesc.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/cssesc.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/errno" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/errno.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/errno.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esparse" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esparse.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esparse.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esvalidate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esvalidate.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/esvalidate.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/image-size" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/image-size.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/image-size.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/import-local-fixture" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/import-local-fixture.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/import-local-fixture.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/is-docker" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/is-docker.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/is-docker.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ivy-ngcc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ivy-ngcc.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ivy-ngcc.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jasmine" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jasmine.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jasmine.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/js-yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/js-yaml.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/js-yaml.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jsesc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jsesc.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/jsesc.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/json5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/json5.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/json5.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/karma" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/karma.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/karma.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/lessc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/lessc.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/lessc.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/miller-rabin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/miller-rabin.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/miller-rabin.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mime" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mime.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mime.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/mkdirp.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/multicast-dns" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/multicast-dns.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/multicast-dns.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng-xi18n" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng-xi18n.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng-xi18n.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ng.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngc.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngc.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/node_modules/.bin/ngcc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/constant/http-code.constant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/current-user.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/setting.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/schema/user.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +110,7 @@
       <workItem from="1616636232842" duration="2399000" />
       <workItem from="1616767692275" duration="464000" />
       <workItem from="1616812386437" duration="2264000" />
-      <workItem from="1616831797378" duration="1320000" />
+      <workItem from="1616831797378" duration="4172000" />
     </task>
     <servers />
   </component>
@@ -245,22 +134,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1616831869404" />
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1616833063243">
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1616836116912">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
-    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1616833063243">
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1616836116912" />
+    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1616836116911">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
-    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1616833063243">
+    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1616836116911" />
+    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1616836116911">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
-    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1616833063243">
+    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1616836116911" />
+    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1616836116911">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1616833063243" />
+    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1616836116911" />
     <state x="425" y="197" key="run.anything.popup" timestamp="1616832191841">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
