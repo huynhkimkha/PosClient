@@ -1,0 +1,32 @@
+<app-modal-wrapper #appModalWrapper title="Thêm mới nhân viên" size="modal-default">
+    <div class="modal-body">
+        <div class="row form-group">
+            <label for="employee_add_name" class="col-md-2">Họ và tên</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="employeeFull.fullName" type="text" class="form-control" id="employee_add_name" placeholder="Nhập họ và tên"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Ngày sinh</label>
+            <div class="col-md-10">
+                <app-date-control [(ngModel)]="employeeFull.birthDate" name="birthDate" id="employee_add_birth_date"></app-date-control>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="employee_add_email" class="col-md-2">Email</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="employeeFull.email" type="email" class="form-control" id="employee_add_email" placeholder="Nhập email"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Mật khẩu</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="employeeFull.password"  type="password" class="form-control" placeholder="Nhập mật khẩu">
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="saveEmployee()" type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>

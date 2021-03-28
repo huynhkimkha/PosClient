@@ -20,7 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e339d2-3640-46b6-b84d-90397e32168b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/employee.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/add-employee/app-add-employee.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/add-employee/app-add-employee.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/update-employee/app-update-employee.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/update-employee/app-update-employee.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/employee.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/pages/employee.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/pages/employee.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/constant/user-permission.constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/constant/user-permission.constant.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/data/schema/employee.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/data/schema/employee.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/app-pages-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/app-pages-routing.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Sourcecode/bm-client-agency" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,6 +60,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\QTDA\PosClient\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\QTDA\PosClient\src" />
+    </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="E2E Tests (bm-client-agency)" type="JavaScriptTestRunnerProtractor">
@@ -111,6 +127,8 @@
       <workItem from="1616767692275" duration="464000" />
       <workItem from="1616812386437" duration="2264000" />
       <workItem from="1616831797378" duration="4172000" />
+      <workItem from="1616853433932" duration="2519000" />
+      <workItem from="1616931372989" duration="3973000" />
     </task>
     <servers />
   </component>
@@ -130,26 +148,34 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1616831869404">
+    <state x="395" y="111" key="#Inspections" timestamp="1616936787419">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1616831869404" />
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1616836116912">
+    <state x="395" y="111" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1616936787419" />
+    <state x="507" y="234" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1616931771042">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1616836116912" />
-    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1616836116911">
+    <state x="507" y="234" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1616931771042" />
+    <state x="549" y="187" key="FileChooserDialogImpl" timestamp="1616935235888">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1616836116911" />
-    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1616836116911">
+    <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1616935235888" />
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1616936788611">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1616836116911" />
-    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1616836116911">
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
+    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1616936788611">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1616836116911" />
+    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
+    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1616936788611">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
+    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1616936788611">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
     <state x="425" y="197" key="run.anything.popup" timestamp="1616832191841">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

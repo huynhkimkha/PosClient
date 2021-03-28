@@ -22,4 +22,13 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     sort: 1,
     isMenu: true,
   }),
+  new RouterPermissionMappingModel({
+    routerLink: '/employee',
+    matchUrl: '',
+    name: 'Nhân viên',
+    icon: 'fa-user-cog',
+    permissions: [],
+    sort: 1,
+    isMenu: true,
+  }),
 ];

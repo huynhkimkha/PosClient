@@ -3,7 +3,7 @@ export class EmployeeModel {
     public fullName: string;
     public email: string;
     public password: string;
-    public birthDate: string;
+    public birthDate: Date;
 
     public constructor(
         data?: EmployeeModel
