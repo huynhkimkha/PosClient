@@ -31,4 +31,13 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     sort: 1,
     isMenu: true,
   }),
+  new RouterPermissionMappingModel({
+    routerLink: '/customer',
+    matchUrl: '',
+    name: 'Khách hàng',
+    icon: 'fa-user',
+    permissions: [],
+    sort: 1,
+    isMenu: true,
+  }),
 ];

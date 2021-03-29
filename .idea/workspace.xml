@@ -20,18 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e339d2-3640-46b6-b84d-90397e32168b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/employee.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/add-employee/app-add-employee.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/add-employee/app-add-employee.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/update-employee/app-update-employee.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/components/update-employee/app-update-employee.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/employee.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/pages/employee.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/pages/employee.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/customer.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/data/schema/customer.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/components/add-customer/app-add-customer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/components/add-customer/app-add-customer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/components/update-customer/app-update-customer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/components/update-customer/app-update-customer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/customer.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/pages/customer.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/pages/customer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/core/constant/user-permission.constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/constant/user-permission.constant.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/data/schema/employee.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/data/schema/employee.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/app-pages-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/app-pages-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/employee/pages/employee.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/employee/pages/employee.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/partials/partials/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/partials/partials/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/partials/partials/navbar/navbar.components.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/partials/partials/navbar/navbar.components.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,7 +131,9 @@
       <workItem from="1616812386437" duration="2264000" />
       <workItem from="1616831797378" duration="4172000" />
       <workItem from="1616853433932" duration="2519000" />
-      <workItem from="1616931372989" duration="3973000" />
+      <workItem from="1616931372989" duration="4591000" />
+      <workItem from="1616983371849" duration="1416000" />
+      <workItem from="1616995369485" duration="5275000" />
     </task>
     <servers />
   </component>
@@ -160,22 +165,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1616935235888" />
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1616936788611">
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom" timestamp="1617002825500">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
-    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1616936788611">
+    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
+    <state width="1492" height="313" key="GridCell.Tab.0.center" timestamp="1617002825500">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
-    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1616936788611">
+    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
+    <state width="1492" height="313" key="GridCell.Tab.0.left" timestamp="1617002825500">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
-    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1616936788611">
+    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
+    <state width="1492" height="313" key="GridCell.Tab.0.right" timestamp="1617002825500">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1616936788611" />
+    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
     <state x="425" y="197" key="run.anything.popup" timestamp="1616832191841">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

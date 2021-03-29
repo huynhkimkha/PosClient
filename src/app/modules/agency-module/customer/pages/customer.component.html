@@ -3,12 +3,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Nhân viên</h1>
+                <h1>Khách hàng</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a routerLink="/home">Trang chủ</a></li>
-                    <li class="breadcrumb-item">Nhân viên</li>
+                    <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-dark">Khách hàng</li>
                 </ol>
             </div>
         </div>
@@ -20,12 +20,15 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
+        </div>
+        <div class="row">
             <div class="col-12">
                 <div class="card">
+                    <!-- /.card-header -->
                     <div class="card-body">
-                        <app-data-table [dataTable]="search" [columnNumber]="4" (changeEvent)="dataTableChange($event)">
+                        <app-data-table [dataTable]="search" [columnNumber]="5" (changeEvent)="dataTableChange($event)">
                             <div class="right-button row justify-content-end input-group">
-                                <button (click)="appAddEmployee.show()" class="btn btn-success" type="button">
+                                <button class="btn btn-success ml-2" type="button" (click)="appAddCustomer.show()" >
                                     <i class="fas fa-plus"> </i>
                                     <b> Thêm mới</b>
                                 </button>
@@ -33,18 +36,18 @@
                             <thead>
                             <tr>
                                 <th>Họ tên</th>
-                                <th>Ngày sinh</th>
-                                <th>Email</th>
+                                <th>Địa chỉ</th>
+                                <th>Số điện thoại</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr *ngFor="let e of search.result">
                                 <td>{{e.fullName}}</td>
-                                <td>{{e.birthDate | date: 'dd-MM-yyyy'}}</td>
-                                <td>{{e.email}}</td>
+                                <td>{{e.address}}</td>
+                                <td>{{e.phone}}</td>
                                 <td>
-                                    <button class="btn btn-success mr-1" (click)="appUpdateEmployee.show(e)" type="button">
+                                    <button class="btn btn-success mr-1" (click)="appUpdateCustomer.show(e)" type="button">
                                         <i class="far fa-edit"></i>
                                     </button>
                                     <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
@@ -63,10 +66,7 @@
         </div>
         <!-- /.row -->
     </div>
-    <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-<!-- /.content-wrapper -->
-<!-- modal-content -->
-<app-add-employee #appAddEmployee (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-add-employee>
-<app-update-employee #appUpdateEmployee (saveCompleteEvent)="saveEmployeeCompleteEvent()"></app-update-employee>
+<app-add-customer #appAddCustomer (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-add-customer>
+<app-update-customer #appUpdateCustomer (saveCompleteEvent)="saveCustomerCompleteEvent()"></app-update-customer>

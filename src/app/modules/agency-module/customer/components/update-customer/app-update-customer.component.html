@@ -1,0 +1,27 @@
+<app-modal-wrapper #appModalWrapper title="Cập nhật thông tin khách hàng" size="modal-default">
+    <div class="modal-body">
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Tên KH</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="customer.fullName" type="text" class="form-control" placeholder="Nhập tên KH"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Địa chỉ</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="customer.address" type="text" class="form-control" placeholder="Nhập địa chỉ"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Số ĐT</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="customer.phone" type="tel" class="form-control" placeholder="Nhập số điện thoại"/>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="saveCustomer()" type="button" class="btn btn-info">Cập nhật</button>
+    </div>
+</app-modal-wrapper>

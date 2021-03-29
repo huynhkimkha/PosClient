@@ -13,12 +13,32 @@ const routes: Routes = [
         ],
     },
     {
+        path: 'home',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+            },
+        ],
+    },
+    {
         path: 'employee',
         children: [
             {
                 path: '',
                 loadChildren: () =>
                     import('./employee/employee.module').then((m) => m.EmployeeModule),
+            },
+        ],
+    },
+    {
+        path: 'customer',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./customer/customer.module').then((m) => m.CustomerModule),
             },
         ],
     },
