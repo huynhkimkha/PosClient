@@ -3,8 +3,8 @@ export class CustomerModel {
     public fullName: string;
     public address: string;
     public phone: string;
-    public createdDate: string;
-    public updatedDate: string;
+    public birthDate: Date;
+
     public constructor(
         data?: CustomerModel
     ){
@@ -13,7 +13,6 @@ export class CustomerModel {
         this.fullName = customer.fullName;
         this.address = customer.address;
         this.phone = customer.phone;
-        this.createdDate = customer.createdDate;
-        this.updatedDate = customer.updatedDate;
+        this.birthDate = customer.birthDate;
     }
 }

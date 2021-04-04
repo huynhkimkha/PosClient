@@ -18,6 +18,21 @@
                 <input [(ngModel)]="employeeFull.email" type="email" class="form-control" id="employee_update_email" placeholder="Nhập email"/>
             </div>
         </div>
+        <div class="row form-group">
+            <label for="employee_add_phone" class="col-md-2">SĐT</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="employeeFull.phone" type="tel" class="form-control" id="employee_add_phone" placeholder="Nhập SĐT"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label for="employee_add_role" class="col-md-2">Chức vụ</label>
+            <div class="col-md-10">
+                <select [(ngModel)]="employeeFull.role" class="form-control" id="employee_add_role">
+                    <option [value]="roleEnum.STAFF">NHÂN VIÊN</option>
+                    <option [value]="roleEnum.MANAGER">QUẢN LÝ</option>
+                </select>
+            </div>
+        </div>
         <!-- /.card-body -->
     </div>
     <div class="modal-footer justify-content-between">

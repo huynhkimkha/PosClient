@@ -5,6 +5,7 @@ import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constan
 import {EmployeeService} from '../../../../../core/services/agency/employee.service';
 import {EmployeeModel} from '../../../../../data/schema/employee.model';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
+import {ROLE_CONSTANT} from '../../../../../core/constant/role.constant';
 
 @Component({
     selector: 'app-add-employee',
@@ -13,6 +14,7 @@ import {AppModalWrapperComponent} from '../../../../../shared/components/modal-w
 export class AppAddEmployeeComponent implements AfterViewInit {
     public employeeFull: EmployeeModel = new EmployeeModel();
     public employee: EmployeeModel = new EmployeeModel();
+    public roleEnum = ROLE_CONSTANT;
 
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -32,6 +34,7 @@ export class AppAddEmployeeComponent implements AfterViewInit {
     public show() {
         this.employeeFull = new EmployeeModel();
         this.employeeFull.birthDate = new Date(Date.now());
+        this.employeeFull.role = this.roleEnum.STAFF;
         this.appModalWrapper.show();
     }
 

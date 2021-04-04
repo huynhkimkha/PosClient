@@ -7,15 +7,21 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-2 col-form-label">Địa chỉ</label>
-            <div class="col-md-10">
-                <input [(ngModel)]="customer.address" type="text" class="form-control" placeholder="Nhập địa chỉ"/>
-            </div>
-        </div>
-        <div class="form-group row">
             <label class="col-md-2 col-form-label">Số ĐT</label>
             <div class="col-md-10">
                 <input [(ngModel)]="customer.phone" type="tel" class="form-control" placeholder="Nhập số điện thoại"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Ngày sinh</label>
+            <div class="col-md-10">
+                <app-date-control [(ngModel)]="customer.birthDate" name="birthDate"></app-date-control>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Địa chỉ</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="customer.address" type="text" class="form-control" placeholder="Nhập địa chỉ"/>
             </div>
         </div>
         <!-- /.card-body -->
