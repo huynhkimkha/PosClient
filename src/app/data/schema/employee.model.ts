@@ -1,4 +1,3 @@
-import {RoleEnum} from "../../core/enum/role.enum";
 
 export class EmployeeModel {
     public id: string;
@@ -7,7 +6,7 @@ export class EmployeeModel {
     public password: string;
     public phone: string;
     public birthDate: Date;
-    public role: RoleEnum;
+    public role: string;
 
     public constructor(
         data?: EmployeeModel
