@@ -40,4 +40,22 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     sort: 1,
     isMenu: true,
   }),
+  new RouterPermissionMappingModel({
+    routerLink: '/agency',
+    matchUrl: '',
+    name: 'Chi nhánh',
+    icon: 'fa-warehouse',
+    permissions: [],
+    sort: 1,
+    isMenu: true,
+  }),
+  new RouterPermissionMappingModel({
+    routerLink: '/cost',
+    matchUrl: '',
+    name: 'Chi phí',
+    icon: 'fa-box',
+    permissions: [],
+    sort: 1,
+    isMenu: true,
+  }),
 ];

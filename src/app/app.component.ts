@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { AUTH_CONSTANT } from './core/constant/auth.constant';
 import { SettingService } from './core/services/agency/setting.service';
-import { ResponseModel } from './data/schema/response.model';
 
 @Component({
   selector: 'app-root',

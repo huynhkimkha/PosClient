@@ -1,0 +1,30 @@
+<app-modal-wrapper #appModalWrapper title="Thêm mới thông tin chi phí" size="modal-default">
+    <div class="modal-body">
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Loại</label>
+            <div class="col-md-10">
+                <select [(ngModel)]="cost.typeCost" class="form-control" id="employee_add_role">
+                    <option [value]="typeCostEnum.SALARY">TRẢ LƯƠNG</option>
+                    <option [value]="typeCostEnum.IMPORT">NHẬP HÀNG</option>
+                    <option [value]="typeCostEnum.ELSE">KHÁC</option>
+                </select>            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Địa chỉ</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="cost.amount" type="text" class="form-control" placeholder="Nhập địa chỉ"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Org_code</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="cost.description" type="text" class="form-control" placeholder="Nhập org_code"/>
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="saveCost()"  type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>

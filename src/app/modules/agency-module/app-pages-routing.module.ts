@@ -42,6 +42,26 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'agency',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./agency/agency.module').then((m) => m.AgencyModule),
+            },
+        ],
+    },
+    {
+        path: 'cost',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./cost/cost.module').then((m) => m.CostModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({
