@@ -1,6 +1,8 @@
 import { RouterPermissionMappingModel } from '../../data/data-components/router-permission-mapping.model';
 
 export const USER_PERMISSION_CODE = {
+  MANAGER: 'MANAGER',
+  STAFF: 'STAFF'
 };
 
 export const ROUTER_USER_PERMISSION_MAPPER = [
@@ -9,7 +11,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     matchUrl: '',
     name: 'Trang Chủ',
     icon: 'fa-home',
-    permissions: [],
+    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
     sort: 0,
     isMenu: false,
   }),
@@ -18,7 +20,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     matchUrl: '',
     name: 'Trang Chủ',
     icon: 'fa-home',
-    permissions: [],
+    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
     sort: 1,
     isMenu: true,
   }),
@@ -27,7 +29,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     matchUrl: '',
     name: 'Nhân viên',
     icon: 'fa-user-cog',
-    permissions: [],
+    permissions: [USER_PERMISSION_CODE.MANAGER],
     sort: 1,
     isMenu: true,
   }),
@@ -36,7 +38,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     matchUrl: '',
     name: 'Khách hàng',
     icon: 'fa-user',
-    permissions: [],
+    permissions: [USER_PERMISSION_CODE.MANAGER],
     sort: 1,
     isMenu: true,
   }),
@@ -45,7 +47,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     matchUrl: '',
     name: 'Chi nhánh',
     icon: 'fa-warehouse',
-    permissions: [],
+    permissions: [USER_PERMISSION_CODE.MANAGER],
     sort: 1,
     isMenu: true,
   }),
@@ -54,7 +56,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     matchUrl: '',
     name: 'Chi phí',
     icon: 'fa-box',
-    permissions: [],
+    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
     sort: 1,
     isMenu: true,
   }),

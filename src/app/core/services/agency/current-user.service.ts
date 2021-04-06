@@ -33,4 +33,8 @@ export class CurrentUserService {
     public setUser(userModel: UserModel) {
         this.user = new UserModel(userModel);
     }
+
+    public getPermissions() {
+        return this.user.role;
+    }
 }

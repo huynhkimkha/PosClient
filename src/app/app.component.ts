@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { AUTH_CONSTANT } from './core/constant/auth.constant';
-import { SettingService } from './core/services/agency/setting.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,6 @@ import { SettingService } from './core/services/agency/setting.service';
 export class AppComponent implements OnInit {
   constructor(
     private router: Router,
-    private settingService: SettingService,
   ) {}
 
   private anonymousUrls = ['/login', '/404', '/403'];

@@ -1,5 +1,6 @@
 import {Component, AfterContentChecked, OnInit, AfterViewChecked, ElementRef, HostListener} from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentUserService } from '../../../core/services/agency/current-user.service';
 import { ROUTER_USER_PERMISSION_MAPPER, USER_PERMISSION_CODE } from '../../../core/constant/user-permission.constant';
 import { RouterPermissionMappingModel } from '../../../data/data-components/router-permission-mapping.model';
 
@@ -13,6 +14,7 @@ declare var $: any;
 export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewChecked {
   constructor(
       private router: Router,
+      private currentUserService: CurrentUserService,
       private root: ElementRef) {
 
   }
@@ -34,6 +36,7 @@ export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewCh
   private elementRf: any = null;
 
   ngOnInit(): void {
+    this.collectData();
   }
 
   ngAfterContentChecked(): void {}
@@ -73,7 +76,22 @@ export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewCh
 
   public showCommonMgt() {
     return this.employeeGroups.length > 0 || this.systemGroups.length > 0
-    || this.importDataGroups.length > 0;
+        || this.importDataGroups.length > 0;
+  }
+
+  private collectData(): void {
+    const permission = this.currentUserService.getPermissions();
+    const mapper = this.getPermissionMapping(permission);
+    if (permission === USER_PERMISSION_CODE.MANAGER) {
+      this.cashGroups = this.cashGroups.concat(mapper);
+    }
+    if (permission === USER_PERMISSION_CODE.STAFF) {
+      this.cashGroups = this.cashGroups.concat(mapper);
+    }
+    this.cashGroups.sort(this.sortItems);
+    if ($(window).width() > 600) {
+      $('a').addClass('nohover');
+    }
   }
 
   private getPermissionMapping(permissionCode: string): RouterPermissionMappingModel[] {

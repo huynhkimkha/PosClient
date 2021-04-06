@@ -3,6 +3,7 @@ export class UserModel {
     public email: string;
     public password: string;
     public userModel: string;
+    public role: string;
 
     public constructor(
         data?: UserModel
@@ -13,5 +14,6 @@ export class UserModel {
         this.email = user.email;
         this.password = user.password;
         this.userModel = user.userModel;
+        this.role = user.role;
     }
 }
