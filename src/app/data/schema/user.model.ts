@@ -4,7 +4,7 @@ export class UserModel {
     public password: string;
     public userModel: string;
     public role: string;
-
+    public agencyId: string;
     public constructor(
         data?: UserModel
     ) {
@@ -15,5 +15,6 @@ export class UserModel {
         this.password = user.password;
         this.userModel = user.userModel;
         this.role = user.role;
+        this.agencyId = user.agencyId;
     }
 }
