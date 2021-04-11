@@ -60,4 +60,22 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     sort: 1,
     isMenu: true,
   }),
+  new RouterPermissionMappingModel({
+    routerLink: '/category',
+    matchUrl: '',
+    name: 'Danh mục',
+    icon: 'fa fa-clone',
+    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
+    sort: 1,
+    isMenu: true,
+  }),
+  new RouterPermissionMappingModel({
+    routerLink: '/product',
+    matchUrl: '',
+    name: 'Sản phẩm',
+    icon: 'fa fa-clone',
+    permissions: [],
+    sort: 2,
+    isMenu: true,
+  }),
 ];

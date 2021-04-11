@@ -1,0 +1,4 @@
+export const CATEGORY_STATUS_CONSTANT = {
+    ACTIVE: 'ACTIVE',
+    INACTIVE: 'INACTIVE',
+};

@@ -1,0 +1,73 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Sản phẩm</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-dark">Sản phẩm</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <app-data-table [dataTable]="search" [columnNumber]="4" (changeEvent)="dataTableChange($event)">
+                            <div class="right-button row justify-content-end input-group">
+                                <button (click)="appAddProduct.show()" class="btn btn-success" type="button">
+                                    <i class="fas fa-plus"> </i>
+                                    <b> Thêm mới</b>
+                                </button>
+                            </div>
+                            <thead>
+                            <tr>
+                                <th>Sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Trạng thái</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let e of search.result">
+                                <td>{{e.name}}</td>
+                                <td>{{e.price}}</td>
+                                <td *ngIf="e.status === PRODUCT_STATUS_CONSTANT.ACTIVE else normalText" class="text-red">{{e.getProductStatus()}}</td>
+                                <ng-template #normalText>
+                                    <td>{{e.getProductStatus()}}</td>
+                                </ng-template>
+                                <td>
+                                    <button (click)="appUpdateProduct.show(e)"  class="btn btn-success mr-1" type="button">
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </app-data-table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<!-- /.content -->
+<app-add-product #appAddProduct (saveCompleteEvent)="saveProductCompleteEvent()"></app-add-product>
+<app-update-product #appUpdateProduct (saveCompleteEvent)="saveProductCompleteEvent()"></app-update-product>

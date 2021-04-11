@@ -1,0 +1,22 @@
+<app-modal-wrapper #appModalWrapper title="Thêm danh mục" size="modal-default">
+    <div class="modal-body">
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Tên</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="category.name" type="text" class="form-control" placeholder="Nhập tên danh mục"/>
+            </div>
+        </div> <div class="row form-group">
+            <label class="col-md-2 col-form-label">Trạng thái</label>
+            <div class="col-md-10">
+                <select class="form-control" [(ngModel)]="category.status">
+                    <option [value]="CATEGORY_STATUS_CONSTANT.ACTIVE">Hoạt động</option>
+                    <option [value]="CATEGORY_STATUS_CONSTANT.INACTIVE">Không hoạt động</option>
+                </select>
+            </div>
+    </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="saveCategory()" type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>

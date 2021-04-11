@@ -3,17 +3,20 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4200 --proxy-config proxy.conf.json",
     "build": "ng build",
     "build:prod": "ng build --prod",
     "build:demo": "ng build --configuration=demo",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+
   },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.5",
+    "@angular/cdk": "^11.0.3",
     "@angular/common": "~11.0.5",
     "@angular/compiler": "~11.0.5",
     "@angular/core": "~11.0.5",
@@ -21,10 +24,6 @@
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.10.2",
-    "@angular/cdk": "^11.0.3",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@fullcalendar/bootstrap": "^4.4.0",
     "@fullcalendar/core": "^4.4.0",
@@ -67,6 +66,7 @@
     "flot": "^4.2.0",
     "fs-extra": "^9.0.0",
     "icheck-bootstrap": "^3.0.1",
+    "imgbb-uploader": "^1.3.0",
     "inputmask": "^5.0.3",
     "ion-rangeslider": "^2.3.1",
     "ionicons": "^2.0.1",
@@ -87,6 +87,7 @@
     "primeicons": "2.0.0",
     "primeng": "9.1.0",
     "quill": "^1.3.7",
+    "rxjs": "~6.6.0",
     "select2": "^4.0.13",
     "select2-bootstrap4-theme": "^1.0.0",
     "sparklines": "^1.2.0",
@@ -94,7 +95,9 @@
     "sweetalert2": "^9.10.8",
     "tempusdominus-bootstrap-4": "^5.1.2",
     "toastr": "^2.1.4",
-    "xlsx": "^0.16.9"
+    "tslib": "^2.0.0",
+    "xlsx": "^0.16.9",
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.5",

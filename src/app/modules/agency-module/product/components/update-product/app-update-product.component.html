@@ -1,0 +1,65 @@
+<app-modal-wrapper #appModalWrapper title="Thêm sản phẩm" size="modal-default">
+    <div class="modal-body">
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Mã SP</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="product.nameSlug" type="text" class="form-control" placeholder="Nhập mã sản phẩm"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Tên</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="product.name" type="text" class="form-control" placeholder="Nhập tên sản phẩm"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Giá</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="product.price" type="number" class="form-control" placeholder="Nhập giá sản phẩm"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Mô tả</label>
+            <div class="col-md-10">
+                <textarea [(ngModel)]="product.content" class="w-100 form-control h-100" rows="4" placeholder="Nhập mô tả sản phẩm">
+
+            </textarea>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Danh mục</label>
+            <div class="col-md-10">
+                <app-select2-control #appSelect2Control multiple="true" [(ngModel)]="categories" dataPlaceHolder="Nhập danh mục">
+                    <option value="">Chọn</option>
+                    <option *ngFor="let item of categoryList" [value]="item.id">{{item.name}}</option>
+                </app-select2-control>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Trạng thái</label>
+            <div class="col-md-10">
+                <select class="form-control" [(ngModel)]="product.status">
+                    <option [value]="PRODUCT_STATUS_CONSTANT.ACTIVE">Hoạt động</option>
+                    <option [value]="PRODUCT_STATUS_CONSTANT.INACTIVE">Ngừng kinh doanh</option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2 col-form-label">Hình</label>
+            <div class="col-md-10">
+                <input type="file"
+                       id="avatar" name="avatar"
+                       accept="image/png, image/jpeg" (change)="logFileEvent($event)">
+
+            </div>
+        </div>
+        <div *ngIf="product.image" class="row form-group">
+            <div class="col-md-2"></div>
+            <img [src]="product.image">
+        </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="saveProduct()" type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>
