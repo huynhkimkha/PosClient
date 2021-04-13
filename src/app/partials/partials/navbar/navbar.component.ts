@@ -20,20 +20,6 @@ export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewCh
   }
 
   public cashGroups: RouterPermissionMappingModel[] = [];
-  public bankGroups: RouterPermissionMappingModel[] = [];
-  public importGroups: RouterPermissionMappingModel[] = [];
-  public exportGroups: RouterPermissionMappingModel[] = [];
-  public warehouseGroups: RouterPermissionMappingModel[] = [];
-  public employeeGroups: RouterPermissionMappingModel[] = [];
-  public customerGroups: RouterPermissionMappingModel[] = [];
-  public productGroups: RouterPermissionMappingModel[] = [];
-  public reportGroups: RouterPermissionMappingModel[] = [];
-  public systemGroups: RouterPermissionMappingModel[] = [];
-  public importDataGroups: RouterPermissionMappingModel[] = [];
-  public debtClearingDataGroups: RouterPermissionMappingModel[] = [];
-  public commissionGroups: RouterPermissionMappingModel[] = [];
-
-  private elementRf: any = null;
 
   ngOnInit(): void {
     this.collectData();
@@ -75,8 +61,7 @@ export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewCh
   }
 
   public showCommonMgt() {
-    return this.employeeGroups.length > 0 || this.systemGroups.length > 0
-        || this.importDataGroups.length > 0;
+    return this.cashGroups.length > 0;
   }
 
   private collectData(): void {
