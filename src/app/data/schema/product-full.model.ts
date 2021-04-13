@@ -1,11 +1,11 @@
 import {PRODUCT_STATUS_CONSTANT} from '../../core/constant/product-status.constant';
 import {ProductCategoryModel} from './product-category.model';
+import {ProductSizeModel} from './product-size.model';
 
 export class ProductFullModel {
     public id: string;
     public name: string;
     public nameSlug: string;
-    public price: number;
     public image: string;
     public status: string;
     public content: string;
@@ -13,6 +13,7 @@ export class ProductFullModel {
     public updatedDate: string;
 
     public productCategoryList: ProductCategoryModel[];
+    public productSizeList: ProductSizeModel[];
 
     public constructor(
         data?: ProductFullModel
@@ -22,7 +23,6 @@ export class ProductFullModel {
         this.name = product.name;
         this.status = product.status;
         this.nameSlug = product.nameSlug;
-        this.price = product.price;
         this.image = product.image;
         this.content = product.content;
         this.createdDate = product.createdDate;
@@ -30,6 +30,10 @@ export class ProductFullModel {
         this.productCategoryList = [];
         for (const detail of product.productCategoryList) {
             this.productCategoryList.push(new ProductCategoryModel(detail));
+        }
+        this.productSizeList = [];
+        for (const detail of product.productSizeList) {
+            this.productSizeList.push(new ProductSizeModel(detail));
         }
     }
 

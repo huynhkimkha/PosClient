@@ -4,7 +4,6 @@ export class ProductModel {
     public id: string;
     public name: string;
     public nameSlug: string;
-    public price: number;
     public image: string;
     public status: string;
     public content: string;
@@ -19,7 +18,6 @@ export class ProductModel {
         this.name = product.name;
         this.status = product.status;
         this.nameSlug = product.nameSlug;
-        this.price = product.price;
         this.image = product.image;
         this.content = product.content;
         this.createdDate = product.createdDate;

@@ -34,7 +34,6 @@
                             <thead>
                             <tr>
                                 <th>Sản phẩm</th>
-                                <th>Giá</th>
                                 <th>Trạng thái</th>
                                 <th></th>
                             </tr>
@@ -42,7 +41,6 @@
                             <tbody>
                             <tr *ngFor="let e of search.result">
                                 <td>{{e.name}}</td>
-                                <td>{{e.price}}</td>
                                 <td *ngIf="e.status === PRODUCT_STATUS_CONSTANT.ACTIVE else normalText" class="text-red">{{e.getProductStatus()}}</td>
                                 <ng-template #normalText>
                                     <td>{{e.getProductStatus()}}</td>

@@ -5,9 +5,6 @@
 export const environment = {
   production: false,
   agencyBaseUrl: 'http://localhost:5556',
-  warehouseBaseUrl: 'https://dev-warehouse.vlxdapp.com',
-  collaboratorUrl: 'https://ctv.vlxdapp.com',
-  softwareBaseUrl: 'http://localhost:5557'
 };
 
 /*
