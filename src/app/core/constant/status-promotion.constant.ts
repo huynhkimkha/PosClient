@@ -1,0 +1,4 @@
+export const STATUS_PROMOTION_CONSTANT = {
+    ACTIVE: 'ACTIVE',
+    INACTIVE: 'INACTIVE'
+};

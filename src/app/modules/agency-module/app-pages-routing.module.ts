@@ -82,6 +82,16 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'promotion',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./promotion/promotion.module').then((m) => m.PromotionModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({

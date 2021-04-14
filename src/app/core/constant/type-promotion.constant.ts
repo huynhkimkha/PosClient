@@ -1,0 +1,4 @@
+export const TYPE_PROMOTION_CONSTANT = {
+    FIXED: 'FIXED',
+    PERCENT: 'PERCENT'
+};

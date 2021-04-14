@@ -1,0 +1,75 @@
+<app-modal-wrapper #appModalWrapper title="Thêm thông tin giảm giá" size="modal-default">
+    <div class="modal-body">
+        <div class="row form-group">
+            <label class="col-md-2">Tên</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="promotion.name" type="text" class="form-control" placeholder="Nhập tên"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Mô tả</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="promotion.description" type="text" class="form-control" placeholder="Nhập mô tả"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2 mt-1">Loại</label>
+            <div (click)="select(TYPE_PROMOTION_CONSTANT.FIXED)" class="icheck-primary col-md-3">
+                <input [checked]="promotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED" type="radio" name="add-commission-type">
+                <label>
+                    Tiền mặt
+                </label>
+            </div>
+            <div (click)="select(TYPE_PROMOTION_CONSTANT.PERCENT)" class="icheck-primary col-md-3">
+                <input [checked]="promotion.typePromotion === TYPE_PROMOTION_CONSTANT.PERCENT" type="radio" name="add-commission-type">
+                <label>
+                    Phần trăm
+                </label>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Giảm giá</label>
+            <div class="col-md-10 input-group">
+                <input [(ngModel)]="promotion.amount"  type="number" class="form-control" placeholder="Nhập số giảm giá">
+                <div class="input-group-prepend size-input-append-30">
+                    <div *ngIf="promotion.typePromotion === TYPE_PROMOTION_CONSTANT.PERCENT" class="input-group-text form-control">
+                        %
+                    </div>
+                    <div *ngIf="promotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED" class="input-group-text form-control">
+                        Đồng
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Trạng thái</label>
+            <div class="col-md-10">
+                <select class="form-control" [(ngModel)]="promotion.status">
+                    <option [value]="STATUS_PROMOTION_CONSTANT.ACTIVE">Hoạt động</option>
+                    <option [value]="STATUS_PROMOTION_CONSTANT.INACTIVE">Ngừng kinh doanh</option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Hạn</label>
+            <div class="col-md-10">
+                <app-date-control [(ngModel)]="promotion.expiredDate" name="birthDate" id="employee_add_birth_date"></app-date-control>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Sản phẩm</label>
+            <div class="col-md-10">
+                <app-select2-control #appSelect2Control multiple="true" [(ngModel)]="productListSelected" dataPlaceHolder="Sản phẩm">
+                    <option value="">Chọn</option>
+                    <option *ngFor="let item of productList" [value]="item.id">{{item.name}}</option>
+                </app-select2-control>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="savePromotion()" type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>

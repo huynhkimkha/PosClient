@@ -5,7 +5,7 @@ import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constan
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
 import {CostModel} from '../../../../../data/schema/cost.model';
 import {CostService} from '../../../../../core/services/agency/cost.service';
-import {TYPE_COST_CONSTANT} from '../../../../../core/constant/cost.constant';
+import {TYPE_COST_CONSTANT} from '../../../../../core/constant/type-cost.constant';
 
 @Component({
     selector: 'app-update-cost',

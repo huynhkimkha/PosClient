@@ -1,0 +1,77 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Giảm giá</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-dark">Giảm giá</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <app-data-table [dataTable]="search" [columnNumber]="6" (changeEvent)="dataTableChange($event)">
+                            <div class="right-button row justify-content-end input-group">
+                                <button (click)="appAddPromotion.show()" class="btn btn-success" type="button">
+                                    <i class="fas fa-plus"> </i>
+                                    <b> Thêm mới</b>
+                                </button>
+                            </div>
+                            <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Tiền giảm</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày hết hạn</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let e of search.result">
+                                <td>{{e.name}}</td>
+                                <td>{{e.description}}</td>
+                                <td>{{e.amount}} {{e.getTypePromotion()}}</td>
+                                <td *ngIf="e.status === STATUS_PROMOTION_CONSTANT.ACTIVE else normalText" class="text-red">{{e.getStatusPromotion()}}</td>
+                                <ng-template #normalText>
+                                    <td>{{e.getStatusPromotion()}}</td>
+                                </ng-template>
+                                <td>{{e.expiredDate | date: 'dd-MM-yyyy'}}</td>
+                                <td>
+                                    <button (click)="appUpdatePromotion.show(e)"  class="btn btn-success mr-1" type="button">
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </app-data-table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<!-- /.content -->
+<app-add-promotion #appAddPromotion (saveCompleteEvent)="savePromotionCompleteEvent()"></app-add-promotion>
+<app-update-promotion #appUpdatePromotion (saveCompleteEvent)="savePromotionCompleteEvent()"></app-update-promotion>
