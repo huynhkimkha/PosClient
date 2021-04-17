@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     const isIgnoreAuth = this.isIgnoreAuth(event.url);
 
     if (notAuth) {
-      // this.handleNotAuth(isIgnoreAuth);
+      this.handleNotAuth(isIgnoreAuth);
     } else {
       this.handleAuth(event.url, isIgnoreAuth);
     }
