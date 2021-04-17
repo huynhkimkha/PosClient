@@ -16,7 +16,9 @@
 .nav-header {
   cursor: text;
 }
-
+.navbar {
+  height: 40px;
+}
 .dropdown-menu li {
   position: relative;
 }
@@ -91,7 +93,8 @@ li .dropdown-menu {
 }
 
 .dropdown-menu li:hover:not(.nav-header), .dropdown-item:hover:not(.active) {
-  color: #004aad;
+  color: white;
+  background-color: #004aad;
   cursor: pointer;
 }
 
@@ -104,6 +107,10 @@ li .dropdown-menu {
   border-radius: 15px;
   background-color: #004aad;
   border: 1px solid #004aad;
+  color: white;
+}
+
+.dropdown-item.active {
   color: white;
 }
 
