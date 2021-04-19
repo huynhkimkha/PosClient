@@ -3,18 +3,19 @@ import {AppAlert, AppLoading} from '../../../../../shared/utils';
 import {ResponseModel} from '../../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CostModel} from '../../../../../data/schema/cost.model';
-import {CostService} from '../../../../../core/services/agency/cost.service';
-import {CostCategoryModel} from '../../../../../data/schema/cost-category.model';
-import {CostCategoryService} from '../../../../../core/services/agency/cost-category.service';
+import {InventoryModel} from '../../../../../data/schema/inventory.model';
+import {InventoryService} from '../../../../../core/services/agency/inventory.service';
+import {MaterialModel} from '../../../../../data/schema/material.model';
+import {MaterialService} from '../../../../../core/services/agency/material.service';
 
 @Component({
-    selector: 'app-add-cost',
-    templateUrl: './app-add-cost.component.html'
+    selector: 'app-update-inventory',
+    templateUrl: './app-update-inventory.component.html'
 })
-export class AppAddCostComponent implements AfterViewInit {
-    public cost: CostModel = new CostModel();
-    public costCategoryList: CostCategoryModel[] = [];
+export class AppUpdateInventoryComponent implements AfterViewInit {
+    public inventory: InventoryModel = new InventoryModel();
+    public material: MaterialModel = new MaterialModel();
+    public materialList: MaterialModel[] = [];
 
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -23,8 +24,8 @@ export class AppAddCostComponent implements AfterViewInit {
         private root: ElementRef,
         private alert: AppAlert,
         private loading: AppLoading,
-        private costService: CostService,
-        private costCategoryService: CostCategoryService
+        private inventoryService: InventoryService,
+        private materialService: MaterialService
     ) {
 
     }
@@ -32,9 +33,12 @@ export class AppAddCostComponent implements AfterViewInit {
     ngAfterViewInit() {
     }
 
-    public show() {
-        this.cost = new CostModel();
-        this.loadCostCategorys();
+    public show(inventory: InventoryModel) {
+        this.inventory = new InventoryModel(inventory);
+        this.material = new MaterialModel(this.inventory.material);
+        console.log(this.material);
+        console.log(this.inventory);
+
         this.appModalWrapper.show();
     }
 
@@ -42,17 +46,18 @@ export class AppAddCostComponent implements AfterViewInit {
         this.appModalWrapper.hide();
     }
 
-    public saveCost() {
+    public searchMaterial(event) {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.costService.save(this.cost).subscribe(res => this.saveCostCompleted(res));
+        this.materialService.getLikeName(event.query).subscribe(res => this.searchMaterialComplete(res));
     }
 
-    private loadCostCategorys() {
+    public saveInventory() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.costCategoryService.findAll().subscribe(res => this.loadCostCategorysCompleted(res));
+        this.inventory.material = this.material || new MaterialModel();
+        this.inventoryService.update(this.inventory).subscribe(res => this.saveInventoryCompleted(res));
     }
 
-    private loadCostCategorysCompleted(res: ResponseModel<CostCategoryModel[]>) {
+    private searchMaterialComplete(res: ResponseModel<MaterialModel[]>) {
         this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
@@ -60,11 +65,10 @@ export class AppAddCostComponent implements AfterViewInit {
             });
             return;
         }
-        this.costCategoryList = res.result;
-        this.cost.costCategory = this.costCategoryList[0];
+        this.materialList = res.result || [];
     }
 
-    private saveCostCompleted(res: ResponseModel<CostModel>) {
+    private saveInventoryCompleted(res: ResponseModel<InventoryModel>) {
         this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
@@ -72,7 +76,7 @@ export class AppAddCostComponent implements AfterViewInit {
             });
             return;
         }
-        this.alert.success('Thêm chi nhánh thành công!');
+        this.alert.success('Cập nhật tồn kho thành công!');
         this.hide();
         this.saveCompleteEvent.emit(res.result);
     }

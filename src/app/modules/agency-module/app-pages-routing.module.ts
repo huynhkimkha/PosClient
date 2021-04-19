@@ -92,6 +92,26 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'material',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./material/material.module').then((m) => m.MaterialModule),
+            },
+        ],
+    },
+    {
+        path: 'inventory',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./inventory/inventory.module').then((m) => m.InventoryModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({

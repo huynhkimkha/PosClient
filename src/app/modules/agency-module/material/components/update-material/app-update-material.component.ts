@@ -3,18 +3,15 @@ import {AppAlert, AppLoading} from '../../../../../shared/utils';
 import {ResponseModel} from '../../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CostModel} from '../../../../../data/schema/cost.model';
-import {CostService} from '../../../../../core/services/agency/cost.service';
-import {CostCategoryModel} from '../../../../../data/schema/cost-category.model';
-import {CostCategoryService} from '../../../../../core/services/agency/cost-category.service';
+import {MaterialModel} from '../../../../../data/schema/material.model';
+import {MaterialService} from '../../../../../core/services/agency/material.service';
 
 @Component({
-    selector: 'app-add-cost',
-    templateUrl: './app-add-cost.component.html'
+    selector: 'app-update-material',
+    templateUrl: './app-update-material.component.html'
 })
-export class AppAddCostComponent implements AfterViewInit {
-    public cost: CostModel = new CostModel();
-    public costCategoryList: CostCategoryModel[] = [];
+export class AppUpdateMaterialComponent implements AfterViewInit {
+    public material: MaterialModel = new MaterialModel();
 
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -23,18 +20,16 @@ export class AppAddCostComponent implements AfterViewInit {
         private root: ElementRef,
         private alert: AppAlert,
         private loading: AppLoading,
-        private costService: CostService,
-        private costCategoryService: CostCategoryService
+        private materialService: MaterialService
     ) {
-
     }
 
     ngAfterViewInit() {
     }
 
-    public show() {
-        this.cost = new CostModel();
-        this.loadCostCategorys();
+    public show(material: MaterialModel) {
+        this.material = new MaterialModel(material);
+        this.loadMaterial();
         this.appModalWrapper.show();
     }
 
@@ -42,17 +37,12 @@ export class AppAddCostComponent implements AfterViewInit {
         this.appModalWrapper.hide();
     }
 
-    public saveCost() {
+    public saveMaterial() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.costService.save(this.cost).subscribe(res => this.saveCostCompleted(res));
+        this.materialService.update(this.material).subscribe(res => this.saveMaterialCompleted(res));
     }
 
-    private loadCostCategorys() {
-        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.costCategoryService.findAll().subscribe(res => this.loadCostCategorysCompleted(res));
-    }
-
-    private loadCostCategorysCompleted(res: ResponseModel<CostCategoryModel[]>) {
+    private saveMaterialCompleted(res: ResponseModel<MaterialModel>) {
         this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
@@ -60,20 +50,24 @@ export class AppAddCostComponent implements AfterViewInit {
             });
             return;
         }
-        this.costCategoryList = res.result;
-        this.cost.costCategory = this.costCategoryList[0];
-    }
-
-    private saveCostCompleted(res: ResponseModel<CostModel>) {
-        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
-        if (res.status !== HTTP_CODE_CONSTANT.OK) {
-            res.message.forEach(value => {
-                this.alert.error(value);
-            });
-            return;
-        }
-        this.alert.success('Thêm chi nhánh thành công!');
+        this.alert.success('Cập nhật nguyên liệu thành công!');
         this.hide();
         this.saveCompleteEvent.emit(res.result);
+    }
+
+    private loadMaterial() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.materialService.findOne(this.material.id).subscribe(res => this.loadMaterialCompleted(res));
+    }
+
+    private loadMaterialCompleted(res: ResponseModel<MaterialModel>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.material = new MaterialModel(res.result);
     }
 }
