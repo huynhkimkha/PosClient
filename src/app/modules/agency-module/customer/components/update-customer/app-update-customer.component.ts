@@ -5,12 +5,14 @@ import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constan
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
 import {CustomerModel} from '../../../../../data/schema/customer.model';
 import {CustomerService} from '../../../../../core/services/agency/customer.service';
+import {CUSTOMER_TYPE_CONSTANT} from '../../../../../core/constant/customer-type.constant';
 @Component({
     selector: 'app-update-customer',
     templateUrl: './app-update-customer.component.html'
 })
 export class AppUpdateCustomerComponent implements AfterViewInit {
     public customer: CustomerModel = new CustomerModel();
+    public CUSTOMER_TYPE_CONSTANT = CUSTOMER_TYPE_CONSTANT;
 
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;

@@ -35,7 +35,9 @@
                             </div>
                             <thead>
                             <tr>
-                                <th>Loại</th>
+                                <th>Mã</th>
+                                <th>Số</th>
+                                <th>Danh mục</th>
                                 <th>Tổng số tiền</th>
                                 <th>Nội dung</th>
                                 <th></th>
@@ -43,7 +45,9 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let e of search.result">
-                                <td>{{e.typeCost}}</td>
+                                <td>{{e.code}}</td>
+                                <td>{{e.number}}</td>
+                                <td>{{e.costCategory.name}}</td>
                                 <td>{{e.amount}}</td>
                                 <td>{{e.description}}</td>
                                 <td>

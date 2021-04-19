@@ -1,13 +1,24 @@
 <app-modal-wrapper #appModalWrapper title="Thêm mới thông tin chi phí" size="modal-default">
     <div class="modal-body">
         <div class="form-group row">
+            <label class="col-md-2 col-form-label">Mã</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="cost.code" type="text" class="form-control" placeholder="Nhập nội dung"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Số</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="cost.number" type="text" class="form-control" placeholder="Nhập nội dung"/>
+            </div>
+        </div>
+        <div class="form-group row">
             <label class="col-md-2 col-form-label">Loại</label>
             <div class="col-md-10">
-                <select [(ngModel)]="cost.typeCost" class="form-control" id="employee_add_role">
-                    <option [value]="typeCostEnum.SALARY">TRẢ LƯƠNG</option>
-                    <option [value]="typeCostEnum.IMPORT">NHẬP HÀNG</option>
-                    <option [value]="typeCostEnum.ELSE">KHÁC</option>
-                </select>            </div>
+                <select [(ngModel)]="cost.costCategory.id" class="form-control" id="employee_add_role">
+                    <option *ngFor="let item of costCategoryList" [value]="item.id">{{item.name}}</option>
+                </select>
+            </div>
         </div>
         <div class="form-group row">
             <label class="col-md-2 col-form-label">Tổng tiền</label>

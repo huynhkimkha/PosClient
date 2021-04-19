@@ -1,0 +1,4 @@
+export const CUSTOMER_TYPE_CONSTANT = {
+    VENDOR: 'VENDOR',
+    CUSTOMER: 'CUSTOMER'
+};

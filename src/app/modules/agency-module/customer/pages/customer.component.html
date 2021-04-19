@@ -35,6 +35,7 @@
                             </div>
                             <thead>
                             <tr>
+                                <th>Loại</th>
                                 <th>Họ tên</th>
                                 <th>Địa chỉ</th>
                                 <th>Số điện thoại</th>
@@ -43,6 +44,8 @@
                             </thead>
                             <tbody>
                             <tr *ngFor="let e of search.result">
+                                <td *ngIf="e.customerType === 'VENDOR'">Nhà cung cấp</td>
+                                <td *ngIf="e.customerType === 'CUSTOMER'">Khách hàng</td>
                                 <td>{{e.fullName}}</td>
                                 <td>{{e.address}}</td>
                                 <td>{{e.phone}}</td>

@@ -5,7 +5,8 @@ import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constan
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
 import {CostModel} from '../../../../../data/schema/cost.model';
 import {CostService} from '../../../../../core/services/agency/cost.service';
-import {TYPE_COST_CONSTANT} from '../../../../../core/constant/type-cost.constant';
+import {CostCategoryModel} from '../../../../../data/schema/cost-category.model';
+import {CostCategoryService} from '../../../../../core/services/agency/cost-category.service';
 
 @Component({
     selector: 'app-update-cost',
@@ -13,7 +14,7 @@ import {TYPE_COST_CONSTANT} from '../../../../../core/constant/type-cost.constan
 })
 export class AppUpdateCostComponent implements AfterViewInit {
     public cost: CostModel = new CostModel();
-    public typeCostEnum = TYPE_COST_CONSTANT;
+    public costCategoryList: CostCategoryModel[] = [];
 
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -22,7 +23,8 @@ export class AppUpdateCostComponent implements AfterViewInit {
         private root: ElementRef,
         private alert: AppAlert,
         private loading: AppLoading,
-        private costService: CostService
+        private costService: CostService,
+        private costCategoryService: CostCategoryService
     ) {
     }
 
@@ -32,6 +34,7 @@ export class AppUpdateCostComponent implements AfterViewInit {
     public show(cost: CostModel) {
         this.cost = new CostModel(cost);
         this.loadCost();
+        this.loadCostCategorys();
         this.appModalWrapper.show();
     }
 
@@ -42,6 +45,22 @@ export class AppUpdateCostComponent implements AfterViewInit {
     public saveCost() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.costService.update(this.cost).subscribe(res => this.saveCostCompleted(res));
+    }
+
+    private loadCostCategorys() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.costCategoryService.findAll().subscribe(res => this.loadCostCategorysCompleted(res));
+    }
+
+    private loadCostCategorysCompleted(res: ResponseModel<CostCategoryModel[]>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.costCategoryList = res.result;
     }
 
     private saveCostCompleted(res: ResponseModel<CostModel>) {
