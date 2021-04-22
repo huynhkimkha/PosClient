@@ -1,0 +1,76 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Phiếu nhập nguyên liệu</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-dark">Phiếu nhập NL</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <app-data-table [dataTable]="search" [columnNumber]="7" (changeEvent)="dataTableChange($event)">
+                            <div class="right-button row justify-content-end input-group">
+                                <button (click)="appAddImportingMaterial.show()" class="btn btn-success" type="button">
+                                    <i class="fas fa-plus"> </i>
+                                    <b> Thêm mới</b>
+                                </button>
+                            </div>
+                            <thead>
+                            <tr>
+                                <th>Khách hàng</th>
+                                <th>Mã phiếu</th>
+                                <th>Số phiếu</th>
+                                <th>Mô tả</th>
+                                <th>Ghi chú</th>
+                                <th>Tổng tiền</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let e of search.result">
+                                <td>{{e.customer.fullName}}</td>
+                                <td>{{e.code}}</td>
+                                <td>{{e.number}}</td>
+                                <td>{{e.description}}</td>
+                                <td>{{e.note}}</td>
+                                <td>{{e.amount | number}} VNĐ</td>
+                                <td>
+                                    <button (click)="appUpdateImportingMaterial.show(e)"  class="btn btn-success mr-1" type="button">
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </app-data-table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<!-- /.content -->
+<app-add-importing-material #appAddImportingMaterial (saveCompleteEvent)="saveImportingMaterialCompleteEvent()"></app-add-importing-material>
+<app-update-importing-material #appUpdateImportingMaterial (saveCompleteEvent)="saveImportingMaterialCompleteEvent()"></app-update-importing-material>

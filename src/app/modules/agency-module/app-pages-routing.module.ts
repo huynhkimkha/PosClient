@@ -112,6 +112,16 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'importing-material',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./importing-material/importing-material.module').then((m) => m.ImportingMaterialModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({

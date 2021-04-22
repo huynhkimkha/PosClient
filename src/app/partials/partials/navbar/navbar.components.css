@@ -6,7 +6,10 @@
   border-radius: unset;
   min-width: 21rem;
 }
-
+.dropdown-item{
+  padding: 0.25rem 0.6rem;
+  border-style: solid;
+}
 .custom-main-menu .dropdown-menu {
   min-width: 20.5rem;
   background-color: #fff;
@@ -17,7 +20,7 @@
   cursor: text;
 }
 .navbar {
-  height: 40px;
+  height: 30px;
 }
 .dropdown-menu li {
   position: relative;
@@ -94,7 +97,7 @@ li .dropdown-menu {
 
 .dropdown-menu li:hover:not(.nav-header), .dropdown-item:hover:not(.active) {
   color: white;
-  background-color: #004aad;
+  background-color: black;
   cursor: pointer;
 }
 
@@ -104,9 +107,9 @@ li .dropdown-menu {
 }
 
 .custom-main-menu .submenu .dropdown-item.active, .custom-main-menu .submenu .dropdown-item:active {
-  border-radius: 15px;
-  background-color: #004aad;
-  border: 1px solid #004aad;
+  border-radius: 13px;
+  background-color: black;
+  border: 1px solid black;
   color: white;
 }
 

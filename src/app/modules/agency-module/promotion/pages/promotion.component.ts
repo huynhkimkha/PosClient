@@ -78,7 +78,6 @@ export class PromotionComponent implements AfterViewInit {
             });
             return;
         }
-        console.log(res.result);
         const promotionList = res.result.result || [];
         this.search = res.result;
         this.search.result = [];

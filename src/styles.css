@@ -70,7 +70,7 @@
 body {
   font-family: Arial, sans-serif;
   font-weight: 300;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .table td {
@@ -178,8 +178,8 @@ div.dataTables_wrapper div.dataTables_length select {
 
 .btn-success {
   color: #fff;
-  background-color: #004aad !important;
-  border-color: #004aad !important;
+  background-color: black !important;
+  border-color: black !important;
 }
 
 .btn-light {
@@ -201,7 +201,7 @@ div.dataTables_wrapper div.dataTables_length select {
   color: black !important;
 }
 .dropdown-item.active {
-  background-color: #004aad;
+  background-color: black;
   color: black;
 }
 
@@ -220,7 +220,7 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .os-viewport a.dropdown-item:hover {
-  background-color: #004aad;
+  background-color: black;
   color: white;
   cursor: default;
 }
@@ -228,8 +228,8 @@ div.dataTables_wrapper div.dataTables_length select {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #004aad;
-  border-color: #004aad;
+  background-color: black;
+  border-color: black;
 }
 
 body .ui-inputtext {

@@ -105,4 +105,13 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     sort: 2,
     isMenu: true,
   }),
+  new RouterPermissionMappingModel({
+    routerLink: '/importing-material',
+    matchUrl: '',
+    name: 'Phiếu nhập NL',
+    icon: 'fa-boxes',
+    permissions: [USER_PERMISSION_CODE.MANAGER],
+    sort: 2,
+    isMenu: true,
+  }),
 ];

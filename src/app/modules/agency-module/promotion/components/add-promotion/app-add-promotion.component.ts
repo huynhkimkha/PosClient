@@ -64,7 +64,6 @@ export class AppAddPromotionComponent implements AfterViewInit {
             promotionProduct.product.id = item.id;
             this.promotion.promotionProductList.push(promotionProduct);
         }
-        console.log(this.promotion);
         this.promotionService.save(this.promotion).subscribe(response => this.savePromotionCompleted(response));
 
     }
