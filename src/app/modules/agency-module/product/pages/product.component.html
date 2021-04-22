@@ -41,7 +41,7 @@
                             <tbody>
                             <tr *ngFor="let e of search.result">
                                 <td>{{e.name}}</td>
-                                <td *ngIf="e.status === PRODUCT_STATUS_CONSTANT.ACTIVE else normalText" class="text-red">{{e.getProductStatus()}}</td>
+                                <td *ngIf="e.status === PRODUCT_STATUS_CONSTANT.ACTIVE else normalText" class="text-green">{{e.getProductStatus()}}</td>
                                 <ng-template #normalText>
                                     <td>{{e.getProductStatus()}}</td>
                                 </ng-template>
