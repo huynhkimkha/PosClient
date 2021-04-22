@@ -61,8 +61,13 @@
                 </div>
             </div>
             <label class="col-md-2 text-right">Giá</label>
-            <div class="col-md-4">
+            <div class="col-md-4 input-group">
                 <input [(ngModel)]="importingTransactionSelected.price" (change)="changePrice()" type="number" class="form-control" placeholder="Nhập giá"/>
+                <div class="input-group-prepend size-input-append-30">
+                    <div class="input-group-text form-control">
+                        {{!importingTransactionSelected.material.id ? '' : '/' + importingTransactionSelected.material.unit}}
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row form-group">
