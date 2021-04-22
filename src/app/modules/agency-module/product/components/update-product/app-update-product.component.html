@@ -46,6 +46,10 @@
                        accept="image/png, image/jpeg" (change)="logFileEvent($event)">
 
             </div>
+            <div *ngIf="product.image" class="row form-group">
+                <div class="col-md-2"></div>
+                <img [src]="product.image">
+            </div>
         </div>
         <hr>
         <div class="row form-group">

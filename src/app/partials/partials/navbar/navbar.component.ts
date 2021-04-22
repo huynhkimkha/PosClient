@@ -34,23 +34,6 @@ export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewCh
   ngAfterViewChecked(): void {
   }
 
-  @HostListener('document:click', ['$event.target'])
-  public onClick(target) {
-    const clickedInside = this.root.nativeElement.querySelector('.custom-main-menu').contains(target);
-    const hasShow = $(target).hasClass('fa-bars');
-    if (!clickedInside && !hasShow) {
-      $(this.root.nativeElement.querySelector('.custom-main-menu')).removeClass('show');
-    }
-    if ($(window).width() <= 600) {
-      const submenu = $(target).parent().children().eq(1);
-      if (submenu.hasClass('submenu')) {
-        $(this.root.nativeElement.querySelectorAll('.submenu')).css('display', 'none').removeClass('selected');
-        submenu.addClass('selected');
-        submenu.css('display', 'block');
-      }
-    }
-  }
-
   public openMenu(event: any) {
     event.preventDefault();
     event.stopPropagation();
@@ -58,10 +41,6 @@ export class NavbarComponent implements AfterContentChecked, OnInit, AfterViewCh
       $(this.root.nativeElement.querySelectorAll('.submenu')).css('display', 'none').removeClass('selected');
     }
     $(this.root.nativeElement.querySelector('.custom-main-menu')).toggleClass('show');
-  }
-
-  public showCommonMgt() {
-    return this.cashGroups.length > 0;
   }
 
   private collectData(): void {
