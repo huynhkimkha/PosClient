@@ -54,7 +54,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
   new RouterPermissionMappingModel({
     routerLink: '/category',
     matchUrl: '',
-    name: 'Danh mục',
+    name: 'Danh mục sản phẩm',
     icon: 'fa-pallet',
     permissions: [USER_PERMISSION_CODE.MANAGER],
     sort: 5,
