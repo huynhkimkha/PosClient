@@ -20,35 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e339d2-3640-46b6-b84d-90397e32168b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/proxy.conf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/constant/category-status.constant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/constant/product-status.constant.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/category.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/services/agency/product.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/core/services/generic/imgbb.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/schema/category.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/schema/product-category.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/schema/product-full.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/data/schema/product.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/category.module.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/components/add-category/app-add-category.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/components/add-category/app-add-category.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/components/update-category/app-update-category.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/components/update-category/app-update-category.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/pages/category.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/category/pages/category.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/components/add-product/app-add-product.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/components/add-product/app-add-product.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/components/update-product/app-update-product.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/components/update-product/app-update-product.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/pages/product.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/pages/product.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/product.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/core/constant/user-permission.constant.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/constant/user-permission.constant.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/app-pages-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/app-pages-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/cost-category/components/add-cost-category/app-add-cost-category.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-cost-category/app-add-cost-category.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/cost-category/components/add-cost-category/app-add-cost-category.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-cost-category/app-add-cost-category.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/cost-category/cost-category.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/cost-category/cost-category.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/cost/components/add-cost/app-add-cost.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/cost/components/add-cost/app-add-cost.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/cost/components/update-cost/app-update-cost.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/cost/components/update-cost/app-update-cost.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/customer/components/add-customer/app-add-customer.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-customer/app-add-customer.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/customer/components/add-customer/app-add-customer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-customer/app-add-customer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/customer/customer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/customer/customer.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/importing-material/components/add-importing-material/app-add-importing-material.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/importing-material/components/add-importing-material/app-add-importing-material.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/material/components/add-material/app-add-material.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-material/app-add-material.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/material/components/add-material/app-add-material.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-material/app-add-material.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/material/material.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/material/material.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/product/components/add-product/app-add-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-product/app-add-product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/product/components/add-product/app-add-product.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/components/popups/add-product/app-add-product.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/agency-module/product/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/agency-module/product/product.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/shared.module.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,11 +67,12 @@
     <property name="ts.external.directory.path" value="D:\SourceCode\POS\PosClient\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\SourceCode\POS\PosClient\src\app\core\services\generic" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\QTDA\PosClient\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\QTDA\PosClient\src\app\shared\components\popups" />
+      <recent name="D:\SourceCode\POS\PosClient\src\app\core\services\generic" />
     </key>
   </component>
   <component name="RunManager" selected="npm.Angular CLI Server">
@@ -191,26 +180,30 @@
     </state>
     <state x="549" y="178" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1617196398437" />
     <state x="549" y="187" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1616935235888" />
-    <state width="1493" height="232" key="GridCell.Tab.0.bottom" timestamp="1618145913352">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1492" height="226" key="GridCell.Tab.0.bottom" timestamp="1619179073696">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="232" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618145913352" />
-    <state width="1492" height="313" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
-    <state width="1493" height="232" key="GridCell.Tab.0.center" timestamp="1618145913352">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1492" height="226" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1619179073696" />
+    <state width="1492" height="226" key="GridCell.Tab.0.center" timestamp="1619179073696">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="232" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618145913352" />
-    <state width="1492" height="313" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
-    <state width="1493" height="232" key="GridCell.Tab.0.left" timestamp="1618145913352">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1492" height="226" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1619179073696" />
+    <state width="1492" height="226" key="GridCell.Tab.0.left" timestamp="1619179073696">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="232" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618145913352" />
-    <state width="1492" height="313" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
-    <state width="1493" height="232" key="GridCell.Tab.0.right" timestamp="1618145913352">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1492" height="226" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1619179073696" />
+    <state width="1492" height="226" key="GridCell.Tab.0.right" timestamp="1619179073696">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="1493" height="232" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618145913352" />
-    <state width="1492" height="313" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1617002825500" />
+    <state width="1492" height="226" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1619179073696" />
+    <state x="478" y="141" width="754" height="582" key="find.popup" timestamp="1619177652419">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="478" y="141" width="754" height="582" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1619177652419" />
     <state x="425" y="188" key="run.anything.popup" timestamp="1618083983275">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

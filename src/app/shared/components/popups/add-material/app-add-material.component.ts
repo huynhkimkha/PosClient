@@ -1,10 +1,10 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {AppAlert, AppLoading} from '../../../../../shared/utils';
-import {ResponseModel} from '../../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
-import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {MaterialModel} from '../../../../../data/schema/material.model';
-import {MaterialService} from '../../../../../core/services/agency/material.service';
+import {AppAlert, AppLoading} from '../../../utils';
+import {ResponseModel} from '../../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
+import {AppModalWrapperComponent} from '../../modal-wrapper/app-modal-wrapper.component';
+import {MaterialModel} from '../../../../data/schema/material.model';
+import {MaterialService} from '../../../../core/services/agency/material.service';
 
 @Component({
     selector: 'app-add-material',

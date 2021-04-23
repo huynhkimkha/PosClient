@@ -1,10 +1,10 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {AppAlert, AppLoading} from '../../../../../shared/utils';
-import {ResponseModel} from '../../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
-import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CostCategoryModel} from '../../../../../data/schema/cost-category.model';
-import {CostCategoryService} from '../../../../../core/services/agency/cost-category.service';
+import {AppAlert, AppLoading} from '../../../utils';
+import {ResponseModel} from '../../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
+import {AppModalWrapperComponent} from '../../modal-wrapper/app-modal-wrapper.component';
+import {CostCategoryModel} from '../../../../data/schema/cost-category.model';
+import {CostCategoryService} from '../../../../core/services/agency/cost-category.service';
 
 @Component({
     selector: 'app-add-cost-category',

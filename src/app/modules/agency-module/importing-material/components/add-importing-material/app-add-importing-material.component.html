@@ -1,4 +1,14 @@
 <app-modal-wrapper #appModalWrapper title="Thêm phiếu nhập nguyên liệu" size="modal-lg">
+    <div class="add-button">
+        <button (click)="addCustomer.show()" type="button" title="THÊM KHÁCH HÀNG" class="ml-2 btn btn-success"
+                style="padding: 5px">
+            <i class="fas fa-users"></i>
+        </button>
+        <button (click)="addMaterial.show()" type="button" title="THÊM NGUYÊN LIỆU" class="ml-2 btn btn-success"
+                style="padding: 5px">
+            <i class="fas fa-cubes"></i>
+        </button>
+    </div>
     <div class="modal-body">
         <div class="row form-group">
             <label class="col-md-2">Khách hàng</label>
@@ -144,3 +154,5 @@
         <button (click)="saveImportingMaterial()" type="button" class="btn btn-success">Lưu</button>
     </div>
 </app-modal-wrapper>
+<app-add-customer #addCustomer></app-add-customer>
+<app-add-material #addMaterial></app-add-material>
