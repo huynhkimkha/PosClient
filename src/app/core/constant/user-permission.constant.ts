@@ -30,7 +30,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Nhân viên',
     icon: 'fa-user-cog',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 1,
+    sort: 2,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -39,7 +39,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Khách hàng',
     icon: 'fa-user',
     permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
-    sort: 1,
+    sort: 3,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -48,16 +48,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Chi nhánh',
     icon: 'fa-warehouse',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 1,
-    isMenu: true,
-  }),
-  new RouterPermissionMappingModel({
-    routerLink: '/cost',
-    matchUrl: '',
-    name: 'Chi phí',
-    icon: 'fa-money-bill',
-    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
-    sort: 1,
+    sort: 4,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -66,7 +57,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Danh mục',
     icon: 'fa-pallet',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 1,
+    sort: 5,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -75,7 +66,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Sản phẩm',
     icon: 'fa-dolly-flatbed',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 2,
+    sort: 6,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -84,7 +75,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Giảm giá',
     icon: 'fa fa-clone',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 2,
+    sort: 7,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -93,7 +84,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Nguyên liệu',
     icon: 'fa-box',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 2,
+    sort: 8,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -102,7 +93,25 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Tồn kho',
     icon: 'fa-boxes',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 2,
+    sort: 9,
+    isMenu: true,
+  }),
+  new RouterPermissionMappingModel({
+    routerLink: '/cost-category',
+    matchUrl: '',
+    name: 'Danh mục chi phí',
+    icon: 'fa-money-bill',
+    permissions: [USER_PERMISSION_CODE.MANAGER],
+    sort: 10,
+    isMenu: true,
+  }),
+  new RouterPermissionMappingModel({
+    routerLink: '/cost',
+    matchUrl: '',
+    name: 'Chi phí',
+    icon: 'fa-money-bill',
+    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
+    sort: 11,
     isMenu: true,
   }),
   new RouterPermissionMappingModel({
@@ -111,7 +120,7 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     name: 'Phiếu nhập NL',
     icon: 'fa-boxes',
     permissions: [USER_PERMISSION_CODE.MANAGER],
-    sort: 2,
+    sort: 12,
     isMenu: true,
   }),
 ];

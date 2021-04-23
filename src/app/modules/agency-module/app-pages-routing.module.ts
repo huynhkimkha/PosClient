@@ -122,6 +122,16 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'cost-category',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./cost-category/cost-category.module').then((m) => m.CostCategoryModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({
