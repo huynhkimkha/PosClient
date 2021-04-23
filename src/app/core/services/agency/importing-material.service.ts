@@ -32,4 +32,8 @@ export class ImportingMaterialService extends AgencyBaseService {
     public deleteImportingMaterial(id: string): Observable<any> {
         return this.delete('/api/v1/importing-material/delete', {id});
     }
+
+    public getNumber(createdDate: string): Observable<any> {
+        return this.get('/api/v1/importing-material/get-number/' + createdDate);
+    }
 }

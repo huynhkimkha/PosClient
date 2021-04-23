@@ -46,6 +46,13 @@ export class AppAddImportingMaterialComponent implements AfterViewInit {
 
     public show() {
         this.importingMaterial = new ImportingMaterialFullModel();
+        this.importingMaterial.code = 'PNH';
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+        this.importingMaterial.createdDate = yyyy + '-' + mm + '-' + dd;
+        this.getNumber();
         this.appModalWrapper.show();
     }
 
@@ -177,5 +184,22 @@ export class AppAddImportingMaterialComponent implements AfterViewInit {
         this.importingTransactionSelected.quantity = 0;
         this.importingTransactionSelected.price = 0;
         this.material = new MaterialModel();
+    }
+
+    public getNumber() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.importingMaterialService.getNumber(this.importingMaterial.createdDate).subscribe(res => this.getNumberCompleted(res));
+
+    }
+
+    private getNumberCompleted(res: ResponseModel<string>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.importingMaterial.number = res.result;
     }
 }

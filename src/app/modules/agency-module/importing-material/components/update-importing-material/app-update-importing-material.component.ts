@@ -196,5 +196,23 @@ export class AppUpdateImportingMaterialComponent implements AfterViewInit {
         }
         this.importingMaterial = new ImportingMaterialFullModel(res.result);
         this.customerSelected = new CustomerModel(this.importingMaterialSelected.customer);
+        this.getNumber();
+    }
+
+    public getNumber() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.importingMaterialService.getNumber(this.importingMaterial.createdDate).subscribe(res => this.getNumberCompleted(res));
+
+    }
+
+    private getNumberCompleted(res: ResponseModel<string>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.importingMaterial.number = res.result;
     }
 }

@@ -2,7 +2,7 @@
     <div class="modal-body">
         <div class="row form-group">
             <label class="col-md-2">Khách hàng</label>
-            <div class="col-md-10">
+            <div class="col-md-4">
                 <p-autoComplete inputStyleClass="form-control"
                                 [(ngModel)]="customerSelected" [suggestions]="customerList"
                                 (completeMethod)="searchCustomer($event, false)" field="fullName" size="100%"
@@ -13,6 +13,10 @@
                         <div>{{item.fullName}} - {{item.address}}</div>
                     </ng-template>
                 </p-autoComplete>
+            </div>
+            <label class="col-md-2 text-right">Ngày</label>
+            <div class="col-md-4">
+                <app-date-control (changeDateEvent)="getNumber()" [(ngModel)]="importingMaterial.createdDate" name="birthDate" id="employee_add_birth_date"></app-date-control>
             </div>
         </div>
         <div class="row form-group">

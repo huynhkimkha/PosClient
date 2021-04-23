@@ -1,5 +1,11 @@
 <app-modal-wrapper #appModalWrapper title="Thêm mới thông tin chi phí" size="modal-default">
     <div class="modal-body">
+        <div class="row form-group">
+            <label class="col-md-2">Ngày</label>
+            <div class="col-md-10">
+                <app-date-control (changeDateEvent)="getNumber()" [(ngModel)]="cost.createdDate" name="birthDate" id="employee_add_birth_date"></app-date-control>
+            </div>
+        </div>
         <div class="form-group row">
             <label class="col-md-2 col-form-label">Mã</label>
             <div class="col-md-10">

@@ -34,6 +34,13 @@ export class AppAddCostComponent implements AfterViewInit {
 
     public show() {
         this.cost = new CostModel();
+        this.cost.code = 'PCP';
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+        this.cost.createdDate = yyyy + '-' + mm + '-' + dd;
+        this.getNumber();
         this.loadCostCategorys();
         this.appModalWrapper.show();
     }
@@ -72,8 +79,25 @@ export class AppAddCostComponent implements AfterViewInit {
             });
             return;
         }
-        this.alert.success('Thêm chi nhánh thành công!');
+        this.alert.success('Thêm chi phí thành công!');
         this.hide();
         this.saveCompleteEvent.emit(res.result);
+    }
+
+    public getNumber() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.costService.getNumber(this.cost.createdDate).subscribe(res => this.getNumberCompleted(res));
+
+    }
+
+    private getNumberCompleted(res: ResponseModel<string>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.cost.number = res.result;
     }
 }

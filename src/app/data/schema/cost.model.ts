@@ -7,6 +7,8 @@ export class CostModel {
     public number: string;
     public amount: number;
     public description: string;
+    public createdDate: string;
+    public updatedDate: string;
 
     public constructor(
         data?: CostModel
@@ -18,5 +20,7 @@ export class CostModel {
         this.number = cost.number;
         this.amount = cost.amount;
         this.description = cost.description;
+        this.createdDate = cost.createdDate;
+        this.updatedDate = cost.updatedDate;
     }
 }

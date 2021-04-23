@@ -71,7 +71,7 @@ export class AppUpdateCostComponent implements AfterViewInit {
             });
             return;
         }
-        this.alert.success('Cập nhật chi nhánh thành công!');
+        this.alert.success('Cập nhật chi phí thành công!');
         this.hide();
         this.saveCompleteEvent.emit(res.result);
     }
@@ -90,5 +90,22 @@ export class AppUpdateCostComponent implements AfterViewInit {
             return;
         }
         this.cost = new CostModel(res.result);
+    }
+
+    public getNumber() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.costService.getNumber(this.cost.createdDate).subscribe(res => this.getNumberCompleted(res));
+
+    }
+
+    private getNumberCompleted(res: ResponseModel<string>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.cost.number = res.result;
     }
 }
