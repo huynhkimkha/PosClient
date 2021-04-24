@@ -1,8 +1,8 @@
 <app-modal-wrapper #appModalWrapper title="Thêm mới thông tin tồn kho" size="modal-default">
     <div class="modal-body">
         <div class="form-group row">
-            <label class="col-md-2 col-form-label">Nguyên liệu</label>
-            <div class="col-md-10">
+            <label class="col-md-3 col-form-label">Nguyên liệu</label>
+            <div class="col-md-9">
                 <p-autoComplete inputStyleClass="form-control"
                                 [(ngModel)]="material" [suggestions]="materialList"
                                 (completeMethod)="searchMaterial($event)" field="name" size="100%"
@@ -12,21 +12,21 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-2 col-form-label">Số lượng</label>
-            <div class="col-md-10">
-                <input [(ngModel)]="inventory.amount" type="number" class="form-control" placeholder="Nhập nội dung"/>
+            <label class="col-md-3 col-form-label">Số lượng</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="inventory.amount" type="number" class="form-control" placeholder="Nhập số lượng"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-2 col-form-label">SL kiểm tra</label>
-            <div class="col-md-10">
-                <input [(ngModel)]="inventory.amountCheck" type="number" class="form-control" placeholder="Nhập Tổng tiền"/>
+            <label class="col-md-3 col-form-label">SL kiểm tra</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="inventory.amountCheck" type="number" class="form-control" placeholder="Nhập SL kiểm tra"/>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-2 col-form-label">Mô tả</label>
-            <div class="col-md-10">
-                <input [(ngModel)]="inventory.description" type="text" class="form-control" placeholder="Nhập nội dung"/>
+            <label class="col-md-3 col-form-label">Mô tả</label>
+            <div class="col-md-9">
+                <input [(ngModel)]="inventory.description" type="text" class="form-control" placeholder="Nhập mô tả"/>
             </div>
         </div>
         <!-- /.card-body -->
