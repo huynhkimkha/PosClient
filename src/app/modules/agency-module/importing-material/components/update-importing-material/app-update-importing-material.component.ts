@@ -196,7 +196,6 @@ export class AppUpdateImportingMaterialComponent implements AfterViewInit {
         }
         this.importingMaterial = new ImportingMaterialFullModel(res.result);
         this.customerSelected = new CustomerModel(this.importingMaterialSelected.customer);
-        this.getNumber();
     }
 
     public getNumber() {

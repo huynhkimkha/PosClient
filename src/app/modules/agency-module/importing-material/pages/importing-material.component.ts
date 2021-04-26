@@ -35,7 +35,7 @@ export class ImportingMaterialComponent implements AfterViewInit {
     }
 
     public confirmDelete(importingMaterial: ImportingMaterialModel) {
-        this.modal.confirm('Bạn có muốn xóa sản phẩm?').subscribe(res => this.deleteImportingMaterial(res, importingMaterial));
+        this.modal.confirm('Bạn có muốn xóa phiếu nhập và chi phí theo phiếu nhập này?').subscribe(res => this.deleteImportingMaterial(res, importingMaterial));
     }
 
     private deleteImportingMaterial(state: boolean, importingMaterial: ImportingMaterialModel) {
@@ -54,7 +54,7 @@ export class ImportingMaterialComponent implements AfterViewInit {
             });
             return;
         }
-        this.alert.success('Xóa sản phẩm thành công!');
+        this.alert.success('Xóa phiếu nhập và chi phí theo phiếu nhập thành công!');
         if (this.search.result.length === 1) {
             this.search.currentPage = this.search.currentPage - 1;
         }
