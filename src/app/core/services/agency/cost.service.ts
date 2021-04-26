@@ -31,4 +31,8 @@ export class CostService extends AgencyBaseService {
     public deleteCost(id: string): Observable<any> {
         return this.delete('/api/v1/cost/delete', {id});
     }
+
+    public getNumber(createdDate: string): Observable<any> {
+        return this.get('/api/v1/cost/get-number/' + createdDate);
+    }
 }

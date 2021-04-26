@@ -12,19 +12,19 @@ import {CostService} from '../../../../core/services/agency/cost.service';
 })
 export class CostComponent implements AfterViewInit {
     public search: BaseSearchModel<CostModel[]> = new BaseSearchModel<CostModel[]>();
-    private agencyId: string;
+    private costId: string;
 
     constructor(
         private alert: AppAlert,
         private loading: AppLoading,
         private modal: AppModals,
-        private agencyService: CostService
+        private costService: CostService
     ) {
     }
 
     ngAfterViewInit() {
         this.getCosts();
-        this.agencyId = '';
+        this.costId = '';
     }
 
     public saveCostCompleteEvent() {
@@ -40,17 +40,17 @@ export class CostComponent implements AfterViewInit {
         this.modal.confirm('Bạn có muốn xóa chi phí?').subscribe(res => this.deleteCost(res, agency));
     }
 
-    private deleteCost(state: boolean, agency: CostModel) {
+    private deleteCost(state: boolean, cost: CostModel) {
         if (state) {
             this.loading.show();
-            this.agencyId = agency.id;
-            this.agencyService.deleteCost(this.agencyId).subscribe(ress => this.deleteCostCompleted(ress));
+            this.costId = cost.id;
+            this.costService.deleteCost(this.costId).subscribe(ress => this.deleteCostCompleted(ress));
         }
     }
 
     private getCosts() {
         this.loading.show();
-        this.agencyService.find(this.search).subscribe(res => this.getCostsCompleted(res));
+        this.costService.find(this.search).subscribe(res => this.getCostsCompleted(res));
     }
 
     private getCostsCompleted(res: ResponseModel<BaseSearchModel<CostModel[]>>) {

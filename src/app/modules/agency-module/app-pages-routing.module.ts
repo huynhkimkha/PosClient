@@ -102,6 +102,46 @@ const routes: Routes = [
             },
         ],
     },
+{
+    path: 'material',
+        children: [
+    {
+        path: '',
+        loadChildren: () =>
+            import('./material/material.module').then((m) => m.MaterialModule),
+    },
+],
+},
+    {
+        path: 'inventory',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./inventory/inventory.module').then((m) => m.InventoryModule),
+            },
+        ],
+    },
+    {
+        path: 'importing-material',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./importing-material/importing-material.module').then((m) => m.ImportingMaterialModule),
+            },
+        ],
+    },
+    {
+        path: 'cost-category',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./cost-category/cost-category.module').then((m) => m.CostCategoryModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({

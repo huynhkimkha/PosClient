@@ -1,11 +1,11 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {AppAlert, AppLoading} from '../../../../../shared/utils';
-import {ResponseModel} from '../../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
-import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CustomerModel} from '../../../../../data/schema/customer.model';
-import {CustomerService} from '../../../../../core/services/agency/customer.service';
-import {CUSTOMER_TYPE_CONSTANT} from '../../../../../core/constant/customer-type.constant';
+import {AppAlert, AppLoading} from '../../../utils';
+import {ResponseModel} from '../../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
+import {AppModalWrapperComponent} from '../../modal-wrapper/app-modal-wrapper.component';
+import {CustomerModel} from '../../../../data/schema/customer.model';
+import {CustomerService} from '../../../../core/services/agency/customer.service';
+import {CUSTOMER_TYPE_CONSTANT} from '../../../../core/constant/customer-type.constant';
 
 @Component({
     selector: 'app-add-customer',

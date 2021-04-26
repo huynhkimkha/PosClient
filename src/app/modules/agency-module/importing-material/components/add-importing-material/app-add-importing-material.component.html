@@ -1,0 +1,158 @@
+<app-modal-wrapper #appModalWrapper title="Thêm phiếu nhập nguyên liệu" size="modal-lg">
+    <div class="add-button">
+        <button (click)="addCustomer.show()" type="button" title="THÊM KHÁCH HÀNG" class="ml-2 btn btn-success"
+                style="padding: 5px">
+            <i class="fas fa-users"></i>
+        </button>
+        <button (click)="addMaterial.show()" type="button" title="THÊM NGUYÊN LIỆU" class="ml-2 btn btn-success"
+                style="padding: 5px">
+            <i class="fas fa-cubes"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row form-group">
+            <label class="col-md-2">Khách hàng</label>
+            <div class="col-md-4">
+                <p-autoComplete inputStyleClass="form-control"
+                                [(ngModel)]="customerSelected" [suggestions]="customerList"
+                                (completeMethod)="searchCustomer($event, false)" field="fullName" size="100%"
+                                placeholder="Nhập mã khách hàng" [minLength]="1" [autoHighlight]="true"
+                                (onSelect)="selectCustomer()"
+                                emptyMessage="Không tìm thấy">
+                    <ng-template let-item pTemplate="item">
+                        <div>{{item.fullName}} - {{item.address}}</div>
+                    </ng-template>
+                </p-autoComplete>
+            </div>
+            <label class="col-md-2 text-right">Ngày</label>
+            <div class="col-md-4">
+                <app-date-control (changeDateEvent)="getNumber()" [(ngModel)]="importingMaterial.createdDate" name="birthDate" id="employee_add_birth_date"></app-date-control>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Mã phiếu</label>
+            <div class="col-md-4">
+                <input [(ngModel)]="importingMaterial.code" type="text" class="form-control" placeholder="Nhập mã phiếu"/>
+            </div>
+            <label class="col-md-2 text-right">Số phiếu</label>
+            <div class="col-md-4">
+                <input [(ngModel)]="importingMaterial.number" type="text" class="form-control" placeholder="Nhập số phiếu"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Mô tả</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="importingMaterial.description" type="text" class="form-control" placeholder="Nhập mô tả"/>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Ghi chú</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="importingMaterial.note" type="text" class="form-control" placeholder="Nhập ghi chú"/>
+            </div>
+        </div>
+        <hr>
+        <div class="row form-group">
+            <label class="col-md-2">Nguyên liệu</label>
+            <div class="col-md-10">
+                <p-autoComplete inputStyleClass="form-control"
+                                [(ngModel)]="material" [suggestions]="materialList"
+                                (completeMethod)="searchMaterial($event,false)" field="name" size="100%"
+                                placeholder="Nhập tên nguyên liệu" [minLength]="1" [autoHighlight]="true"
+                                (onSelect)="selectMaterial()"
+                                emptyMessage="Không tìm thấy">
+                </p-autoComplete>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Số lượng</label>
+            <div class="col-md-4 input-group">
+                <input [(ngModel)]="importingTransactionSelected.quantity" (change)="changeQuantity()" type="number" class="form-control" placeholder="Nhập số lượng"/>
+                <div class="input-group-prepend size-input-append-30">
+                    <div class="input-group-text form-control">
+                        {{!importingTransactionSelected.material.id ? '' : '(' + importingTransactionSelected.material.unit + ')'}}
+                    </div>
+                </div>
+            </div>
+            <label class="col-md-2 text-right">Giá</label>
+            <div class="col-md-4 input-group">
+                <input [(ngModel)]="importingTransactionSelected.price" (change)="changePrice()" type="number" class="form-control" placeholder="Nhập giá"/>
+                <div class="input-group-prepend size-input-append-30">
+                    <div class="input-group-text form-control">
+                        {{!importingTransactionSelected.material.id ? '' : '/' + importingTransactionSelected.material.unit}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Tổng tiền</label>
+            <div class="col-md-10">
+                <input [(ngModel)]="importingTransactionSelected.amount" type="text" class="form-control" placeholder="Nhập tổng tiền"/>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div *ngIf="!updateMode" class="col-3 col-md-2 col-lg-1">
+                <button (click)="saveTransaction()" type="button" class=" form-control btn btn-success">Thêm</button>
+            </div>
+            <div *ngIf="updateMode" class="col-3 col-md-2 col-lg-1">
+                <button (click)="saveTransaction()" type="button" size="100%" class=" form-control btn btn-info">Sửa</button>
+            </div>
+            <div *ngIf="updateMode" class="col-3 col-md-2 col-lg-1">
+                <button (click)="cancelTransaction()" type="button" class=" form-control btn btn-danger">Hủy</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body table-responsive p-0" style="height: 150px;">
+                        <table class="table table-head-fixed text-nowrap">
+                            <thead>
+                            <tr>
+                                <th>Nguyên liệu</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Tổng tiền</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let item of importingMaterial.importingTransactionList, let key = index">
+                                <td>{{item.material.name}}</td>
+                                <td>{{item.quantity}} ({{item.material.unit}})</td>
+                                <td>{{item.price}}</td>
+                                <td>{{item.amount}}</td>
+                                <td>
+                                    <app-dropdown-menu>
+                                        <a class="dropdown-item text-cyan" (click)="selectTransaction(key)">
+                                            <i class="far fa-edit"></i>
+                                            Sửa
+                                        </a>
+                                        <a class="dropdown-item text-red" (click)="confirmDeleteTransaction(key)">
+                                            <i class="far fa-trash-alt mr-1"></i>
+                                            Xóa
+                                        </a>
+                                    </app-dropdown-menu>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <label class="col-md-2">Tổng số tiền</label>
+            <div class="col-md-10">
+                <input [value]="this.importingMaterial.getTotal()| number" type="text" class="form-control" placeholder="Nhập mô tả" disabled/>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="saveImportingMaterial()" type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>
+<app-add-customer #addCustomer></app-add-customer>
+<app-add-material #addMaterial></app-add-material>

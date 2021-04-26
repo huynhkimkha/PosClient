@@ -1,0 +1,62 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-12">
+            <div class="col-sm-12 text-center">
+                <h1>QUẢN LÝ DANH MỤC CHI PHÍ</h1>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <app-data-table [dataTable]="search" [columnNumber]="2" (changeEvent)="dataTableChange($event)">
+                            <div class="right-button row justify-content-end input-group">
+                                <button class="btn btn-success ml-2" type="button" (click)="appAddCostCategory.show()" >
+                                    <i class="fas fa-plus"> </i>
+                                    <b> Thêm mới</b>
+                                </button>
+                            </div>
+                            <thead>
+                            <tr>
+                                <th>Tên chi phí</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let e of search.result">
+                                <td>{{e.name}}</td>
+                                <td>
+                                    <button class="btn btn-success mr-1" (click)="appUpdateCostCategory.show(e)" type="button">
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </app-data-table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<!-- /.content -->
+<app-add-cost-category #appAddCostCategory (saveCompleteEvent)="saveCostCategoryCompleteEvent()"></app-add-cost-category>
+<app-update-cost-category #appUpdateCostCategory (saveCompleteEvent)="saveCostCategoryCompleteEvent()"></app-update-cost-category>

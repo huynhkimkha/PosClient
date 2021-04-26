@@ -1,18 +1,18 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import {AppAlert, AppLoading, AppModals} from '../../../../../shared/utils';
-import {ResponseModel} from '../../../../../data/schema/response.model';
-import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
-import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CategoryService} from '../../../../../core/services/agency/category.service';
-import {ProductFullModel} from '../../../../../data/schema/product-full.model';
+import {AppAlert, AppLoading, AppModals} from '../../../utils';
+import {ResponseModel} from '../../../../data/schema/response.model';
+import {HTTP_CODE_CONSTANT} from '../../../../core/constant/http-code.constant';
+import {AppModalWrapperComponent} from '../../modal-wrapper/app-modal-wrapper.component';
+import {CategoryService} from '../../../../core/services/agency/category.service';
+import {ProductFullModel} from '../../../../data/schema/product-full.model';
 import { PRODUCT_STATUS_CONSTANT } from 'src/app/core/constant/product-status.constant';
-import {ProductService} from '../../../../../core/services/agency/product.service';
-import {CategoryModel} from '../../../../../data/schema/category.model';
-import {ProductCategoryModel} from '../../../../../data/schema/product-category.model';
-import {ImgbbService} from '../../../../../core/services/generic/imgbb.service';
-import {SizeModel} from '../../../../../data/schema/size.model';
-import {SizeService} from '../../../../../core/services/agency/size.service';
-import {ProductSizeModel} from '../../../../../data/schema/product-size.model';
+import {ProductService} from '../../../../core/services/agency/product.service';
+import {CategoryModel} from '../../../../data/schema/category.model';
+import {ProductCategoryModel} from '../../../../data/schema/product-category.model';
+import {ImgbbService} from '../../../../core/services/generic/imgbb.service';
+import {SizeModel} from '../../../../data/schema/size.model';
+import {SizeService} from '../../../../core/services/agency/size.service';
+import {ProductSizeModel} from '../../../../data/schema/product-size.model';
 
 
 @Component({

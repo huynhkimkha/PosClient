@@ -14,6 +14,10 @@ import {DropdownMenuComponent} from './components/dropdown-menu/dropdown-menu.co
 import {AppExportComponent} from './components/export/app-export.component';
 import {AppModalWrapperComponent} from './components/modal-wrapper/app-modal-wrapper.component';
 import {AppSelect2ControlComponent} from './components/select2/app-select2-control.component';
+import {AppAddCustomerComponent} from './components/popups/add-customer/app-add-customer.component';
+import {AppAddCostCategoryComponent} from './components/popups/add-cost-category/app-add-cost-category.component';
+import {AppAddMaterialComponent} from './components/popups/add-material/app-add-material.component';
+import {AppAddProductComponent} from './components/popups/add-product/app-add-product.component';
 
 const COMPONENTS = [
   AppAgencyProfileComponent,
@@ -24,6 +28,10 @@ const COMPONENTS = [
   AppExportComponent,
   AppModalWrapperComponent,
   AppSelect2ControlComponent,
+    AppAddCustomerComponent,
+    AppAddCostCategoryComponent,
+    AppAddMaterialComponent,
+    AppAddProductComponent
 ];
 
 const PIPES = [];

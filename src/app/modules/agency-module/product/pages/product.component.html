@@ -1,15 +1,9 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1>Sản phẩm</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a routerLink="/">Trang chủ</a></li>
-                    <li class="breadcrumb-item active text-dark">Sản phẩm</li>
-                </ol>
+        <div class="row mb-12">
+            <div class="col-sm-12 text-center">
+                <h1>QUẢN LÝ SẢN PHẨM</h1>
             </div>
         </div>
     </div>
@@ -41,7 +35,7 @@
                             <tbody>
                             <tr *ngFor="let e of search.result">
                                 <td>{{e.name}}</td>
-                                <td *ngIf="e.status === PRODUCT_STATUS_CONSTANT.ACTIVE else normalText" class="text-red">{{e.getProductStatus()}}</td>
+                                <td *ngIf="e.status === PRODUCT_STATUS_CONSTANT.ACTIVE else normalText" class="text-green">{{e.getProductStatus()}}</td>
                                 <ng-template #normalText>
                                     <td>{{e.getProductStatus()}}</td>
                                 </ng-template>

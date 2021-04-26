@@ -1,0 +1,68 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-12">
+            <div class="col-sm-12 text-center">
+                <h1>QUẢN LÝ NGUYÊN LIỆU</h1>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <app-data-table [dataTable]="search" [columnNumber]="5" (changeEvent)="dataTableChange($event)">
+                            <div class="right-button row justify-content-end input-group">
+                                <button class="btn btn-success ml-2" type="button" (click)="appAddCost.show()" >
+                                    <i class="fas fa-plus"> </i>
+                                    <b> Thêm mới</b>
+                                </button>
+                            </div>
+                            <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Đơn vị</th>
+                                <th>Giá</th>
+                                <th>Nội dung</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let e of search.result">
+                                <td>{{e.name}}</td>
+                                <td>{{e.unit}}</td>
+                                <td>{{e.price}}</td>
+                                <td>{{e.content}}</td>
+                                <td>
+                                    <button class="btn btn-success mr-1" (click)="appUpdateCost.show(e)" type="button">
+                                        <i class="far fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </app-data-table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+</section>
+<!-- /.content -->
+<app-add-material #appAddCost (saveCompleteEvent)="saveMaterialCompleteEvent()"></app-add-material>
+<app-update-material #appUpdateCost (saveCompleteEvent)="saveMaterialCompleteEvent()"></app-update-material>

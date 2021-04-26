@@ -30,4 +30,8 @@ export class CustomerService extends AgencyBaseService {
     public deleteCustomer(id: string): Observable<any> {
         return this.delete('/api/v1/customer/delete', {id});
     }
+
+    public getLikeName(name: string): Observable<any> {
+        return this.get('/api/v1/customer/like-name', {name});
+    }
 }
