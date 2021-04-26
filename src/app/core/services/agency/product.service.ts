@@ -13,6 +13,10 @@ export class ProductService extends AgencyBaseService {
         return this.get('/api/v1/product/findAll');
     }
 
+    public findAllFull(): Observable<any> {
+        return this.get('/api/v1/product/fullList');
+    }
+
     public find(search: BaseSearchModel<ProductModel[]>): Observable<any> {
         return this.post('/api/v1/product/find', search);
     }

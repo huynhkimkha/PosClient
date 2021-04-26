@@ -92,6 +92,16 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'add-bill',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./bill/components/add-bill/addBill.module').then((m) => m.AddBillModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({

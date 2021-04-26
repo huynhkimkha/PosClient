@@ -1,0 +1,35 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row pt-1">
+            <div class="col-xl-5">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="row">
+                            <div *ngFor="let i of productList" class="card col-md-3 m-3">
+                                <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
+                                <div class="card-body">
+                                    <div class="row" >
+                                        <h5 class="col-md-12">{{i.name}}</h5>
+                                    </div>
+
+                                    <div class="row" *ngFor="let e of i.productSizeList">
+                                        <button  class="btn btn-primary col-md-12 m-1">{{e.size.name}}: {{e.price}}</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5">
+                <div class="card">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
