@@ -1,5 +1,6 @@
 import {ProductModel} from './product.model';
 import {SizeModel} from './size.model';
+import {ProductFullModel} from './product-full.model';
 
 export class ProductSizeModel {
     public id: string;

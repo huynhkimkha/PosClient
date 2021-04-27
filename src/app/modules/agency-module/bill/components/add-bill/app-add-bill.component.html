@@ -1,21 +1,29 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row pt-1">
-            <div class="col-xl-5">
+            <div class="col-xl-1">
                 <div class="card">
-                    <div class="card-body row">
+                    <div class="card-body">
                         <div class="row">
-                            <div *ngFor="let i of productList" class="card col-md-3 m-3">
+                            <div *ngFor="let i of categoryList" class="card w-100 border-info border-table">
+                                <div class="card-body p-1 text-info">
+                                    <label>{{i.name}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--            SẢn phẩm-->
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-body row table-responsive" style="height: 600px;">
+                        <div class="row">
+                            <div *ngFor="let i of productList" class="card col-md-3 m-3" (click)="addProduct(i)">
                                 <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
-                                <div class="card-body">
-                                    <div class="row" >
-                                        <h5 class="col-md-12">{{i.name}}</h5>
-                                    </div>
-
-                                    <div class="row" *ngFor="let e of i.productSizeList">
-                                        <button  class="btn btn-primary col-md-12 m-1">{{e.size.name}}: {{e.price}}</button>
-                                    </div>
-
+                                <div class="card-body p-2">
+                                    <h6>{{i.name}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -23,12 +31,82 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-5">
+
+<!--            Bill-->
+            <div class="col-xl-7">
                 <div class="card">
                     <div class="card-body">
-
+                        <table>
+                            <thead>
+                            <tr>
+                                <td colspan="1" style="text-align:center; width: 12%;"><label>Sản phẩm</label></td>
+                                <td colspan="1" style="text-align:center; width: 12%;"><label>Size</label></td>
+                                <td colspan="1" style="text-align:center; width: 12%;"><label>Số Lượng</label></td>
+                                <td colspan="1" style="text-align:center; width: 12%;"><label>THÀNH TIỀN</label></td>
+                                <td colspan="1" style="text-align:center; width: 3%;border: 0px;"></td>
+                            </tr>
+                            </thead>
+                            <tbody *ngFor="let detail of billFull.billProductSizeList; index as index">
+                            <tr style="border-style: dot-dot-dash">
+                                <td colspan="1">
+                                    <div class="col-12 input-group">
+                                        <input disabled [(ngModel)]="detail.productSize.product.name" type="text"
+                                               class="form-control">
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 input-group">
+                                        <input disabled [(ngModel)]="detail.productSize.size.name" type="text"
+                                               class="form-control">
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 input-group">
+                                        <input (change)="changeQuantity(index)" [(ngModel)]="detail.quantity"
+                                               type="number" class="form-control">
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right">
+                                        {{detail.price | number}}
+                                    </div>
+                                </td>
+                                <td style="border: 0px">
+                                    <button class="btn btn-danger text-center" style=""
+                                            (click)="confirmDeleteDetail(index)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <div class="col-12 text-right">
+                                        <label style="text-align: right">CỘNG:</label>
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right">
+                                        {{this.billFull.getTotal()| number}}
+                                    </div>
+                                </td>
+                                <td style="border: 0px" colspan="1">
+                                </td>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <div>
+                            <button (click)="closeAddBill()" class="btn btn-light mr-1">Đóng</button>
+                        </div>
+                        <div>
+                            <button (click)="saveBill()"  type="button" class="btn btn-success">Lưu</button>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

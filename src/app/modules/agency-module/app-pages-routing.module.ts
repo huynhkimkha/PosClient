@@ -142,6 +142,16 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'bill',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./bill/bill.module').then((m) => m.BillModule),
+            },
+        ],
+    },
 ];
 
 @NgModule({

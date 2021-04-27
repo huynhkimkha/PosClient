@@ -1,0 +1,67 @@
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-12">
+            <div class="col-sm-12 text-center">
+                <h1>QUẢN LÝ HÓA ĐƠN</h1>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <app-data-table [dataTable]="searchData" [columnNumber]="11" (changeEvent)="dataTableChange($event)">
+                            <div class="right-button row justify-content-end input-group">
+                                <button type="button" (click)="addBill()" class="btn btn-success ml-2">
+                                    <i class="fas fa-plus"> </i>
+                                    <b> Thêm mới </b>
+                                </button>
+                            </div>
+                            <thead>
+                            <tr>
+                                <th>Ngày
+                                    <i (click)="createdDateSort()" *ngIf="searchData.createdDateSort == 'desc' || searchData.createdDateSort == null" class="fas fa-sort-amount-down"></i>
+                                    <i (click)="createdDateSort()" *ngIf="searchData.createdDateSort == 'asc'" class="fas fa-sort-amount-up"></i>
+                                </th>
+                                <th>Mã CT</th>
+                                <th>Số CT</th>
+                                <th>Khách hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Chú thích</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let e of searchData.result, let i = index">
+                                <td>{{e.createdDate | date: 'dd-MM-yyyy'}}</td>
+                                <td>{{e.code}}</td>
+                                <td>{{e.number}}</td>
+                                <td>{{e.customer.fullName}}</td>
+                                <td>{{e.amount}}</td>
+                                <td>{{e.description}}</td>
+                                <td>
+                                    <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </app-data-table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
