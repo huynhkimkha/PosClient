@@ -3,6 +3,7 @@ import {AgencyBaseService} from '../generic/agency-base.service';
 import {Observable} from 'rxjs';
 import {BaseSearchModel} from '../../../data/schema/search/base-search.model';
 import {CostModel} from '../../../data/schema/cost.model';
+import {RangeDateModel} from '../../../data/schema/range-date.model';
 
 @Injectable({
     providedIn: 'root'
@@ -34,5 +35,17 @@ export class CostService extends AgencyBaseService {
 
     public getNumber(createdDate: string): Observable<any> {
         return this.get('/api/v1/cost/get-number/' + createdDate);
+    }
+
+    public getDateCost(rangeDate: RangeDateModel){
+        return this.post('/api/v1/cost/getDateCost', rangeDate);
+    }
+
+    public getMonthCost(rangeDate: RangeDateModel){
+        return this.post('/api/v1/cost/getMonthCost', rangeDate);
+    }
+
+    public getYearCost(rangeDate: RangeDateModel){
+        return this.post('/api/v1/cost/getYearCost', rangeDate);
     }
 }
