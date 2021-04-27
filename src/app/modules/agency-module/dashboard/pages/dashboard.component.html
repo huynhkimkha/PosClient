@@ -1,3 +1,110 @@
 <section class="content">
-    Hello world
+    <section class="content-header">
+        <div class="container-fluid">
+            <br>
+            <div class="row">
+                <div class="col-sm-12 text-center text-bold">
+                    <h3> <b> Xin chào {{currentUser.fullName}} </b> </h3>
+                </div>
+            </div>
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <br>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-2">
+                &nbsp;
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Số lượng nhân viên</span>
+                        <span class="info-box-number">15</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Số lượng khách hàng</span>
+                        <span class="info-box-number">20</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-money-bill"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Doanh thu tháng này</span>
+                        <span class="info-box-number">123</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-money-bill"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Doanh thu tháng này</span>
+                        <span class="info-box-number">123</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+
+            <!-- /.col -->
+        </div>
+        <br>
+        <div *ngIf="this.currentUserService.getPermissions() === USER_PERMISSION_CODE.MANAGER" class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row form-group">
+                                <label class="col-lg-2 mt-1">Chi phí</label>
+                                <div class="col-lg-3">
+                                    <select [(ngModel)]="costType" (change)="getCostWithOption()" class="form-control">
+                                        <option [value]="0">Tháng này</option>
+                                        <option [value]="1">Quý này</option>
+                                        <option [value]="2">Năm này</option>
+                                        <option [value]="4">Tháng trước</option>
+                                        <option [value]="5">Quý trước</option>
+                                        <option [value]="6">Năm trước</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 mt-2 mt-lg-0">
+                                    <app-date-control (changeDateEvent)="getCost()" [(ngModel)]="costStartDate" formatDate="mm/yyyy" minViewMode="months" startView="months"></app-date-control>
+                                </div>
+                                <label class="col-lg-1 mt-1 text-center">đến</label>
+                                <div class="col-lg-3">
+                                    <app-date-control (changeDateEvent)="getCost()" [(ngModel)]="costEndDate" formatDate="mm/yyyy" minViewMode="months" startView="months"></app-date-control>
+                                </div>
+                            </div>
+                            <p-chart type="line" [options]="costOption" [data]="costStatisticData" width="100%" height="55vh"></p-chart>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
