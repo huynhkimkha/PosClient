@@ -14,6 +14,8 @@ import {BillService} from '../../../../core/services/agency/bill.service';
 import {MonthBillModel} from '../../../../data/schema/month-bill.model';
 import {DateBillModel} from '../../../../data/schema/date-bill.model';
 import {YearBillModel} from '../../../../data/schema/year-bill.model';
+import {CustomerService} from "../../../../core/services/agency/customer.service";
+import {CustomerModel} from "../../../../data/schema/customer.model";
 
 @Component({
     selector: 'app-dashboard',
@@ -138,8 +140,8 @@ export class DashboardComponent implements AfterViewInit {
             }]
         }
     };
-
-
+    public employeeAmount: number;
+    public customerAmount: number;
     public USER_PERMISSION_CODE = USER_PERMISSION_CODE;
 
     private countRequest: number;
@@ -148,7 +150,8 @@ export class DashboardComponent implements AfterViewInit {
     private revenueData: any;
     public revenueStatisticData: any;
     public currentUser: EmployeeModel = new EmployeeModel();
-
+    public revenueTotal: number;
+    public costTotal: number;
     constructor(
         private alert: AppAlert,
         private loading: AppLoading,
@@ -157,7 +160,8 @@ export class DashboardComponent implements AfterViewInit {
         private costService: CostService,
         public currentUserService: CurrentUserService,
         private employeeService: EmployeeService,
-        private billService: BillService
+        private billService: BillService,
+        private customerService: CustomerService
     ) {
     }
 
@@ -166,6 +170,8 @@ export class DashboardComponent implements AfterViewInit {
         this.getCost();
         this.getRevenue();
         this.getCurrentUserByEmail();
+        this.findAllEmployee();
+        this.findAllCustomer();
     }
 
     private getCurrentUserByEmail(){
@@ -181,6 +187,34 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.currentUser = res.result;
+    }
+
+    private findAllEmployee(){
+        this.employeeService.findAll().subscribe(res => this.findAllEmployeeCompleted(res));
+    }
+
+    private findAllEmployeeCompleted(res: ResponseModel<EmployeeModel[]>){
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.employeeAmount = res.result.length;
+    }
+
+    private findAllCustomer(){
+        this.customerService.findAll().subscribe(res => this.findAllCustomerCompleted(res));
+    }
+
+    private findAllCustomerCompleted(res: ResponseModel<CustomerModel[]>){
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.customerAmount = res.result.length;
     }
 
     public getCost(){
@@ -330,6 +364,10 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.costData = res.result;
+        this.costTotal = 0;
+        for (const item of this.costData){
+            this.costTotal += item.total;
+        }
         this.loadCostByMonthCompleted();
     }
 
@@ -341,6 +379,10 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.costData = res.result;
+        this.costTotal = 0;
+        for (const item of this.costData){
+            this.costTotal += item.total;
+        }
         this.loadCostByDateCompleted();
     }
 
@@ -352,7 +394,10 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.costData = res.result;
-        console.log(this.costData);
+        this.costTotal = 0;
+        for (const item of this.costData){
+            this.costTotal += item.total;
+        }
         this.loadCostByYearCompleted();
     }
 
@@ -364,7 +409,10 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.revenueData = res.result;
-        console.log(this.revenueData);
+        this.revenueTotal = 0;
+        for (const item of this.revenueData){
+            this.revenueTotal += item.total;
+        }
         this.loadRevenueByMonthCompleted();
     }
 
@@ -376,6 +424,10 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.revenueData = res.result;
+        this.revenueTotal = 0;
+        for (const item of this.revenueData){
+            this.revenueTotal += item.total;
+        }
         this.loadRevenueByDateCompleted();
     }
 
@@ -387,6 +439,10 @@ export class DashboardComponent implements AfterViewInit {
             return;
         }
         this.revenueData = res.result;
+        this.revenueTotal = 0;
+        for (const item of this.revenueData){
+            this.revenueTotal += item.total;
+        }
         this.loadRevenueByYearCompleted();
     }
 
