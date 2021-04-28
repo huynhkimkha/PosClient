@@ -47,7 +47,7 @@
                                 <td>{{e.code}}</td>
                                 <td>{{e.number}}</td>
                                 <td>{{e.employee.fullName}}</td>
-                                <td>{{e.amount}}</td>
+                                <td>{{e.amount | number}}</td>
                                 <td>{{e.description}}</td>
                                 <td>
                                     <button class="btn btn-danger" (click)="confirmDelete(e)" type="button">

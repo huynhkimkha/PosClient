@@ -39,7 +39,7 @@
                             <tr *ngFor="let e of search.result">
                                 <td>{{e.name}}</td>
                                 <td>{{e.description}}</td>
-                                <td>{{e.amount}} {{e.getTypePromotion()}}</td>
+                                <td>{{e.amount | number}} {{e.getTypePromotion()}}</td>
                                 <td *ngIf="e.status === STATUS_PROMOTION_CONSTANT.ACTIVE else normalText" class="text-green">{{e.getStatusPromotion()}}</td>
                                 <ng-template #normalText>
                                     <td>{{e.getStatusPromotion()}}</td>

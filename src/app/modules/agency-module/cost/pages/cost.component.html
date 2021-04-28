@@ -46,7 +46,7 @@
                                 <td>{{e.code}}</td>
                                 <td>{{e.number}}</td>
                                 <td>{{e.costCategory.name}}</td>
-                                <td>{{e.amount}}</td>
+                                <td>{{e.amount | number}}</td>
                                 <td>{{e.description}}</td>
                                 <td>
                                     <button class="btn btn-success mr-1" (click)="appUpdateCost.show(e)" type="button">

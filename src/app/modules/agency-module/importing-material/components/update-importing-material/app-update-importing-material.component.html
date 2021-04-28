@@ -108,9 +108,9 @@
                             <tbody>
                             <tr *ngFor="let item of importingMaterial.importingTransactionList, let key = index">
                                 <td>{{item.material.name}}</td>
-                                <td>{{item.quantity}} ({{item.material.unit}})</td>
-                                <td>{{item.price}}</td>
-                                <td>{{item.amount}}</td>
+                                <td>{{item.quantity | number}} ({{item.material.unit}})</td>
+                                <td>{{item.price | number}}</td>
+                                <td>{{item.amount | number}}</td>
                                 <td>
                                     <app-dropdown-menu>
                                         <a class="dropdown-item text-cyan" (click)="selectTransaction(key)">

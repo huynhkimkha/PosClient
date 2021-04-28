@@ -40,7 +40,7 @@
                             <tr *ngFor="let e of search.result">
                                 <td>{{e.name}}</td>
                                 <td>{{e.unit}}</td>
-                                <td>{{e.price}}</td>
+                                <td>{{e.price | number}} VNĐ</td>
                                 <td>{{e.content}}</td>
                                 <td>
                                     <button class="btn btn-success mr-1" (click)="appUpdateCost.show(e)" type="button">
