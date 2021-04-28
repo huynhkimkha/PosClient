@@ -18,6 +18,7 @@ import {AppAddCustomerComponent} from './components/popups/add-customer/app-add-
 import {AppAddCostCategoryComponent} from './components/popups/add-cost-category/app-add-cost-category.component';
 import {AppAddMaterialComponent} from './components/popups/add-material/app-add-material.component';
 import {AppAddProductComponent} from './components/popups/add-product/app-add-product.component';
+import {AppCostStatisticGeneralComponent} from './components/popups/cost-statistic-general/app-cost-statistic-general.component';
 
 const COMPONENTS = [
   AppAgencyProfileComponent,
@@ -31,7 +32,8 @@ const COMPONENTS = [
     AppAddCustomerComponent,
     AppAddCostCategoryComponent,
     AppAddMaterialComponent,
-    AppAddProductComponent
+    AppAddProductComponent,
+  AppCostStatisticGeneralComponent
 ];
 
 const PIPES = [];

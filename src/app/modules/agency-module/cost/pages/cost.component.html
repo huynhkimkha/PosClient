@@ -22,6 +22,10 @@
                     <div class="card-body">
                         <app-data-table [dataTable]="search" [columnNumber]="6" (changeEvent)="dataTableChange($event)">
                             <div class="right-button row justify-content-end input-group">
+                                <button type="button" (click)="appCostStatisticComponent.show()" class="btn btn-success mr-2">
+                                    <i class="fas fa-print"> </i>
+                                    <b> Thống kê</b>
+                                </button>
                                 <button class="btn btn-success ml-2" type="button" (click)="appAddCost.show()" >
                                     <i class="fas fa-plus"> </i>
                                     <b> Thêm mới</b>
@@ -68,3 +72,4 @@
 <!-- /.content -->
 <app-add-cost #appAddCost (saveCompleteEvent)="saveCostCompleteEvent()"></app-add-cost>
 <app-update-cost #appUpdateCost (saveCompleteEvent)="saveCostCompleteEvent()"></app-update-cost>
+<app-cost-statistic #appCostStatisticComponent (saveCompleteEvent)="saveCostCompleteEvent()"></app-cost-statistic>

@@ -48,4 +48,8 @@ export class CostService extends AgencyBaseService {
     public getYearCost(rangeDate: RangeDateModel){
         return this.post('/api/v1/cost/getYearCost', rangeDate);
     }
+
+    public getCostStatistic(rangeDate: RangeDateModel){
+        return this.post('/api/v1/cost/getCostStatistic', rangeDate);
+    }
 }
