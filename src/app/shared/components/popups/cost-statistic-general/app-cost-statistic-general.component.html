@@ -13,20 +13,19 @@
                                     <th>Số CT</th>
                                     <th>Tổng tiền</th>
                                     <th>Diễn giải</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr *ngFor="let item of costList, let key = index">
-                                    <td>{{item.costCategory.name}}</td>
+                                    <td>{{item.costCategory.name | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{item.code}}</td>
                                     <td>{{item.number}}</td>
-                                    <td>{{item.amount}}</td>
+                                    <td>{{item.amount | number}}</td>
                                     <td>{{item.description}}</td>
-                                    <td>
-                                        <app-dropdown-menu>
-                                        </app-dropdown-menu>
-                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right">Tổng chi phí: </td>
+                                    <td colspan="2"><b>{{costTotal |number}} VNĐ</b></td>
                                 </tr>
                                 </tbody>
                             </table>

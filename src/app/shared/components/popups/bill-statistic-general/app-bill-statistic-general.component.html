@@ -14,21 +14,20 @@
                                     <th>Nhân viên</th>
                                     <th>Tổng tiền</th>
                                     <th>Chú thích</th>
-                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr *ngFor="let item of billList, let key = index">
-                                    <td>{{item.createdDate}}</td>
+                                    <td>{{item.createdDate | date: 'dd-MM-yyyy'}}</td>
                                     <td>{{item.code}}</td>
                                     <td>{{item.number}}</td>
                                     <td>{{item.employee.fullName}}</td>
                                     <td>{{item.amount}}</td>
                                     <td>{{item.description}}</td>
-                                    <td>
-                                        <app-dropdown-menu>
-                                        </app-dropdown-menu>
-                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right">Tổng doanh thu: </td>
+                                    <td colspan="2"><b>{{revenueTotal |number}} VNĐ</b></td>
                                 </tr>
                                 </tbody>
                             </table>

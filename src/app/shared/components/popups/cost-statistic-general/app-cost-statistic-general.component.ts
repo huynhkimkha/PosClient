@@ -10,6 +10,7 @@ import {CostService} from '../../../../core/services/agency/cost.service';
 })
 export class AppCostStatisticGeneralComponent implements AfterViewInit {
     public costList: CostModel[] = [];
+    public costTotal: number;
 
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
@@ -27,6 +28,10 @@ export class AppCostStatisticGeneralComponent implements AfterViewInit {
 
     public show(costList: CostModel[]) {
         this.costList = costList;
+        this.costTotal = 0;
+        for (const item of this.costList){
+            this.costTotal += item.amount;
+        }
         this.appModalWrapper.show();
     }
 }

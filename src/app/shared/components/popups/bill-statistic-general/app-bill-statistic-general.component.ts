@@ -10,7 +10,7 @@ import {BillService} from '../../../../core/services/agency/bill.service';
 })
 export class AppBillStatisticGeneralComponent implements AfterViewInit {
     public billList: BillModel[] = [];
-
+    public revenueTotal: number;
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
 
@@ -27,6 +27,10 @@ export class AppBillStatisticGeneralComponent implements AfterViewInit {
 
     public show(billList: BillModel[]) {
         this.billList = billList;
+        this.revenueTotal = 0;
+        for (const item of this.billList){
+            this.revenueTotal += item.amount;
+        }
         this.appModalWrapper.show();
     }
 }
