@@ -1,29 +1,29 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 import {AppAlert, AppLoading} from '../../../../../shared/utils';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
-import {CostModel} from '../../../../../data/schema/cost.model';
-import {CostService} from '../../../../../core/services/agency/cost.service';
+import {BillModel} from '../../../../../data/schema/bill.model';
+import {BillService} from '../../../../../core/services/agency/bill.service';
 import {ResponseModel} from '../../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
-import {AppCostStatisticGeneralComponent} from '../../../../../shared/components/popups/cost-statistic-general/app-cost-statistic-general.component';
+import {AppBillStatisticGeneralComponent} from '../../../../../shared/components/popups/bill-statistic-general/app-bill-statistic-general.component';
 
 @Component({
-    selector: 'app-cost-statistic',
-    templateUrl: './app-cost-statistic.component.html'
+    selector: 'app-bill-statistic',
+    templateUrl: './app-bill-statistic.component.html'
 })
-export class AppCostStatisticComponent implements AfterViewInit {
-    public costList: CostModel[] = [];
+export class AppBillStatisticComponent implements AfterViewInit {
+    public billList: BillModel[] = [];
     public fromDate: string;
     public toDate: string;
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
-    @ViewChild('appCostStatisticGeneral', { static: true }) appCostStatisticGeneral: AppCostStatisticGeneralComponent;
+    @ViewChild('appBillStatisticGeneral', { static: true }) appBillStatisticGeneral: AppBillStatisticGeneralComponent;
 
     constructor(
         private root: ElementRef,
         private alert: AppAlert,
         private loading: AppLoading,
-        private costService: CostService
+        private billService: BillService
     ) {
 
     }
@@ -55,10 +55,10 @@ export class AppCostStatisticComponent implements AfterViewInit {
             fromDate: startDate.getTime(),
             toDate: endDate.getTime()
         };
-        this.costService.getCostStatistic(rangeDate).subscribe(res => this.statisticCompleted(res));
+        this.billService.getBillStatistic(rangeDate).subscribe(res => this.statisticCompleted(res));
     }
 
-    private statisticCompleted(res: ResponseModel<CostModel[]>) {
+    private statisticCompleted(res: ResponseModel<BillModel[]>) {
         this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
@@ -67,8 +67,8 @@ export class AppCostStatisticComponent implements AfterViewInit {
             return;
         }
         this.alert.success('Thống kê chi phí thành công!');
-        this.costList = res.result;
-        this.appCostStatisticGeneral.show(this.costList);
+        this.billList = res.result;
+        this.appBillStatisticGeneral.show(this.billList);
         this.appModalWrapper.hide();
     }
 }

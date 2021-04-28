@@ -1,11 +1,13 @@
 import {PromotionModel} from './promotion.model';
 import {AgencyModel} from './agency.model';
 import {BillProductSizeModel} from './bill-product-size.model';
+import {EmployeeModel} from './employee.model';
 
 export class BillFullModel {
     public id: string;
     public name: string;
     public status: string;
+    public employee: EmployeeModel;
     public promotion: PromotionModel;
     public agency: AgencyModel;
     public code: string;
@@ -24,6 +26,7 @@ export class BillFullModel {
         this.id = billFull.id;
         this.name = billFull.name;
         this.status = billFull.status;
+        this.employee = new EmployeeModel(billFull.employee);
         this.promotion = new PromotionModel(billFull.promotion);
         this.agency = new AgencyModel(billFull.agency);
         this.code = billFull.code;

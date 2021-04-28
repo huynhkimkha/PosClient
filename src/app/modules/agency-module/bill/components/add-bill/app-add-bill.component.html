@@ -24,6 +24,11 @@
                                 <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
                                 <div class="card-body p-2">
                                     <h6>{{i.name}}</h6>
+                                    <div class="row">
+                                        <button class="btn btn-primary mr-1" *ngFor="let e of i.productSizeList">
+                                            {{e.size.name}}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

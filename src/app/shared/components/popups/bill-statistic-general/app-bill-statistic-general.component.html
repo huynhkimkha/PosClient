@@ -1,0 +1,46 @@
+<app-modal-wrapper #appModalWrapper title="Thống kê doanh thu" size="modal-xl">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card">
+                        <div class="card-body table-responsive p-0" style="height: 550px;">
+                            <table class="table table-head-fixed table-bordered table-striped text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>Ngày tạo</th>
+                                    <th>Mã CT</th>
+                                    <th>Số CT</th>
+                                    <th>Nhân viên</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Chú thích</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let item of billList, let key = index">
+                                    <td>{{item.createdDate}}</td>
+                                    <td>{{item.code}}</td>
+                                    <td>{{item.number}}</td>
+                                    <td>{{item.employee.fullName}}</td>
+                                    <td>{{item.amount}}</td>
+                                    <td>{{item.description}}</td>
+                                    <td>
+                                        <app-dropdown-menu>
+                                        </app-dropdown-menu>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer justify-content-between">
+        <div>
+            <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        </div>
+    </div>
+</app-modal-wrapper>

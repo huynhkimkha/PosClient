@@ -15,6 +15,8 @@ import {BillProductSizeModel} from '../../../../../data/schema/bill-product-size
 import {ProductSizeModel} from '../../../../../data/schema/product-size.model';
 import {BillService} from '../../../../../core/services/agency/bill.service';
 import {Router} from '@angular/router';
+import {EmployeeModel} from "../../../../../data/schema/employee.model";
+import {EmployeeService} from "../../../../../core/services/agency/employee.service";
 
 @Component({
     selector: 'app-add-bill',
@@ -27,6 +29,7 @@ export class AppAddBillComponent implements AfterViewInit {
     public PRODUCT_STATUS_CONSTANT = PRODUCT_STATUS_CONSTANT;
     public categories: CategoryModel[] = [];
     public categoryList: CategoryModel[] = [];
+    public currentUser: EmployeeModel = new EmployeeModel();
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
 
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -41,6 +44,7 @@ export class AppAddBillComponent implements AfterViewInit {
         private sizeService: SizeService,
         private billService: BillService,
         private router: Router,
+        private employeeService: EmployeeService
     ) {
 
     }
@@ -49,19 +53,34 @@ export class AppAddBillComponent implements AfterViewInit {
         this.loadProducts();
         this.loadCategory();
         this.loadSizes();
-        this.billFull.createdDate = new Date().getTime().toString(10);
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const yyyy = today.getFullYear();
+        this.billFull.createdDate = yyyy + '-' + mm + '-' + dd;
+        this.getCurrentUserByEmail();
         this.getNumber();
     }
 
-    public show() {
-        this.categories = [];
-        this.billFull.createdDate = new Date().getTime().toString(10);
-        this.getNumber();
-        this.appModalWrapper.show();
-    }
+
 
     public hide() {
         this.appModalWrapper.hide();
+    }
+
+    private getCurrentUserByEmail(){
+        const employeeEmail = JSON.parse(localStorage.getItem('USER_DATA')).email;
+        this.employeeService.getEmployeeByEmail(employeeEmail).subscribe(res => this.getCurrentUserByEmailCompleted(res));
+    }
+
+    private getCurrentUserByEmailCompleted(res: ResponseModel<EmployeeModel>){
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.currentUser = res.result;
     }
 
     private loadProducts() {
@@ -144,7 +163,7 @@ export class AppAddBillComponent implements AfterViewInit {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.billFull.amount = this.billFull.getTotal();
         this.billFull.code = 'HD';
-        console.log(this.billFull);
+        this.billFull.employee = new EmployeeModel(this.currentUser);
         this.billService.save(this.billFull).subscribe(res => this.saveBillCompleted(res));
     }
 

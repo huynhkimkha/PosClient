@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {AgencyBaseService} from '../generic/agency-base.service';
 import {Observable} from 'rxjs';
 import {BillFullModel} from '../../../data/schema/bill-full.model';
-import {BaseSearchModel} from "../../../data/schema/search/base-search.model";
-import {BillModel} from "../../../data/schema/bill.model";
+import {BaseSearchModel} from '../../../data/schema/search/base-search.model';
+import {BillModel} from '../../../data/schema/bill.model';
+import {RangeDateModel} from '../../../data/schema/range-date.model';
 
 @Injectable({
     providedIn: 'root'
@@ -39,5 +40,21 @@ export class BillService extends AgencyBaseService {
     //
     public deleteBill(id: string): Observable<any> {
         return this.delete('/api/v1/bill/delete', {id});
+    }
+
+    public getBillStatistic(rangeDate: RangeDateModel){
+        return this.post('/api/v1/bill/getBillStatistic', rangeDate);
+    }
+
+    public getDateRevenue(rangeDate: RangeDateModel){
+        return this.post('/api/v1/bill/getDateBill', rangeDate);
+    }
+
+    public getMonthRevenue(rangeDate: RangeDateModel){
+        return this.post('/api/v1/bill/getMonthBill', rangeDate);
+    }
+
+    public getYearRevenue(rangeDate: RangeDateModel){
+        return this.post('/api/v1/bill/getYearBill', rangeDate);
     }
 }

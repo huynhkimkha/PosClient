@@ -1,0 +1,20 @@
+<app-modal-wrapper #appModalWrapper title="Thống kê doanh thu" size="modal-lg">
+    <div class="modal-body">
+        <div class="row form-group">
+            <label class="col-md-2">Ngày bắt đầu</label>
+            <div class="col-md-3">
+                <app-date-control [(ngModel)]="fromDate" name="fromDate"></app-date-control>
+            </div>
+            <label class="col-md-2 text-right">Ngày kết thúc</label>
+            <div class="col-md-3">
+                <app-date-control [(ngModel)]="toDate" name="toDate"></app-date-control>
+            </div>
+            <button (click)="statistic()" class="col-md-2" type="button" class="btn btn-success">Thống kê</button>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+    </div>
+</app-modal-wrapper>
+<app-bill-statistic-general #appBillStatisticGeneral></app-bill-statistic-general>

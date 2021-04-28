@@ -24,6 +24,9 @@ export const routes: Routes = [
         CostComponent,
         ...COMPONENTS
     ],
+    exports: [
+        AppCostStatisticComponent
+    ],
     imports: [
         SharedModule,
         RouterModule.forChild(routes)

@@ -123,4 +123,13 @@ export const ROUTER_USER_PERMISSION_MAPPER = [
     sort: 12,
     isMenu: true,
   }),
+  new RouterPermissionMappingModel({
+    routerLink: '/bill',
+    matchUrl: '',
+    name: 'Hoá đơn',
+    icon: 'fa-boxes',
+    permissions: [USER_PERMISSION_CODE.MANAGER, USER_PERMISSION_CODE.STAFF],
+    sort: 13,
+    isMenu: true,
+  }),
 ];
