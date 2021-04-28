@@ -1,6 +1,7 @@
 import {PRODUCT_STATUS_CONSTANT} from '../../core/constant/product-status.constant';
 import {ProductCategoryModel} from './product-category.model';
 import {ProductSizeModel} from './product-size.model';
+import {ProductModel} from './product.model';
 
 export class ProductFullModel {
     public id: string;
@@ -32,8 +33,8 @@ export class ProductFullModel {
             this.productCategoryList.push(new ProductCategoryModel(detail));
         }
         this.productSizeList = [];
-        for (const detail of product.productSizeList) {
-            this.productSizeList.push(new ProductSizeModel(detail));
+        for (const detail2 of product.productSizeList) {
+            this.productSizeList.push(new ProductSizeModel(detail2));
         }
     }
 
@@ -46,5 +47,18 @@ export class ProductFullModel {
             default:
                 return '';
         }
+    }
+
+    public toProductModel(): ProductModel{
+        const product = new ProductModel();
+        product.id = this.id;
+        product.name = this.name;
+        product.status = this.status;
+        product.nameSlug = this.nameSlug;
+        product.image = this.image;
+        product.content = this.content;
+        product.createdDate = this.createdDate;
+        product.updatedDate = this.updatedDate;
+        return  product;
     }
 }

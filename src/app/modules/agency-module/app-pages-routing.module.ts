@@ -93,15 +93,25 @@ const routes: Routes = [
         ],
     },
     {
-        path: 'material',
+        path: 'add-bill',
         children: [
             {
                 path: '',
                 loadChildren: () =>
-                    import('./material/material.module').then((m) => m.MaterialModule),
+                    import('./bill/components/add-bill/addBill.module').then((m) => m.AddBillModule),
             },
         ],
     },
+{
+    path: 'material',
+        children: [
+    {
+        path: '',
+        loadChildren: () =>
+            import('./material/material.module').then((m) => m.MaterialModule),
+    },
+],
+},
     {
         path: 'inventory',
         children: [
@@ -129,6 +139,16 @@ const routes: Routes = [
                 path: '',
                 loadChildren: () =>
                     import('./cost-category/cost-category.module').then((m) => m.CostCategoryModule),
+            },
+        ],
+    },
+    {
+        path: 'bill',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./bill/bill.module').then((m) => m.BillModule),
             },
         ],
     },

@@ -1,0 +1,39 @@
+table{
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+
+td {
+    height: 7px;
+}
+
+table td {
+    border: 2px solid #000000;
+}
+
+.border-table {
+    border: 1px solid #000000;
+}
+
+input {
+    height: 25px;
+}
+
+@media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="number"],
+    section .text-right {
+        text-align: left !important;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}

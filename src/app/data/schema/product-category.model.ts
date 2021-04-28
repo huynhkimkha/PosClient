@@ -1,5 +1,6 @@
-import {ProductModel} from './product.model';
 import {CategoryModel} from './category.model';
+import {ProductFullModel} from './product-full.model';
+import {ProductModel} from "./product.model";
 
 export class ProductCategoryModel {
     public id: string;
