@@ -83,7 +83,7 @@ export class AppAddBillComponent implements AfterViewInit {
         this.currentUser = res.result;
     }
 
-    private loadProducts() {
+    public loadProducts() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.productService.findAllFull().subscribe(res => this.loadProductsCompleted(res));
     }
