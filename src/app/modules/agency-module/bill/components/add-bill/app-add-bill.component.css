@@ -33,3 +33,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+
+ .active {
+    border-color: #00b44e;
+}

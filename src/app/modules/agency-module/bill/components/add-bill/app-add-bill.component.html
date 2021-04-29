@@ -23,12 +23,12 @@
                 <div class="card" style="height: 630px;">
                     <div class="card-body row table-responsive pt-0 pb-0">
                         <div class="row">
-                            <div *ngFor="let i of productList" class="card col-md-3 m-3" (click)="addProduct(i)">
+                            <div *ngFor="let i of productList" class="card col-md-3 m-3">
                                 <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
                                 <div class="card-body p-2">
                                     <h6>{{i.name}}</h6>
                                     <div class="row">
-                                        <button class="btn btn-primary mr-1" *ngFor="let e of i.productSizeList">
+                                        <button (click)="addProductSize(e)" class="col-md-3 btn btn-primary p-1 mr-1" type="button" *ngFor="let e of i.productSizeList">
                                             {{e.size.name}}
                                         </button>
                                     </div>
@@ -43,7 +43,7 @@
 <!--            Bill-->
             <div class="col-xl-7">
                 <div class="card" style="max-height: 630px">
-                    <div class="card-body table-responsive" >
+                    <div class="card-body table-responsive  pb-0" >
                         <table>
                             <thead>
                             <tr class="border-bottom">
@@ -89,7 +89,7 @@
 
                             </tbody>
                             <tfoot>
-                            <tr class="border-top">
+                            <tr class="border-top border-bottom">
                                 <td colspan="3">
                                     <div class="col-12 text-right">
                                         <label style="text-align: right">CỘNG:</label>
@@ -103,8 +103,60 @@
                                 <td style="border: 0px" colspan="1">
                                 </td>
                             </tr>
+                            <tr class="border-top border-bottom">
+                                <td colspan="3">
+                                    <div class="col-12 text-right">
+                                        <label style="text-align: right">Trừ:</label>
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right" >
+                                        {{this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED ? this.selectedPromotion.amount : this.billFull.getTotal() * this.selectedPromotion.amount /100 |  number}}
+                                    </div>
+                                </td>
+                                <td style="border: 0px" colspan="1">
+                                </td>
+                            </tr>
+                            <tr class="border-top border-bottom">
+                                <td colspan="3">
+                                    <div class="col-12 text-right">
+                                        <label style="text-align: right">Tổng:</label>
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right">
+                                        {{this.billFull.amount| number}}
+                                    </div>
+                                </td>
+                                <td style="border: 0px" colspan="1">
+                                </td>
+                            </tr>
                             </tfoot>
                         </table>
+
+
+                        <div class="row pt-3">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body table-responsive p-0" style="width: 100%;">
+                                        <table class="table table-head-fixed text-nowrap">
+                                            <thead>
+                                                <tr class="border-top" style="display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                                                    <td *ngFor="let i of promotionList" colspan="1">
+                                                        <div class="card" (click)="choosePromotion(i)">
+                                                            <div class="card-body pb-0 pt-1">
+                                                                <h6>{{i.name}}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer justify-content-between">
                         <div>

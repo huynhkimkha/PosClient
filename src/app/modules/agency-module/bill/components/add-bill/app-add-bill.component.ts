@@ -15,8 +15,11 @@ import {BillProductSizeModel} from '../../../../../data/schema/bill-product-size
 import {ProductSizeModel} from '../../../../../data/schema/product-size.model';
 import {BillService} from '../../../../../core/services/agency/bill.service';
 import {Router} from '@angular/router';
-import {EmployeeModel} from "../../../../../data/schema/employee.model";
-import {EmployeeService} from "../../../../../core/services/agency/employee.service";
+import {EmployeeModel} from '../../../../../data/schema/employee.model';
+import {EmployeeService} from '../../../../../core/services/agency/employee.service';
+import {PromotionModel} from '../../../../../data/schema/promotion.model';
+import {PromotionService} from '../../../../../core/services/agency/promotion.service';
+import {TYPE_PROMOTION_CONSTANT} from '../../../../../core/constant/type-promotion.constant';
 
 @Component({
     selector: 'app-add-bill',
@@ -26,10 +29,12 @@ import {EmployeeService} from "../../../../../core/services/agency/employee.serv
 export class AppAddBillComponent implements AfterViewInit {
     public billFull: BillFullModel = new BillFullModel();
     public productList: ProductFullModel[] = [];
-    public PRODUCT_STATUS_CONSTANT = PRODUCT_STATUS_CONSTANT;
+    public TYPE_PROMOTION_CONSTANT = TYPE_PROMOTION_CONSTANT;
     public categories: CategoryModel[] = [];
     public categoryList: CategoryModel[] = [];
     public currentUser: EmployeeModel = new EmployeeModel();
+    public promotionList: PromotionModel[] = [];
+    public selectedPromotion: PromotionModel = new PromotionModel();
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
 
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -44,7 +49,8 @@ export class AppAddBillComponent implements AfterViewInit {
         private sizeService: SizeService,
         private billService: BillService,
         private router: Router,
-        private employeeService: EmployeeService
+        private employeeService: EmployeeService,
+        private promotionService: PromotionService
     ) {
 
     }
@@ -52,7 +58,7 @@ export class AppAddBillComponent implements AfterViewInit {
     ngAfterViewInit() {
         this.loadProducts();
         this.loadCategory();
-        this.loadSizes();
+        this.loadPromotions();
         const today = new Date();
         const dd = String(today.getDate()).padStart(2, '0');
         const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -120,12 +126,12 @@ export class AppAddBillComponent implements AfterViewInit {
         this.categoryList = res.result;
     }
 
-    private loadSizes() {
+    private loadPromotions() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.sizeService.findAll().subscribe(res => this.loadSizesCompleted(res));
+        this.promotionService.findAll().subscribe(res => this.loadPromotionsCompleted(res));
     }
 
-    private loadSizesCompleted(res: ResponseModel<SizeModel[]>) {
+    private loadPromotionsCompleted(res: ResponseModel<PromotionModel[]>) {
         this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
@@ -133,28 +139,37 @@ export class AppAddBillComponent implements AfterViewInit {
             });
             return;
         }
-        // this.sizeList = res.result;
+        this.promotionList = [];
+        this.promotionList = res.result;
     }
 
-    public addProduct(product: ProductFullModel): void{
+    public addProductSize(productSize: ProductSizeModel): void{
+        const index = this.billFull.billProductSizeList.findIndex(i => i.productSize.id === productSize.id);
+        if (index !== -1){
+            this.billFull.billProductSizeList[index].quantity += 1;
+            this.changeQuantity(index);
+            return;
+        }
         const transaction = new BillProductSizeModel();
-        transaction.productSize = new ProductSizeModel(product.productSizeList[0]);
+        transaction.productSize = new ProductSizeModel(productSize);
         transaction.quantity = 1;
         transaction.price = transaction.productSize.price;
         this.billFull.billProductSizeList.push( new BillProductSizeModel(transaction));
+        this.choosePromotion(this.selectedPromotion);
     }
 
     public deleteDetail(index: number) {
         this.billFull.billProductSizeList.splice(index, 1);
+        this.choosePromotion(this.selectedPromotion);
     }
 
     public changeQuantity(index: number) {
         this.billFull.billProductSizeList[index].price =  this.billFull.billProductSizeList[index].quantity * this.billFull.billProductSizeList[index].productSize.price;
+        this.choosePromotion(this.selectedPromotion);
     }
 
     public saveBill()  {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.billFull.amount = this.billFull.getTotal();
         this.billFull.code = 'HD';
         this.billFull.employee = new EmployeeModel(this.currentUser);
         this.billService.save(this.billFull).subscribe(res => this.saveBillCompleted(res));
@@ -213,6 +228,18 @@ export class AppAddBillComponent implements AfterViewInit {
         const productLst = res.result || [];
         for (const item of productLst) {
             this.productList.push(new ProductFullModel(item));
+        }
+    }
+
+    public choosePromotion(promotion: PromotionModel){
+        this.selectedPromotion = new PromotionModel(promotion);
+        this.billFull.amount = this.billFull.getTotal();
+        if (this.selectedPromotion.id){
+            if (this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED){
+                this.billFull.amount -= this.selectedPromotion.amount;
+            } else {
+                this.billFull.amount -= (this.billFull.amount * this.selectedPromotion.amount / 100);
+            }
         }
     }
 }
