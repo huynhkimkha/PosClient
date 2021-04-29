@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
-import { PRODUCT_STATUS_CONSTANT } from 'src/app/core/constant/product-status.constant';
 import {ProductFullModel} from '../../../../../data/schema/product-full.model';
 import {CategoryModel} from '../../../../../data/schema/category.model';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';

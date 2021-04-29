@@ -86,7 +86,11 @@
                                     </button>
                                 </td>
                             </tr>
-
+                            <tr *ngIf="billFull.billProductSizeList.length === 0">
+                                <td colspan="7">
+                                    aaaaaaaaaaaaaaaaaaa
+                                </td>
+                            </tr>
                             </tbody>
                             <tfoot>
                             <tr class="border-top border-bottom">
@@ -143,7 +147,7 @@
                                             <thead>
                                                 <tr class="border-top" style="display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
                                                     <td *ngFor="let i of promotionList" colspan="1">
-                                                        <div class="card" (click)="choosePromotion(i)">
+                                                        <div class="card border-table" [ngClass]="{'bg-cyan' : i.id === this.selectedPromotion.id}" (click)="choosePromotion(i)">
                                                             <div class="card-body pb-0 pt-1">
                                                                 <h6>{{i.name}}</h6>
                                                             </div>
