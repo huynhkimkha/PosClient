@@ -65,7 +65,7 @@ export class AppUpdatePromotionComponent implements AfterViewInit {
             promotionProduct.product.id = item.id;
             this.promotion.promotionProductList.push(promotionProduct);
         }
-        this.promotionService.save(this.promotion).subscribe(response => this.savePromotionCompleted(response));
+        this.promotionService.update(this.promotion).subscribe(response => this.savePromotionCompleted(response));
 
     }
 

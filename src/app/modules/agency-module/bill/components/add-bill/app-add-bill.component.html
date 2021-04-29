@@ -1,16 +1,16 @@
 <section class="content">
     <div class="container-fluid">
-        <div class="row pt-1">
+        <div class="row pt-2">
             <div class="col-xl-1">
                 <div class="card">
-                    <div class="card-body">
-                        <div class="row ">
+                    <div class="card-body" style="height: 94vh">
+                        <div class="row">
                             <div class="card-body p-1 text-info card w-100 border-info border-table" (click)="loadProducts()">
-                                <label>Tất cả</label>
+                                <button class="btn btn-block btn-outline-dark" type="button"><b>Tất cả</b></button>
                             </div>
                             <div *ngFor="let i of categoryList" class="card w-100 border-info border-table">
                                 <div class="card-body p-1 text-info" (click)="chooseCategory(i.id)">
-                                    <label>{{i.name}}</label>
+                                    <button class="btn btn-block btn-outline-dark" type="button"><b>{{i.name}}</b></button>
                                 </div>
                             </div>
                         </div>
@@ -18,64 +18,88 @@
                 </div>
             </div>
 
-<!--            SẢn phẩm-->
-            <div class="col-xl-4">
-                <div class="card" style="height: 630px;">
-                    <div class="card-body row table-responsive pt-0 pb-0">
+<!--           SẢn phẩm-->
+            <div class="col-xl-5">
+                <div class="card pt-3" style="height: 94vh">
+                    <div class="card-body table-responsive pt-0 pb-0">
                         <div class="row">
-                            <div *ngFor="let i of productList" class="card col-md-3 m-3">
-                                <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
-                                <div class="card-body p-2">
-                                    <h6>{{i.name}}</h6>
-                                    <div class="row">
-                                        <button (click)="addProductSize(e)" class="col-md-3 btn btn-primary p-1 mr-1" type="button" *ngFor="let e of i.productSizeList">
-                                            {{e.size.name}}
-                                        </button>
+                            <div *ngFor="let i of productList" class="col-md-3">
+                                <div class="card">
+                                    <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
+                                    <div class="pt-1">
+                                        <h6 class="text-center">{{i.name}}</h6>
+                                        <div class="row">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button (click)="addProductSize(e)" class="col-md-3 btn btn-dark p-1 mr-1" type="button" *ngFor="let e of i.productSizeList">
+                                                {{e.size.name}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body table-responsive p-0" style="width: 100%;">
+                                        <table class="table table-head-fixed text-nowrap">
+                                            <thead>
+                                            <tr class="border-top" style="display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
+                                                <td *ngFor="let i of promotionList" colspan="1">
+                                                    <div class="card border-table" [ngClass]="{'bg-cyan' : i.id === this.selectedPromotion.id}" (click)="choosePromotion(i)">
+                                                        <div class="card-body pb-0 pt-1">
+                                                            <h6 class="cursor-label">{{i.name}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </thead>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
 <!--            Bill-->
-            <div class="col-xl-7">
-                <div class="card" style="max-height: 630px">
-                    <div class="card-body table-responsive  pb-0" >
-                        <table>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body table-responsive p-0" style="height: 66vh; width: 760px">
+                        <table class="table table-head-fixed text-nowrap" style="height: 150px;">
                             <thead>
-                            <tr class="border-bottom">
-                                <td colspan="1" style="text-align:center; width: 12%;"><label>Sản phẩm</label></td>
-                                <td colspan="1" style="text-align:center; width: 12%;"><label>Size</label></td>
-                                <td colspan="1" style="text-align:center; width: 12%;"><label>Số Lượng</label></td>
-                                <td colspan="1" style="text-align:center; width: 12%;"><label>THÀNH TIỀN</label></td>
-                                <td colspan="1" style="text-align:center; width: 3%;border: 0px;"></td>
+                            <tr>
+                                <td colspan="1" style="text-align:center; width: 9%;"><label>Sản phẩm</label></td>
+                                <td colspan="1" style="text-align:center; width: 9%;"><label>Kích cỡ</label></td>
+                                <td colspan="1" style="text-align:center; width: 9%;"><label>Số lượng</label></td>
+                                <td colspan="1" style="text-align:center; width: 9%;"><label>Đơn giá</label></td>
+                                <td colspan="1" style="text-align:center; width: 9%;"><label>THÀNH TIỀN</label></td>
+                                <td colspan="1" style="text-align:center; width: 6%;border: 0px;"></td>
                             </tr>
                             </thead>
-                            <tbody *ngFor="let detail of billFull.billProductSizeList; index as index">
-                            <tr style="border-style: dot-dot-dash" >
-                                <td colspan="1">
-                                    <div class="col-12 input-group">
-                                        <input disabled [(ngModel)]="detail.productSize.product.name" type="text"
-                                               class="form-control">
-                                    </div>
+                            <tbody>
+                            <tr *ngFor="let detail of billFull.billProductSizeList; index as index">
+                                <td colspan="1" class="text-center">
+                                    {{detail.productSize.product.name}}
                                 </td>
-                                <td colspan="1">
-                                    <div class="col-12 input-group">
-                                        <input disabled [(ngModel)]="detail.productSize.size.name" type="text"
-                                               class="form-control">
-                                    </div>
+                                <td colspan="1" class="text-center">
+                                    {{detail.productSize.size.name}}
                                 </td>
                                 <td colspan="1">
                                     <div class="col-12 input-group">
                                         <input (change)="changeQuantity(index)" [(ngModel)]="detail.quantity"
-                                               type="number" class="form-control">
+                                               type="number" class="form-control text-right">
                                     </div>
                                 </td>
                                 <td colspan="1">
-                                    <div class="col-12 text-right">
+                                    <div class="col-12 text-right" class="text-right">
+                                        {{detail.productSize.price | number}}
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right" class="text-right">
                                         {{detail.price | number}}
                                     </div>
                                 </td>
@@ -86,20 +110,27 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr *ngIf="billFull.billProductSizeList.length === 0">
-                                <td colspan="7">
-                                    aaaaaaaaaaaaaaaaaaa
-                                </td>
-                            </tr>
                             </tbody>
+                        </table>
+                    </div>
+                    <div class="card-body table-responsive p-0" style="height: 22vh; width: 760px">
+                        <table class="table table-head-fixed text-nowrap" style="height: 100px;">
                             <tfoot>
-                            <tr class="border-top border-bottom">
-                                <td colspan="3">
+                            <tr hidden>
+                                <td colspan="1" style=" width: 9%;"><label>Sản phẩm</label></td>
+                                <td colspan="1" style=" width: 9%;"><label>Kích cỡ</label></td>
+                                <td colspan="1" style=" width: 9%;"><label>Số lượng</label></td>
+                                <td colspan="1" style=" width: 9%;"><label>Đơn giá</label></td>
+                                <td colspan="1" style=" width: 9%;"><label>THÀNH TIỀN</label></td>
+                                <td colspan="1" style=" width: 6%;border: 0px;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
                                     <div class="col-12 text-right">
-                                        <label style="text-align: right">CỘNG:</label>
+                                        <label>Thành tiền:</label>
                                     </div>
                                 </td>
-                                <td colspan="1">
+                                <td colspan="1" style="width: 200px">
                                     <div class="col-12 text-right">
                                         {{this.billFull.getTotal()| number}}
                                     </div>
@@ -107,10 +138,10 @@
                                 <td style="border: 0px" colspan="1">
                                 </td>
                             </tr>
-                            <tr class="border-top border-bottom">
-                                <td colspan="3">
+                            <tr>
+                                <td colspan="4">
                                     <div class="col-12 text-right">
-                                        <label style="text-align: right">Trừ:</label>
+                                        <div style="text-align: right">Tiền phiếu giảm giá:</div>
                                     </div>
                                 </td>
                                 <td colspan="1">
@@ -121,10 +152,10 @@
                                 <td style="border: 0px" colspan="1">
                                 </td>
                             </tr>
-                            <tr class="border-top border-bottom">
-                                <td colspan="3">
+                            <tr>
+                                <td colspan="4">
                                     <div class="col-12 text-right">
-                                        <label style="text-align: right">Tổng:</label>
+                                        <label style="text-align: right">Thanh toán:</label>
                                     </div>
                                 </td>
                                 <td colspan="1">
@@ -135,34 +166,38 @@
                                 <td style="border: 0px" colspan="1">
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="col-12 text-right">
+                                        <label style="text-align: right">Tiền khách đưa:</label>
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right">
+                                        <input [(ngModel)]="moneyGiven" (change)="excessCash()" type="number" class="form-control text-right">
+                                    </div>
+                                </td>
+                                <td style="border: 0px" colspan="1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="col-12 text-right">
+                                        <label class="text-right">Tiền thừa:</label>
+                                    </div>
+                                </td>
+                                <td colspan="1">
+                                    <div class="col-12 text-right">
+                                        {{excessMoney| number}}
+                                    </div>
+                                </td>
+                                <td style="border: 0px" colspan="1">
+                                </td>
+                            </tr>
                             </tfoot>
                         </table>
-
-
-                        <div class="row pt-3">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body table-responsive p-0" style="width: 100%;">
-                                        <table class="table table-head-fixed text-nowrap">
-                                            <thead>
-                                                <tr class="border-top" style="display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
-                                                    <td *ngFor="let i of promotionList" colspan="1">
-                                                        <div class="card border-table" [ngClass]="{'bg-cyan' : i.id === this.selectedPromotion.id}" (click)="choosePromotion(i)">
-                                                            <div class="card-body pb-0 pt-1">
-                                                                <h6>{{i.name}}</h6>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                    <div class="modal-footer justify-content-between">
+                    <div class="modal-footer justify-content-between" style="height: 6vh; width: 750px">
                         <div>
                             <button (click)="closeAddBill()" class="btn btn-light mr-1">Đóng</button>
                         </div>
@@ -171,6 +206,7 @@
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

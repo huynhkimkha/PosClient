@@ -34,6 +34,10 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 
- .active {
-    border-color: #00b44e;
+.cursor-label {
+    cursor: pointer;
+}
+h6 {
+    font-size: 13px;
+    font-weight: bold;
 }

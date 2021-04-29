@@ -8,7 +8,6 @@ import {ProductService} from '../../../../../core/services/agency/product.servic
 import {SizeService} from '../../../../../core/services/agency/size.service';
 import {ResponseModel} from '../../../../../data/schema/response.model';
 import {HTTP_CODE_CONSTANT} from '../../../../../core/constant/http-code.constant';
-import {SizeModel} from '../../../../../data/schema/size.model';
 import {BillFullModel} from '../../../../../data/schema/bill-full.model';
 import {BillProductSizeModel} from '../../../../../data/schema/bill-product-size.model';
 import {ProductSizeModel} from '../../../../../data/schema/product-size.model';
@@ -34,6 +33,8 @@ export class AppAddBillComponent implements AfterViewInit {
     public currentUser: EmployeeModel = new EmployeeModel();
     public promotionList: PromotionModel[] = [];
     public selectedPromotion: PromotionModel = new PromotionModel();
+    public moneyGiven: number;
+    public excessMoney: number;
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
 
     @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
@@ -65,6 +66,8 @@ export class AppAddBillComponent implements AfterViewInit {
         this.billFull.createdDate = yyyy + '-' + mm + '-' + dd;
         this.getCurrentUserByEmail();
         this.getNumber();
+        this.moneyGiven = 0;
+        this.excessMoney = 0;
     }
 
 
@@ -163,7 +166,8 @@ export class AppAddBillComponent implements AfterViewInit {
     }
 
     public changeQuantity(index: number) {
-        this.billFull.billProductSizeList[index].price =  this.billFull.billProductSizeList[index].quantity * this.billFull.billProductSizeList[index].productSize.price;
+        this.billFull.billProductSizeList[index].price =  this.billFull.billProductSizeList[index].quantity *
+            this.billFull.billProductSizeList[index].productSize.price;
         this.choosePromotion(this.selectedPromotion);
     }
 
@@ -240,5 +244,9 @@ export class AppAddBillComponent implements AfterViewInit {
                 this.billFull.amount -= (this.billFull.amount * this.selectedPromotion.amount / 100);
             }
         }
+    }
+
+    public excessCash(){
+        this.excessMoney = this.moneyGiven - this.billFull.amount;
     }
 }
