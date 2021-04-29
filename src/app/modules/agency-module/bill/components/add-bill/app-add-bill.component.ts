@@ -144,15 +144,8 @@ export class AppAddBillComponent implements AfterViewInit {
         this.billFull.billProductSizeList.push( new BillProductSizeModel(transaction));
     }
 
-
-    public confirmDeleteDetail(index: number){
-        this.modal.confirm('Bạn có muốn xóa hàng này?').subscribe(res => this.deleteDetail(res, index));
-    }
-
-    private deleteDetail(state: boolean, index: number) {
-        if (state) {
-            this.billFull.billProductSizeList.splice(index, 1);
-        }
+    public deleteDetail(index: number) {
+        this.billFull.billProductSizeList.splice(index, 1);
     }
 
     public changeQuantity(index: number) {
@@ -200,5 +193,26 @@ export class AppAddBillComponent implements AfterViewInit {
             return;
         }
         this.billFull.number = res.result;
+    }
+
+    public chooseCategory(cateId: string){
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.productService.findAllFullByCateId(cateId).subscribe(res => this.loadProductsByCateCompleted(res));
+    }
+
+    private loadProductsByCateCompleted(res: ResponseModel<ProductFullModel[]>) {
+        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+
+        this.productList = [];
+        const productLst = res.result || [];
+        for (const item of productLst) {
+            this.productList.push(new ProductFullModel(item));
+        }
     }
 }

@@ -4,12 +4,8 @@ table{
     z-index: 999;
 }
 
-td {
+td tr {
     height: 7px;
-}
-
-table td {
-    border: 2px solid #000000;
 }
 
 .border-table {

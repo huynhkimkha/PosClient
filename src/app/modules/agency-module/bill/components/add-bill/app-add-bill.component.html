@@ -4,9 +4,12 @@
             <div class="col-xl-1">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row ">
+                            <div class="card-body p-1 text-info card w-100 border-info border-table" (click)="loadProducts()">
+                                <label>Tất cả</label>
+                            </div>
                             <div *ngFor="let i of categoryList" class="card w-100 border-info border-table">
-                                <div class="card-body p-1 text-info">
+                                <div class="card-body p-1 text-info" (click)="chooseCategory(i.id)">
                                     <label>{{i.name}}</label>
                                 </div>
                             </div>
@@ -17,8 +20,8 @@
 
 <!--            SẢn phẩm-->
             <div class="col-xl-4">
-                <div class="card">
-                    <div class="card-body row table-responsive" style="height: 600px;">
+                <div class="card" style="height: 630px;">
+                    <div class="card-body row table-responsive pt-0 pb-0">
                         <div class="row">
                             <div *ngFor="let i of productList" class="card col-md-3 m-3" (click)="addProduct(i)">
                                 <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
@@ -39,11 +42,11 @@
 
 <!--            Bill-->
             <div class="col-xl-7">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card" style="max-height: 630px">
+                    <div class="card-body table-responsive" >
                         <table>
                             <thead>
-                            <tr>
+                            <tr class="border-bottom">
                                 <td colspan="1" style="text-align:center; width: 12%;"><label>Sản phẩm</label></td>
                                 <td colspan="1" style="text-align:center; width: 12%;"><label>Size</label></td>
                                 <td colspan="1" style="text-align:center; width: 12%;"><label>Số Lượng</label></td>
@@ -52,7 +55,7 @@
                             </tr>
                             </thead>
                             <tbody *ngFor="let detail of billFull.billProductSizeList; index as index">
-                            <tr style="border-style: dot-dot-dash">
+                            <tr style="border-style: dot-dot-dash" >
                                 <td colspan="1">
                                     <div class="col-12 input-group">
                                         <input disabled [(ngModel)]="detail.productSize.product.name" type="text"
@@ -78,14 +81,15 @@
                                 </td>
                                 <td style="border: 0px">
                                     <button class="btn btn-danger text-center" style=""
-                                            (click)="confirmDeleteDetail(index)">
+                                            (click)="deleteDetail(index)">
                                         <i class="fas fa-times"></i>
                                     </button>
                                 </td>
                             </tr>
+
                             </tbody>
                             <tfoot>
-                            <tr>
+                            <tr class="border-top">
                                 <td colspan="3">
                                     <div class="col-12 text-right">
                                         <label style="text-align: right">CỘNG:</label>
