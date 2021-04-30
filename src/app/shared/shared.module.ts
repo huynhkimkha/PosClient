@@ -20,6 +20,7 @@ import {AppAddMaterialComponent} from './components/popups/add-material/app-add-
 import {AppAddProductComponent} from './components/popups/add-product/app-add-product.component';
 import {AppCostStatisticGeneralComponent} from './components/popups/cost-statistic-general/app-cost-statistic-general.component';
 import {AppBillStatisticGeneralComponent} from './components/popups/bill-statistic-general/app-bill-statistic-general.component';
+import {AppAddPromotionBillComponent} from './components/popups/add-promotion-bill/app-add-promotion-bill.component';
 
 const COMPONENTS = [
   AppAgencyProfileComponent,
@@ -30,12 +31,13 @@ const COMPONENTS = [
   AppExportComponent,
   AppModalWrapperComponent,
   AppSelect2ControlComponent,
-    AppAddCustomerComponent,
-    AppAddCostCategoryComponent,
-    AppAddMaterialComponent,
-    AppAddProductComponent,
+  AppAddCustomerComponent,
+  AppAddCostCategoryComponent,
+  AppAddMaterialComponent,
+  AppAddProductComponent,
   AppCostStatisticGeneralComponent,
-  AppBillStatisticGeneralComponent
+  AppBillStatisticGeneralComponent,
+  AppAddPromotionBillComponent,
 ];
 
 const PIPES = [];

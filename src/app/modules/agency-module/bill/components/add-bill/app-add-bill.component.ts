@@ -18,6 +18,7 @@ import {EmployeeService} from '../../../../../core/services/agency/employee.serv
 import {PromotionModel} from '../../../../../data/schema/promotion.model';
 import {PromotionService} from '../../../../../core/services/agency/promotion.service';
 import {TYPE_PROMOTION_CONSTANT} from '../../../../../core/constant/type-promotion.constant';
+declare var $: any;
 
 @Component({
     selector: 'app-add-bill',
@@ -31,13 +32,13 @@ export class AppAddBillComponent implements AfterViewInit {
     public categories: CategoryModel[] = [];
     public categoryList: CategoryModel[] = [];
     public currentUser: EmployeeModel = new EmployeeModel();
-    public promotionList: PromotionModel[] = [];
     public selectedPromotion: PromotionModel = new PromotionModel();
     public moneyGiven: number;
     public excessMoney: number;
+    public selectedCate: CategoryModel = new CategoryModel();
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
 
-    @ViewChild('appModalWrapper', { static: true }) appModalWrapper: AppModalWrapperComponent;
+    @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
 
     constructor(
         private modal: AppModals,
@@ -50,15 +51,14 @@ export class AppAddBillComponent implements AfterViewInit {
         private billService: BillService,
         private router: Router,
         private employeeService: EmployeeService,
-        private promotionService: PromotionService
     ) {
-
+        $('.adi-print-section').remove();
     }
 
     ngAfterViewInit() {
         this.loadProducts();
         this.loadCategory();
-        this.loadPromotions();
+        $(this.root.nativeElement.querySelector('.adi-print-section')).appendTo('body');
         const today = new Date();
         const dd = String(today.getDate()).padStart(2, '0');
         const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -71,17 +71,25 @@ export class AppAddBillComponent implements AfterViewInit {
     }
 
 
-
     public hide() {
         this.appModalWrapper.hide();
     }
 
-    private getCurrentUserByEmail(){
+    public print() {
+        this.loading.show();
+        setTimeout(() => {
+            this.loading.hide();
+            window.print();
+        }, 500);
+
+    }
+
+    private getCurrentUserByEmail() {
         const employeeEmail = JSON.parse(localStorage.getItem('USER_DATA')).email;
         this.employeeService.getEmployeeByEmail(employeeEmail).subscribe(res => this.getCurrentUserByEmailCompleted(res));
     }
 
-    private getCurrentUserByEmailCompleted(res: ResponseModel<EmployeeModel>){
+    private getCurrentUserByEmailCompleted(res: ResponseModel<EmployeeModel>) {
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
                 this.alert.error(value);
@@ -89,10 +97,12 @@ export class AppAddBillComponent implements AfterViewInit {
             return;
         }
         this.currentUser = res.result;
+        this.billFull.employee = new EmployeeModel(this.currentUser);
     }
 
     public loadProducts() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
+        this.selectedCate = new CategoryModel();
         this.productService.findAllFull().subscribe(res => this.loadProductsCompleted(res));
     }
 
@@ -128,26 +138,9 @@ export class AppAddBillComponent implements AfterViewInit {
         this.categoryList = res.result;
     }
 
-    private loadPromotions() {
-        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.promotionService.findAll().subscribe(res => this.loadPromotionsCompleted(res));
-    }
-
-    private loadPromotionsCompleted(res: ResponseModel<PromotionModel[]>) {
-        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
-        if (res.status !== HTTP_CODE_CONSTANT.OK) {
-            res.message.forEach(value => {
-                this.alert.error(value);
-            });
-            return;
-        }
-        this.promotionList = [];
-        this.promotionList = res.result;
-    }
-
-    public addProductSize(productSize: ProductSizeModel): void{
+    public addProductSize(productSize: ProductSizeModel): void {
         const index = this.billFull.billProductSizeList.findIndex(i => i.productSize.id === productSize.id);
-        if (index !== -1){
+        if (index !== -1) {
             this.billFull.billProductSizeList[index].quantity += 1;
             this.changeQuantity(index);
             return;
@@ -156,7 +149,7 @@ export class AppAddBillComponent implements AfterViewInit {
         transaction.productSize = new ProductSizeModel(productSize);
         transaction.quantity = 1;
         transaction.price = transaction.productSize.price;
-        this.billFull.billProductSizeList.push( new BillProductSizeModel(transaction));
+        this.billFull.billProductSizeList.push(new BillProductSizeModel(transaction));
         this.choosePromotion(this.selectedPromotion);
     }
 
@@ -166,12 +159,12 @@ export class AppAddBillComponent implements AfterViewInit {
     }
 
     public changeQuantity(index: number) {
-        this.billFull.billProductSizeList[index].price =  this.billFull.billProductSizeList[index].quantity *
+        this.billFull.billProductSizeList[index].price = this.billFull.billProductSizeList[index].quantity *
             this.billFull.billProductSizeList[index].productSize.price;
         this.choosePromotion(this.selectedPromotion);
     }
 
-    public saveBill()  {
+    public saveBill() {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.billFull.code = 'HD';
         this.billFull.employee = new EmployeeModel(this.currentUser);
@@ -191,7 +184,7 @@ export class AppAddBillComponent implements AfterViewInit {
         this.closeAddBill();
     }
 
-    public closeAddBill(){
+    public closeAddBill() {
         this.router.navigateByUrl('/bill');
     }
 
@@ -213,9 +206,10 @@ export class AppAddBillComponent implements AfterViewInit {
         this.billFull.number = res.result;
     }
 
-    public chooseCategory(cateId: string){
+    public chooseCategory(cate: CategoryModel) {
         this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
-        this.productService.findAllFullByCateId(cateId).subscribe(res => this.loadProductsByCateCompleted(res));
+        this.selectedCate = new CategoryModel(cate);
+        this.productService.findAllFullByCateId(cate.id).subscribe(res => this.loadProductsByCateCompleted(res));
     }
 
     private loadProductsByCateCompleted(res: ResponseModel<ProductFullModel[]>) {
@@ -234,11 +228,11 @@ export class AppAddBillComponent implements AfterViewInit {
         }
     }
 
-    public choosePromotion(promotion: PromotionModel){
+    public choosePromotion(promotion: PromotionModel) {
         this.selectedPromotion = new PromotionModel(promotion);
         this.billFull.amount = this.billFull.getTotal();
-        if (this.selectedPromotion.id){
-            if (this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED){
+        if (this.selectedPromotion.id) {
+            if (this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED) {
                 this.billFull.amount -= this.selectedPromotion.amount;
             } else {
                 this.billFull.amount -= (this.billFull.amount * this.selectedPromotion.amount / 100);
@@ -246,7 +240,12 @@ export class AppAddBillComponent implements AfterViewInit {
         }
     }
 
-    public excessCash(){
+    public excessCash() {
         this.excessMoney = this.moneyGiven - this.billFull.amount;
+    }
+
+    public formatDate(inputDate: string) {
+        const formattedDate = new Date(inputDate);
+        return formattedDate.getDate() + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getFullYear();
     }
 }

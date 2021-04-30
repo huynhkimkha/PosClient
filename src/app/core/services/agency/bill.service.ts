@@ -18,10 +18,10 @@ export class BillService extends AgencyBaseService {
         return this.post('/api/v1/bill/find', search);
     }
 
-    // public getById(id: string): Observable<any> {
-    //     return this.get('/api/v1/categories/' + id);
-    // }
-    //
+    public getFullbyId(id: string): Observable<any> {
+        return this.get('/api/v1/bill/get-full/' + id);
+    }
+
     // public getLikeName(name: string): Observable<any> {
     //     return this.get('/api/v1/categories/like-name', {name});
     // }

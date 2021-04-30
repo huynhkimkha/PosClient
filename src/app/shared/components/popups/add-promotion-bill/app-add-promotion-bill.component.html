@@ -1,0 +1,14 @@
+<app-modal-wrapper #appModalWrapper title="Voucher" size="modal-default">
+    <div class="modal-body table-responsive" style="max-height: 500px;">
+        <div class="row" >
+            <button *ngFor="let i of promotionList" class="btn m-1 border-table btn-outline-dark" [ngClass]="{'active' : i.id === this.selectedPromotion.id}" (click)="selectPromotion(i)">
+                    <h6>{{i.name}}</h6>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-footer justify-content-between">
+        <button (click)="appModalWrapper.hide()" type="button" class="btn btn-light">Đóng</button>
+        <button (click)="choosePromotion()" type="button" class="btn btn-success">Lưu</button>
+    </div>
+</app-modal-wrapper>

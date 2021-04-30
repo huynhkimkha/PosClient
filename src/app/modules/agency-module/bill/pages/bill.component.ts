@@ -66,8 +66,8 @@ export class BillComponent implements AfterViewInit {
         this.searchBill();
     }
 
-    public confirmDelete(orderId: string) {
-        this.modal.confirm('Bạn có muốn xóa hoá đơn?').subscribe(res => this.deleteBill(res, orderId));
+    public confirmDelete(id: string) {
+        this.modal.confirm('Bạn có muốn xóa hoá đơn?').subscribe(res => this.deleteBill(res, id));
     }
 
     private searchBillCompleted(res: ResponseModel<BaseSearchModel<BillModel[]>>) {

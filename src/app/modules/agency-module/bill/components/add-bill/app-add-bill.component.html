@@ -6,11 +6,11 @@
                     <div class="card-body" style="height: 94vh">
                         <div class="row">
                             <div class="card-body p-1 text-info card w-100 border-info border-table" (click)="loadProducts()">
-                                <button class="btn btn-block btn-outline-dark" type="button"><b>Tất cả</b></button>
+                                <button [ngClass]="{active : !this.selectedCate || !this.selectedCate.id}" class="btn btn-block btn-outline-dark" type="button"><b>Tất cả</b></button>
                             </div>
                             <div *ngFor="let i of categoryList" class="card w-100 border-info border-table">
-                                <div class="card-body p-1 text-info" (click)="chooseCategory(i.id)">
-                                    <button class="btn btn-block btn-outline-dark" type="button"><b>{{i.name}}</b></button>
+                                <div class="card-body p-1 text-info" (click)="chooseCategory(i)">
+                                    <button [ngClass]="{active : this.selectedCate && this.selectedCate.id === i.id}" class="btn btn-block btn-outline-dark" type="button"><b>{{i.name}}</b></button>
                                 </div>
                             </div>
                         </div>
@@ -39,27 +39,6 @@
                                 &nbsp;
                             </div>
                         </div>
-                        <div class="row pt-3">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body table-responsive p-0" style="width: 100%;">
-                                        <table class="table table-head-fixed text-nowrap">
-                                            <thead>
-                                            <tr class="border-top" style="display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;">
-                                                <td *ngFor="let i of promotionList" colspan="1">
-                                                    <div class="card border-table" [ngClass]="{'bg-cyan' : i.id === this.selectedPromotion.id}" (click)="choosePromotion(i)">
-                                                        <div class="card-body pb-0 pt-1">
-                                                            <h6 class="cursor-label">{{i.name}}</h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            </thead>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -67,7 +46,7 @@
 <!--            Bill-->
             <div class="col-6">
                 <div class="card">
-                    <div class="card-body table-responsive p-0" style="height: 66vh; width: 760px">
+                    <div class="card-body table-responsive p-0" style="height: 66vh">
                         <table class="table table-head-fixed text-nowrap" style="height: 150px;">
                             <thead>
                             <tr>
@@ -103,7 +82,7 @@
                                         {{detail.price | number}}
                                     </div>
                                 </td>
-                                <td style="border: 0px">
+                                <td colspan="1" style="border: 0px">
                                     <button class="btn btn-danger text-center" style=""
                                             (click)="deleteDetail(index)">
                                         <i class="fas fa-times"></i>
@@ -113,7 +92,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="card-body table-responsive p-0" style="height: 22vh; width: 760px">
+                    <div class="card-body table-responsive p-0" style="max-height: 22vh">
                         <table class="table table-head-fixed text-nowrap" style="height: 100px;">
                             <tfoot>
                             <tr hidden>
@@ -197,11 +176,13 @@
                             </tfoot>
                         </table>
                     </div>
-                    <div class="modal-footer justify-content-between" style="height: 6vh; width: 750px">
+                    <div class="modal-footer justify-content-between" style="height: 6vh">
                         <div>
                             <button (click)="closeAddBill()" class="btn btn-light mr-1">Đóng</button>
                         </div>
                         <div>
+                            <button (click)="print()"  type="button" class="btn btn-success">In</button>
+                            <button (click)="addPromotionBillComponent.show()"  type="button" class="btn btn-success mr-1">Voucher</button>
                             <button (click)="saveBill()"  type="button" class="btn btn-success">Lưu</button>
                         </div>
                     </div>
@@ -212,3 +193,138 @@
         </div>
     </div>
 </section>
+<app-add-promotion-bill #addPromotionBillComponent (saveCompleteEvent)="choosePromotion($event)"></app-add-promotion-bill>
+
+
+<div class="adi-print-section">
+    <meta charset="UTF-8">
+    <table bgcolor="white" class="w-50">
+        <thead>
+
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><label style=" font-size: 27px">PKT SUPREME COFFEE SHOP</label></td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><div style=" font-size: 15px">273 An dương vương, Q.5</div></td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><label style=" font-size: 22px">HOTLINE: 0378411656</label></td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="1"><i>Ngày: </i></td>
+            <td colspan="2"><label>{{formatDate(billFull.createdDate)}}</label></td>
+            <td colspan="2" class="text-right">Số HĐ: </td>
+            <td colspan="1" class="text-right">{{billFull.number}}</td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="1"><i>Thu ngân: </i></td>
+            <td colspan="5"><label>{{billFull.employee.fullName}}</label></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="border-top border-bottom">
+            <td colspan="2" class="text-center" style=" width: 9%;"><label>Sản phẩm</label></td>
+            <td colspan="1" class="text-center" style=" width: 9%;"><label>Kích cỡ</label></td>
+            <td colspan="1" class="text-center" style=" width: 9%;"><label>Số lượng</label></td>
+            <td colspan="1" class="text-right" style=" width: 9%;"><label>Đơn giá</label></td>
+            <td colspan="1" class="text-right" style=" width: 9%;"><label>Thành tiền</label></td>
+        </tr>
+        <tr *ngFor="let detail of billFull.billProductSizeList; index as index">
+            <td colspan="2" class="text-center">
+                {{detail.productSize.product.name}}
+            </td>
+            <td colspan="1" class="text-center">
+                {{detail.productSize.size.name}}
+            </td>
+            <td colspan="1" class="text-center">
+                {{detail.quantity}}
+            </td>
+            <td colspan="1">
+                <div class="col-12 text-right">
+                    {{detail.productSize.price | number}}
+                </div>
+            </td>
+            <td colspan="1">
+                <div class="col-12 text-right">
+                    {{detail.price | number}}
+                </div>
+            </td>
+        </tr>
+        <tr class="border-top">
+            <td colspan="4">
+                <div class="col-12">
+                    <label class="text-bold text-lg">Thành tiền:</label>
+                </div>
+            </td>
+            <td colspan="2" >
+                <div class="col-12 text-right text-bold">
+                    {{this.billFull.getTotal()| number}}
+                </div>
+            </td>
+        </tr>
+        <tr class="border-bottom">
+            <td colspan="4">
+                <div class="col-12">
+                    Tiền phiếu giảm giá:
+                </div>
+            </td>
+            <td colspan="2">
+                <div class="col-12 text-right" >
+                    {{this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED ? this.selectedPromotion.amount : this.billFull.getTotal() * this.selectedPromotion.amount /100 |  number}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="col-12">
+                    <label class="text-bold text-lg">Thanh toán:</label>
+                </div>
+            </td>
+            <td colspan="2">
+                <div class="col-12 text-right text-bold">
+                    {{this.billFull.amount| number}}
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <div class="col-12 ">
+                    <label class="text-bold text-lg">Tiền khách đưa:</label>
+                </div>
+            </td>
+            <td colspan="2">
+                <div class="col-12 text-right text-bold">
+                    {{moneyGiven| number}}
+                </div>
+            </td>
+        </tr>
+        <tr class="border-bottom">
+            <td colspan="4">
+                <div class="col-12">
+                    Tiền thừa:
+                </div>
+            </td>
+            <td colspan="2">
+                <div class="col-12 text-right">
+                    {{excessMoney| number}}
+                </div>
+            </td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><label style=" font-size: 15px">Giá sản phẩm đã bao gồm VAT 10%</label></td>
+        </tr>
+        <tr colspan="6" class="border-bottom">
+            <td colspan="6" style="text-align:center;"><label style=" font-size: 15px">Password wifi: dct117c1</label></td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><label style=" font-size: 15px">Miễn phí giao hàng cho hóa đơn trên 50.000 VNĐ</label></td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><div style=" font-size: 15px">Đặt hàng tại www.pktsupremecoffeeshop.com</div></td>
+        </tr>
+        <tr colspan="6">
+            <td colspan="6" style="text-align:center;"><label style=" font-size: 15px;font-family: 'Lucida Handwriting'" class="font-italic">Cảm ơn và hẹn gặp lại!</label></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
