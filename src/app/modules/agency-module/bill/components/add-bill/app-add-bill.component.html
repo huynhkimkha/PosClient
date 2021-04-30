@@ -1,9 +1,9 @@
 <section class="content">
     <div class="container-fluid">
-        <div class="row pt-2">
-            <div class="col-xl-1">
+        <div class="row pt-3">
+            <div class="col-xl-1" style="padding-left: 10px; padding-right: 3px">
                 <div class="card">
-                    <div class="card-body" style="height: 94vh">
+                    <div class="card-body" style="height: 92vh">
                         <div class="row">
                             <div class="card-body p-1 text-info card w-100 border-info border-table" (click)="loadProducts()">
                                 <button [ngClass]="{active : !this.selectedCate || !this.selectedCate.id}" class="btn btn-block btn-outline-dark" type="button"><b>Tất cả</b></button>
@@ -19,18 +19,18 @@
             </div>
 
 <!--           SẢn phẩm-->
-            <div class="col-xl-5">
-                <div class="card pt-3" style="height: 94vh">
+            <div class="col-xl-6" style="padding-left: 3px; padding-right: 3px">
+                <div class="card pt-3" style="height: 92vh">
                     <div class="card-body table-responsive pt-0 pb-0">
                         <div class="row">
-                            <div *ngFor="let i of productList" class="col-md-3">
-                                <div class="card">
+                            <div *ngFor="let i of productList" class="col-md-3" style="height: 240px">
+                                <div class="card" style="border: 1px solid #555">
+                                    <h6 class="text-center">{{i.name}}</h6>
                                     <img class="card-img-top" onerror="this.onerror=null;this.src='../../../../../../assets/img/avatar04.png';" [src]="i.image"  [alt]="i.name">
-                                    <div class="pt-1">
-                                        <h6 class="text-center">{{i.name}}</h6>
+                                    <div class="pt-1 pb-1">
                                         <div class="row">
-                                            &nbsp;&nbsp;&nbsp;&nbsp;
-                                            <button (click)="addProductSize(e)" class="col-md-3 btn btn-dark p-1 mr-1" type="button" *ngFor="let e of i.productSizeList">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button (click)="addProductSize(e)" class="col-md-3 btn btn-outline-dark p-1 mr-1" type="button" *ngFor="let e of i.productSizeList">
                                                 {{e.size.name}}
                                             </button>
                                         </div>
@@ -44,49 +44,55 @@
             </div>
 
 <!--            Bill-->
-            <div class="col-6">
+            <div class="col-5" style="padding-left: 3px; padding-right: 10px">
                 <div class="card">
-                    <div class="card-body table-responsive p-0" style="height: 66vh">
-                        <table class="table table-head-fixed text-nowrap" style="height: 150px;">
+                    <div class="card-body table-responsive" style="height: 64vh">
+                        <table style="height: 10px;">
                             <thead>
                             <tr>
                                 <td colspan="1" style="text-align:center; width: 9%;"><label>Sản phẩm</label></td>
                                 <td colspan="1" style="text-align:center; width: 9%;"><label>Kích cỡ</label></td>
                                 <td colspan="1" style="text-align:center; width: 9%;"><label>Số lượng</label></td>
-                                <td colspan="1" style="text-align:center; width: 9%;"><label>Đơn giá</label></td>
-                                <td colspan="1" style="text-align:center; width: 9%;"><label>THÀNH TIỀN</label></td>
+                                <td colspan="1" style="text-align:center; width: 9%;" class="text-right"><label>Đơn giá</label></td>
+                                <td colspan="1" style="text-align:center; width: 9%;" class="text-right"><label>THÀNH TIỀN</label></td>
                                 <td colspan="1" style="text-align:center; width: 6%;border: 0px;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <hr>
+                                </td>
                             </tr>
                             </thead>
                             <tbody>
                             <tr *ngFor="let detail of billFull.billProductSizeList; index as index">
-                                <td colspan="1" class="text-center">
+                                <td colspan="1" class="text-center pt-3">
                                     {{detail.productSize.product.name}}
                                 </td>
-                                <td colspan="1" class="text-center">
+                                <td colspan="1" class="text-center pt-3">
                                     {{detail.productSize.size.name}}
                                 </td>
-                                <td colspan="1">
+                                <td colspan="1" class="pt-3">
                                     <div class="col-12 input-group">
                                         <input (change)="changeQuantity(index)" [(ngModel)]="detail.quantity"
                                                type="number" class="form-control text-right">
                                     </div>
                                 </td>
-                                <td colspan="1">
+                                <td colspan="1" class="pt-3">
                                     <div class="col-12 text-right" class="text-right">
-                                        {{detail.productSize.price | number}}
+                                        {{detail.productSize.price | number}} đ
                                     </div>
                                 </td>
-                                <td colspan="1">
+                                <td colspan="1" class="pt-3">
                                     <div class="col-12 text-right" class="text-right">
-                                        {{detail.price | number}}
+                                        {{detail.price | number}} đ
                                     </div>
                                 </td>
-                                <td colspan="1" style="border: 0px">
-                                    <button class="btn btn-danger text-center" style=""
+                                <td colspan="1" style="border: 0px" class="pt-3">
+                                    &nbsp;&nbsp;
+                                    <a style="cursor: pointer"
                                             (click)="deleteDetail(index)">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
                                 </td>
                             </tr>
                             </tbody>
@@ -111,7 +117,7 @@
                                 </td>
                                 <td colspan="1" style="width: 200px">
                                     <div class="col-12 text-right">
-                                        {{this.billFull.getTotal()| number}}
+                                        {{this.billFull.getTotal()| number}} đ
                                     </div>
                                 </td>
                                 <td style="border: 0px" colspan="1">
@@ -120,12 +126,18 @@
                             <tr>
                                 <td colspan="4">
                                     <div class="col-12 text-right">
-                                        <div style="text-align: right">Tiền phiếu giảm giá:</div>
+                                        <div style="text-align: right">
+                                            <a (click)="addPromotionBillComponent.show()" style="cursor: pointer">
+                                                <i class="fa fa-gift"></i>
+                                            </a>
+                                            &nbsp;
+                                            Tiền phiếu giảm giá:
+                                        </div>
                                     </div>
                                 </td>
                                 <td colspan="1">
                                     <div class="col-12 text-right" >
-                                        {{this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED ? this.selectedPromotion.amount : this.billFull.getTotal() * this.selectedPromotion.amount /100 |  number}}
+                                        {{this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED ? this.selectedPromotion.amount : this.billFull.getTotal() * this.selectedPromotion.amount /100 |  number}} đ
                                     </div>
                                 </td>
                                 <td style="border: 0px" colspan="1">
@@ -139,7 +151,7 @@
                                 </td>
                                 <td colspan="1">
                                     <div class="col-12 text-right">
-                                        {{this.billFull.amount| number}}
+                                        {{this.billFull.amount| number}} đ
                                     </div>
                                 </td>
                                 <td style="border: 0px" colspan="1">
@@ -167,7 +179,7 @@
                                 </td>
                                 <td colspan="1">
                                     <div class="col-12 text-right">
-                                        {{excessMoney| number}}
+                                        {{excessMoney| number}} đ
                                     </div>
                                 </td>
                                 <td style="border: 0px" colspan="1">
@@ -181,8 +193,10 @@
                             <button (click)="closeAddBill()" class="btn btn-light mr-1">Đóng</button>
                         </div>
                         <div>
-                            <button (click)="print()"  type="button" class="btn btn-success">In</button>
-                            <button (click)="addPromotionBillComponent.show()"  type="button" class="btn btn-success mr-1">Voucher</button>
+                            <button (click)="print()"  type="button" class="btn btn-success mr-1">
+                                <i class="fa fa-print"></i>
+                                In
+                            </button>
                             <button (click)="saveBill()"  type="button" class="btn btn-success">Lưu</button>
                         </div>
                     </div>

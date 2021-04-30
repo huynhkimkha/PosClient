@@ -37,7 +37,26 @@ input[type=number] {
 .cursor-label {
     cursor: pointer;
 }
+label {
+    font-size: 14px;
+}
 h6 {
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 15px;
+}
+.card-body {
+    padding: 0.75rem;
+}
+
+.card {
+    margin-bottom: 1rem;
+}
+
+.table button {
+    line-height: 5px;
+    border-radius: 2.6rem;
+}
+
+hr {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
