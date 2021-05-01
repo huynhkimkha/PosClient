@@ -58,7 +58,7 @@ export class PromotionComponent implements AfterViewInit {
             });
             return;
         }
-        this.alert.success('Xóa sản phẩm thành công!');
+        this.alert.success('Xóa giảm giá thành công!');
         if (this.search.result.length === 1) {
             this.search.currentPage = this.search.currentPage - 1;
         }

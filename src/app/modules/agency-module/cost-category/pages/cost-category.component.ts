@@ -37,7 +37,7 @@ export class CostCategoryComponent implements AfterViewInit {
     }
 
     public confirmDelete(costCategory: CostCategoryModel) {
-        this.modal.confirm('Bạn có muốn xóa chi nhánh?').subscribe(res => this.deleteCostCategory(res, costCategory));
+        this.modal.confirm('Bạn có muốn xóa danh mục chi phí?').subscribe(res => this.deleteCostCategory(res, costCategory));
     }
 
     private deleteCostCategory(state: boolean, costCategory: CostCategoryModel) {
