@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {AutoCompleteModule, ChartModule} from 'primeng';
-
+import {InputNumberModule} from 'primeng/inputnumber';
 // Pipes
 
 // Components
@@ -51,7 +51,8 @@ const PIPES = [];
     CommonModule,
     FormsModule,
     ChartModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    InputNumberModule
   ],
   exports: [
     ...COMPONENTS,
@@ -59,7 +60,8 @@ const PIPES = [];
     CommonModule,
     FormsModule,
     ChartModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    InputNumberModule
   ]
 })
 export class SharedModule {

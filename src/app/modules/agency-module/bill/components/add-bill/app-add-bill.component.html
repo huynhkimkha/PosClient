@@ -165,7 +165,8 @@
                                 </td>
                                 <td colspan="1">
                                     <div class="col-12 text-right">
-                                        <input [(ngModel)]="moneyGiven" (change)="excessCash()" type="number" class="form-control text-right">
+                                        <p-inputNumber [(ngModel)]="moneyGiven" (onBlur)="excessCash()" class="ui-inputnumber text-right" suffix=" đ">
+                                        </p-inputNumber>
                                     </div>
                                 </td>
                                 <td style="border: 0px" colspan="1">
@@ -255,12 +256,12 @@
             </td>
             <td colspan="1">
                 <div class="col-12 text-right">
-                    {{detail.productSize.price | number}}
+                    {{detail.productSize.price | number}} đ
                 </div>
             </td>
             <td colspan="1">
                 <div class="col-12 text-right">
-                    {{detail.price | number}}
+                    {{detail.price | number}} đ
                 </div>
             </td>
         </tr>
@@ -272,7 +273,7 @@
             </td>
             <td colspan="2" >
                 <div class="col-12 text-right text-bold">
-                    {{this.billFull.getTotal()| number}}
+                    {{this.billFull.getTotal()| number}} đ
                 </div>
             </td>
         </tr>
@@ -284,7 +285,7 @@
             </td>
             <td colspan="2">
                 <div class="col-12 text-right" >
-                    {{this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED ? this.selectedPromotion.amount : this.billFull.getTotal() * this.selectedPromotion.amount /100 |  number}}
+                    {{this.selectedPromotion.typePromotion === TYPE_PROMOTION_CONSTANT.FIXED ? this.selectedPromotion.amount : this.billFull.getTotal() * this.selectedPromotion.amount /100 |  number}} đ
                 </div>
             </td>
         </tr>
@@ -296,7 +297,7 @@
             </td>
             <td colspan="2">
                 <div class="col-12 text-right text-bold">
-                    {{this.billFull.amount| number}}
+                    {{this.billFull.amount| number}} đ
                 </div>
             </td>
         </tr>
@@ -308,7 +309,7 @@
             </td>
             <td colspan="2">
                 <div class="col-12 text-right text-bold">
-                    {{moneyGiven| number}}
+                    {{moneyGiven| number}} đ
                 </div>
             </td>
         </tr>
@@ -320,7 +321,7 @@
             </td>
             <td colspan="2">
                 <div class="col-12 text-right">
-                    {{excessMoney| number}}
+                    {{excessMoney| number}} đ
                 </div>
             </td>
         </tr>

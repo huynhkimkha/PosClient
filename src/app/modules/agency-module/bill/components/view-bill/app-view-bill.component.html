@@ -1,0 +1,109 @@
+<app-modal-wrapper #appModalWrapper size="modal-default">
+    <div class="modal-body">
+        <table bgcolor="white" class="w-100">
+            <thead>
+
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><label style=" font-size: 27px">PKT SUPREME COFFEE SHOP</label></td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><div style=" font-size: 15px">273 An dương vương, Q.5</div></td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><label style=" font-size: 22px">HOTLINE: 0378411656</label></td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="1"><i>Ngày: </i></td>
+                <td colspan="2"><label>{{formatDate(bill.createdDate)}}</label></td>
+                <td colspan="2" class="text-right">Số HĐ: </td>
+                <td colspan="1" class="text-right">{{bill.number}}</td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="1"><i>Thu ngân: </i></td>
+                <td colspan="5"><label>{{bill.employee.fullName}}</label></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="border-top border-bottom">
+                <td colspan="2" class="text-center" style=" width: 9%;"><label>Sản phẩm</label></td>
+                <td colspan="1" class="text-center" style=" width: 9%;"><label>Kích cỡ</label></td>
+                <td colspan="1" class="text-center" style=" width: 9%;"><label>Số lượng</label></td>
+                <td colspan="1" class="text-right" style=" width: 9%;"><label>Đơn giá</label></td>
+                <td colspan="1" class="text-right" style=" width: 9%;"><label>Thành tiền</label></td>
+            </tr>
+            <tr *ngFor="let detail of bill.billProductSizeList; index as index">
+                <td colspan="2" class="text-center">
+                    {{detail.productSize.product.name}}
+                </td>
+                <td colspan="1" class="text-center">
+                    {{detail.productSize.size.name}}
+                </td>
+                <td colspan="1" class="text-center">
+                    {{detail.quantity}}
+                </td>
+                <td colspan="1">
+                    <div class="col-12 text-right">
+                        {{detail.productSize.price | number}} đ
+                    </div>
+                </td>
+                <td colspan="1">
+                    <div class="col-12 text-right">
+                        {{detail.price | number}} đ
+                    </div>
+                </td>
+            </tr>
+            <tr class="border-top">
+                <td colspan="4">
+                    <div class="col-12">
+                        <label class="text-bold text-lg">Thành tiền:</label>
+                    </div>
+                </td>
+                <td colspan="2" >
+                    <div class="col-12 text-right text-bold">
+                        {{this.bill.getTotal()| number}} đ
+                    </div>
+                </td>
+            </tr>
+            <tr class="border-bottom">
+                <td colspan="4">
+                    <div class="col-12">
+                        Tiền phiếu giảm giá:
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="col-12 text-right" >
+                        {{bill.getTotal() - bill.amount|  number}} đ
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div class="col-12">
+                        <label class="text-bold text-lg">Thanh toán:</label>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="col-12 text-right text-bold">
+                        {{this.bill.amount| number}} đ
+                    </div>
+                </td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><label style=" font-size: 15px">Giá sản phẩm đã bao gồm VAT 10%</label></td>
+            </tr>
+            <tr colspan="6" class="border-bottom">
+                <td colspan="6" style="text-align:center;"><label style=" font-size: 15px">Password wifi: dct117c1</label></td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><label style=" font-size: 15px">Miễn phí giao hàng cho hóa đơn trên 50.000 VNĐ</label></td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><div style=" font-size: 15px">Đặt hàng tại www.pktsupremecoffeeshop.com</div></td>
+            </tr>
+            <tr colspan="6">
+                <td colspan="6" style="text-align:center;"><label style=" font-size: 15px;font-family: 'Lucida Handwriting'" class="font-italic">Cảm ơn và hẹn gặp lại!</label></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</app-modal-wrapper>
