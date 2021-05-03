@@ -103,7 +103,7 @@ export class AppUpdatePromotionComponent implements AfterViewInit {
             });
             return;
         }
-        this.alert.success('Thêm giảm giá thành công!');
+        this.alert.success('Cập nhật giảm giá thành công!');
         this.hide();
         this.saveCompleteEvent.emit(res.result);
     }
