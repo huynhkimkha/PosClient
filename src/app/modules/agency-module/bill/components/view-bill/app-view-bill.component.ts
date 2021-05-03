@@ -53,8 +53,7 @@ export class AppViewBillComponent implements AfterViewInit {
             });
             return;
         }
-        this.bill = res.result;
-        console.log(this.bill);
+        this.bill = new BillFullModel(res.result);
     }
     public formatDate(inputDate: string) {
         const formattedDate = new Date(inputDate);
