@@ -53,8 +53,11 @@
                                     <button class="btn btn-dark mr-1" (click)="appViewBillComponent.show(e)" type="button">
                                         <i class="far fa-file"></i>
                                     </button>
-                                    <button class="btn btn-danger" (click)="confirmDelete(e.id)" type="button">
+                                    <button class="btn btn-danger mr-1" (click)="confirmDelete(e.id)" type="button">
                                         <i class="far fa-trash-alt"></i>
+                                    </button>
+                                    <button class="btn btn-primary" (click)="updateBill(e.id)" type="button">
+                                        <i class="far fa-edit"></i>
                                     </button>
                                 </td>
                             </tr>

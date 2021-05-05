@@ -41,13 +41,16 @@ export class BillFullModel {
             this.billProductSizeList.push(new BillProductSizeModel(detail));
         }
     }
+
     public getTotal() {
-        let total = 0;
-        for (const item of this.billProductSizeList) {
-            if (item.price){
-                total += item.price;
+        if (this.billProductSizeList.length > 0) {
+            let total = 0;
+            for (const item of this.billProductSizeList) {
+                if (item.price && item.quantity){
+                    total += item.price * item.quantity;
+                }
             }
+            return total;
         }
-        return total;
     }
 }

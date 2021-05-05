@@ -102,6 +102,16 @@ const routes: Routes = [
             },
         ],
     },
+    {
+        path: 'update-bill/:billId',
+        children: [
+            {
+                path: '',
+                loadChildren: () =>
+                    import('./bill/components/update-bill/updateBill.module').then((m) => m.UpdateBillModule),
+            },
+        ],
+    },
 {
     path: 'material',
         children: [

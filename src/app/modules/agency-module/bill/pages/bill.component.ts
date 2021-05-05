@@ -113,4 +113,7 @@ export class BillComponent implements AfterViewInit {
         this.router.navigateByUrl('/add-bill');
     }
 
+    public updateBill(id: string) {
+        this.router.navigateByUrl('/update-bill/' + id);
+    }
 }

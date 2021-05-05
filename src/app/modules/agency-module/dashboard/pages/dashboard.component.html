@@ -1,7 +1,6 @@
 <section class="content">
     <section class="content-header">
         <div class="container-fluid">
-            <br>
             <div class="row">
                 <div class="col-sm-12 text-center text-bold">
                     <h3> <b> Xin chào {{currentUser.fullName}} </b> </h3>
@@ -10,8 +9,6 @@
         </div>
         <!-- /.container-fluid -->
     </section>
-    <br>
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-2">
@@ -74,7 +71,16 @@
 
             <!-- /.col -->
         </div>
-        <br>
+        <div class="row form-group">
+            <div class="col-xl-3">
+                &nbsp;
+            </div>
+            <div class="col-12 col-sm-6 col-md-6">
+                <select class="form-control" [(ngModel)]="agencyId" (change)="updateAgency()">
+                    <option *ngFor="let item of agencyList" [value]="item.id">Chi nhánh: {{item.name}} - {{item.address}}</option>
+                </select>
+            </div>
+        </div>
         <div *ngIf="this.currentUserService.getPermissions() === USER_PERMISSION_CODE.MANAGER" class="container-fluid">
             <div class="row">
                 <div class="col-xl-6">

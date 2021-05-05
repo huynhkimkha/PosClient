@@ -548,5 +548,8 @@ body .ui-inputtext {
 
 body .ui-inputtext {
   font-size: 13px !important;
-  text-align: right !important;
+}
+
+.ui-inputnumber-input{
+  text-align: right;
 }

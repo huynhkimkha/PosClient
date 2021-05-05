@@ -14,8 +14,10 @@ import {BillService} from '../../../../core/services/agency/bill.service';
 import {MonthBillModel} from '../../../../data/schema/month-bill.model';
 import {DateBillModel} from '../../../../data/schema/date-bill.model';
 import {YearBillModel} from '../../../../data/schema/year-bill.model';
-import {CustomerService} from "../../../../core/services/agency/customer.service";
-import {CustomerModel} from "../../../../data/schema/customer.model";
+import {CustomerService} from '../../../../core/services/agency/customer.service';
+import {CustomerModel} from '../../../../data/schema/customer.model';
+import {AgencyModel} from '../../../../data/schema/agency.model';
+import {AgencyService} from '../../../../core/services/agency/agency.service';
 
 @Component({
     selector: 'app-dashboard',
@@ -23,6 +25,8 @@ import {CustomerModel} from "../../../../data/schema/customer.model";
 })
 export class DashboardComponent implements AfterViewInit {
     private today: Date = new Date();
+    public agencyList: AgencyModel[] = [];
+    public agencyId: string;
     public costType = '2';
     public costStartDate = new Date(this.today.getFullYear(), 0, 1);
     public costEndDate = new Date(this.today.getFullYear(), 12, 0);
@@ -143,7 +147,7 @@ export class DashboardComponent implements AfterViewInit {
     public employeeAmount: number;
     public customerAmount: number;
     public USER_PERMISSION_CODE = USER_PERMISSION_CODE;
-
+    private userData: string;
     private countRequest: number;
     private costData: any;
     public costStatisticData: any;
@@ -161,7 +165,8 @@ export class DashboardComponent implements AfterViewInit {
         public currentUserService: CurrentUserService,
         private employeeService: EmployeeService,
         private billService: BillService,
-        private customerService: CustomerService
+        private customerService: CustomerService,
+        private agencyService: AgencyService
     ) {
     }
 
@@ -172,6 +177,48 @@ export class DashboardComponent implements AfterViewInit {
         this.getCurrentUserByEmail();
         this.findAllEmployee();
         this.findAllCustomer();
+        this.findAllAgency();
+    }
+
+    private findAllAgency(){
+        this.agencyService.findAll().subscribe(res => this.findAllAgencyCompleted(res));
+    }
+
+    private findAllAgencyCompleted(res: ResponseModel<AgencyModel[]>){
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.agencyId = JSON.parse(localStorage.getItem('USER_DATA')).agencyId;
+        this.agencyList = res.result;
+    }
+
+    public updateAgency(){
+        this.currentUser.agency = new AgencyModel();
+        this.currentUser.agency.id = this.agencyId;
+        this.employeeService.update(this.currentUser).subscribe(res => this.updateAgencyCompleted(res));
+    }
+
+    private updateAgencyCompleted(res: ResponseModel<EmployeeModel>){
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.currentUser = res.result;
+        this.userData =  '{' +
+            'agencyId: ' + '"' + this.currentUser.agency.id + '"' + ', ' +
+            'email: ' + '"' + this.currentUser.email + '"' + ', ' +
+            'fullname: ' + '"' + this.currentUser.fullName + '"' + ', ' +
+            'password: ' + '"' + '' + '"' + ', ' +
+            'role: ' + '"' + this.currentUser.role +  '"' + ', ' +
+            'userModel: ' + '"' + 'EMPLOYEE' + '"' + '}';
+
+        localStorage.setItem('USER_DATA', this.userData);
+        location.reload();
     }
 
     private getCurrentUserByEmail(){

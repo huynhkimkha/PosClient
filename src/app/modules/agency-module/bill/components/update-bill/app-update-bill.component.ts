@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ProductFullModel} from '../../../../../data/schema/product-full.model';
 import {CategoryModel} from '../../../../../data/schema/category.model';
 import {AppModalWrapperComponent} from '../../../../../shared/components/modal-wrapper/app-modal-wrapper.component';
@@ -12,20 +12,19 @@ import {BillFullModel} from '../../../../../data/schema/bill-full.model';
 import {BillProductSizeModel} from '../../../../../data/schema/bill-product-size.model';
 import {ProductSizeModel} from '../../../../../data/schema/product-size.model';
 import {BillService} from '../../../../../core/services/agency/bill.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {EmployeeModel} from '../../../../../data/schema/employee.model';
 import {EmployeeService} from '../../../../../core/services/agency/employee.service';
 import {PromotionModel} from '../../../../../data/schema/promotion.model';
-import {PromotionService} from '../../../../../core/services/agency/promotion.service';
 import {TYPE_PROMOTION_CONSTANT} from '../../../../../core/constant/type-promotion.constant';
 declare var $: any;
 
 @Component({
-    selector: 'app-add-bill',
-    templateUrl: './app-add-bill.component.html',
-    styleUrls: ['./app-add-bill.component.css']
+    selector: 'app-update-bill',
+    templateUrl: './app-update-bill.component.html',
+    styleUrls: ['./app-update-bill.component.css']
 })
-export class AppAddBillComponent implements AfterViewInit {
+export class AppUpdateBillComponent implements OnInit {
     public billFull: BillFullModel = new BillFullModel();
     public productList: ProductFullModel[] = [];
     public TYPE_PROMOTION_CONSTANT = TYPE_PROMOTION_CONSTANT;
@@ -36,6 +35,7 @@ export class AppAddBillComponent implements AfterViewInit {
     public moneyGiven: number;
     public excessMoney: number;
     public selectedCate: CategoryModel = new CategoryModel();
+    public billId: string;
     @Output() saveCompleteEvent: EventEmitter<any> = new EventEmitter<any>();
 
     @ViewChild('appModalWrapper', {static: true}) appModalWrapper: AppModalWrapperComponent;
@@ -51,23 +51,35 @@ export class AppAddBillComponent implements AfterViewInit {
         private billService: BillService,
         private router: Router,
         private employeeService: EmployeeService,
+        private route: ActivatedRoute
     ) {
         $('.adi-print-section').remove();
     }
 
-    ngAfterViewInit() {
-        this.loadProducts();
+    ngOnInit() {
+        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.loadCategory();
-        $(this.root.nativeElement.querySelector('.adi-print-section')).appendTo('body');
-        const today = new Date();
-        const dd = String(today.getDate()).padStart(2, '0');
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const yyyy = today.getFullYear();
-        this.billFull.createdDate = yyyy + '-' + mm + '-' + dd;
-        this.getCurrentUserByEmail();
-        this.getNumber();
+        this.loadProducts();
+        this.billId = this.route.snapshot.params.billId;
+        this.getBillFull();
         this.moneyGiven = 0;
         this.excessMoney = 0;
+    }
+
+
+    private getBillFull(){
+        this.billService.getFullbyId(this.billId).subscribe(res => this.getBillFullCompleted(res));
+    }
+
+    private getBillFullCompleted(res: ResponseModel<BillFullModel>) {
+        if (res.status !== HTTP_CODE_CONSTANT.OK) {
+            res.message.forEach(value => {
+                this.alert.error(value);
+            });
+            return;
+        }
+        this.billFull = res.result;
+        console.log(this.billFull);
     }
 
 
@@ -101,13 +113,11 @@ export class AppAddBillComponent implements AfterViewInit {
     }
 
     public loadProducts() {
-        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.selectedCate = new CategoryModel();
         this.productService.findAllFull().subscribe(res => this.loadProductsCompleted(res));
     }
 
     private loadProductsCompleted(res: ResponseModel<ProductFullModel[]>) {
-        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
                 this.alert.error(value);
@@ -123,12 +133,10 @@ export class AppAddBillComponent implements AfterViewInit {
     }
 
     private loadCategory() {
-        this.loading.show(this.root.nativeElement.querySelector('.modal-content'));
         this.categoryService.findAll().subscribe(res => this.loadCategoryCompleted(res));
     }
 
     private loadCategoryCompleted(res: ResponseModel<CategoryModel[]>) {
-        this.loading.hide(this.root.nativeElement.querySelector('.modal-content'));
         if (res.status !== HTTP_CODE_CONSTANT.OK) {
             res.message.forEach(value => {
                 this.alert.error(value);
@@ -224,8 +232,6 @@ export class AppAddBillComponent implements AfterViewInit {
         this.productList = [];
         const productLst = res.result || [];
         for (const item of productLst) {
-            item.productSizeList.sort();
-            item.productSizeList.reverse();
             this.productList.push(new ProductFullModel(item));
         }
     }
@@ -249,5 +255,15 @@ export class AppAddBillComponent implements AfterViewInit {
     public formatDate(inputDate: string) {
         const formattedDate = new Date(inputDate);
         return formattedDate.getDate() + '/' + (formattedDate.getMonth() + 1) + '/' + formattedDate.getFullYear();
+    }
+
+    public total(bill: BillFullModel): number{
+        let total = 0;
+        for (const item of bill.billProductSizeList) {
+            if (item.price && item.quantity){
+                total += item.price * item.quantity;
+            }
+        }
+        return total;
     }
 }

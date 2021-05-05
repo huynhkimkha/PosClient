@@ -1,6 +1,8 @@
+import {AgencyModel} from "./agency.model";
 
 export class EmployeeModel {
     public id: string;
+    public agency: AgencyModel;
     public fullName: string;
     public email: string;
     public password: string;

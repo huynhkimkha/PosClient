@@ -1,20 +1,20 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../../../../../shared/shared.module';
-import {AppAddBillComponent} from './app-add-bill.component';
+import {AppUpdateBillComponent} from './app-update-bill.component';
 
 const COMPONENTS = [
 ];
 export const routes: Routes = [
     {
         path: '',
-        component: AppAddBillComponent
+        component: AppUpdateBillComponent
     },
 ];
 
 @NgModule({
     declarations: [
-        AppAddBillComponent,
+        AppUpdateBillComponent,
         ...COMPONENTS
     ],
     imports: [
@@ -22,5 +22,5 @@ export const routes: Routes = [
         RouterModule.forChild(routes),
     ]
 })
-export class AddBillModule {
+export class UpdateBillModule {
 }
